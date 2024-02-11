@@ -1,0 +1,120 @@
+/* badges */
+.badge {
+  font-size: 14px;
+  font-weight: 500;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+.text-bg-info {
+  background: #F3F9FF!important;
+  border: 0;
+  color: #268BF0!important;
+}
+.text-bg-success {
+  background: #EBFBEE!important;
+  border: 0;
+  color: #40C057!important;
+}
+.text-bg-warning {
+  background: #FFF9DB!important;
+  border: 0;
+  color: #FAB005!important;
+}
+.text-bg-danger {
+  background: #FFF5F5!important;
+  border: 0;
+  color: #FA5252!important;
+}
+/* assets only */
+.text-bg-light {
+  background: #F5F8FB!important;
+  border: 0;
+}
+/* alerts */
+.alert {
+  border-radius: 4px
+  padding: 16px;
+}
+/* success */
+.alert-success {
+  background: #F0F8F3;
+  border: 1px solid #75BF8D;
+  color: #212529;
+}
+.alert-success .ti {
+  color: #75BF8D;
+}
+/* warning */
+.alert-warning {
+  background: #FFFCEE;
+  border: 1px solid #F3C944;
+  color: #212529;
+}
+.alert-warning .ti {
+  color: #F3C944;
+}
+/* danger */
+.alert-danger {
+  background: #FBECEE;
+  border: 1px solid #CF4F59;
+  color: #212529;
+}
+.alert-danger .ti {
+  color: #CF4F59;
+}
+/* info */
+.alert-info {
+  background: #F3F9FF;
+  border: 1px solid #268BF0;
+  color: #212529;
+}
+.alert-info .ti {
+  color: #268BF0;
+  margin-right: 8px;
+}
+/* status colors */
+.danger { color: #FF6B6B; }
+.warning { color: #FCC419; }
+.success { color: #51CF66; }
+.info { color: #268BF0; }
+
+/* bg colors */
+td.bg-danger { background: #FFF4E6; }
+td.bg-warning { background: #FFF9DB; }
+td.bg-success { background: #EBFBEE; }
+
+/* dots */
+.dot {
+  border-radius: 50%;
+  display: inline-block;
+  height: 12px;
+  margin: 2px 8px 0 0;
+  width: 12px;
+}
+.dot-1 {
+  background: #50C9F0;
+}
+.dot-2 {
+  background: #4C5994;
+}
+.dot-3 {
+  background: #43B4BA;
+}
+.dot-4 {
+  background: #9F58AD;
+}
+.dot-5 {
+  background: #EC8F46;
+}
+.dot-6 {
+  background: #2663A9;
+}
+.dot-7 {
+  background: #D14F97;
+}
+.dot-8 {
+  background: #6AA146;
+}
+.dot-9 {
+  background: #D7E16F;
+}

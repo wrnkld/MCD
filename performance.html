@@ -1,0 +1,1742 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/css/ion.rangeSlider.min.css">
+  <link href="css/mc.css" rel="stylesheet">
+  <style>.gantt { background: #50C9F0; border-radius: 4px; height: 24px; } </style>
+  <title>Monte Carlo - Performance</title>
+</head>
+<body>
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <ul class="navbar-nav mr-auto">
+      <li class="navbar-brand">MC</li>
+      <li class="nav-item">
+        <a class="nav-link" href="index.html">Dashboards</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="monitors.html">Monitors</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="incidents.html">Incidents</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="performance.html">Performance</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="assets.html">Assets</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="settings.html">Settings</a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav ms-auto w-100 justify-content-end">
+      <li class="nav-item">
+        <a class="nav-link" href="#"><i class="ti ti-bell"></i></a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          All
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li class="dropdown-header">Domains</li>
+          <li><a class="dropdown-item" href="#">All <i class="ti ti-check float-right"></i></a></li>
+          <li><a class="dropdown-item" href="#">Analytics</a></li>
+          <li><a class="dropdown-item" href="#">Marketing</a></li>
+          <li><a class="dropdown-item" href="#">Raw</a></li>
+          <li><a class="dropdown-item" href="#">Test</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="settings.html">Create Domain</a></li>
+        </ul>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Matthew Stevens
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li class="dropdown-header">Account ID</li>
+          <li><a class="dropdown-item" href="#">d72bc4d1-f675-4d72-82a1-418220cca709</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">EDT timezone</a></li>
+          <li><a class="dropdown-item" href="#">Docs</a></li>
+          <li><a class="dropdown-item" href="#">Changelog</a></li>
+          <li><a class="dropdown-item" href="#">Support</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">Log Out</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  <ul class="navigation_sub">
+    <li>
+      <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Collapse Filters"><i class="ti ti-layout-sidebar-left-collapse"></i></a>
+    </li>
+    <li class="title">Performance</li>
+    <li class="float-right">
+      <a href="#" class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#createmonitor">Create Monitor</a>
+    </li>
+    <li class="float-right">
+      <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown">Past week</button>
+      <div class="dropdown-menu dropdown-menu-end">
+        <a class="dropdown-item" href="#">Yesterday</a>
+        <a class="dropdown-item" href="#">Past 3 days</a>
+        <a class="dropdown-item" href="#">Past 5 days</a>
+        <a class="dropdown-item" href="#">Past week</a>
+        <a class="dropdown-item" href="#">Past month</a>
+        <a class="dropdown-item" href="#">Custom</a>
+      </div>
+    </li>
+    <li class="float-right">
+      <a href="#" class="btn btn-link">
+        <i class="ti ti-link"  data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Copy shareable link"></i>
+      </a>
+    </li>
+  </ul>
+  <div class="container-fluid">
+    <ul class="nav nav-tabz">
+      <li class="nav-item">
+        <a class="nav-link active" data-bs-toggle="tab" href="#Writes">Writes</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="tab" href="#Reads">Reads</a>
+      </li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane active" id="Writes">
+        <div class="row">
+          <div class="col-md-2">
+            <div class="stickier">
+              <input type="text" class="form-control" placeholder="Search filters...">
+              <!-- warehouse -->
+              <div class="card">
+                <div class="card-body">
+                  <div class="card-title">Warehouse</div>
+                  <div class="card-text">
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Search warehouses...">
+                      <div class="facet">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="WriteWarehouse1" checked>
+                          <label class="form-check-label" for="WriteWarehouse1">LOADING</label>
+                          <div class="float-right">1325</div>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="WriteWarehouse2" checked>
+                          <label class="form-check-label" for="WriteWarehouse2">CIRCLE_WH</label>
+                          <div class="float-right">1266</div>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="WriteWarehouse3" checked>
+                          <label class="form-check-label" for="WriteWarehouse3">PATCH_WH</label>
+                          <div class="float-right">1000</div>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="WriteWarehouse4" checked>
+                          <label class="form-check-label" for="WriteWarehouse4">TF_2</label>
+                          <div class="float-right">966</div>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="WriteWarehouse5" checked>
+                          <label class="form-check-label" for="WriteWarehouse5">TF_FRESHNESS</label>
+                          <div class="float-right">825</div>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="WriteWarehouse6" checked>
+                          <label class="form-check-label" for="WriteWarehouse6">TF_INTERNAL_BI</label>
+                          <div class="float-right">766</div>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="WriteWarehouse7" checked>
+                          <label class="form-check-label" for="WriteWarehouse7">TF_TRAINING</label>
+                          <div class="float-right">625</div>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="WriteWarehouse8" checked>
+                          <label class="form-check-label" for="WriteWarehouse8">TRANSFORM</label>
+                          <div class="float-right">266</div>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="WriteWarehouse9" checked>
+                          <label class="form-check-label" for="WriteWarehouse9">TF_LINEAGE</label>
+                          <div class="float-right">555</div>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="WriteWarehouse10" checked>
+                          <label class="form-check-label" for="WriteWarehouse10">REGRESSION_TESTING</label>
+                          <div class="float-right">444</div>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="WriteWarehouse11" checked>
+                          <label class="form-check-label" for="WriteWarehouse11">TF_INSIGHTS</label>
+                          <div class="float-right">325</div>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="WriteWarehouse12" checked>
+                          <label class="form-check-label" for="WriteWarehouse12">DEV_SCRATCH</label>
+                          <div class="float-right">266</div>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="WriteWarehouse13" checked>
+                          <label class="form-check-label" for="WriteWarehouse13">RESEARCH</label>
+                          <div class="float-right">122</div>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="WriteWarehouse14" checked>
+                          <label class="form-check-label" for="WriteWarehouse14">FIVETRAN_WAREHOUSE</label>
+                          <div class="float-right">44</div>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="WriteWarehouse15" checked>
+                          <label class="form-check-label" for="WriteWarehouse15">REPORTING</label>
+                          <div class="float-right">22</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="clearfix"></div>
+              <!-- size -->
+              <div class="card">
+                <div class="card-body">
+                  <div class="card-title">Warehouse Size</div>
+                  <div class="card-text">
+                    <div class="form-group">
+                      <div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="Writesize1" checked>
+                          <label class="form-check-label" for="Writesize1">Small</label>
+                          <div class="float-right">325</div>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="Writesize2" checked>
+                          <label class="form-check-label" for="Writesize2">Medium</label>
+                          <div class="float-right">66</div>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="Writesize3" checked>
+                          <label class="form-check-label" for="Writesize3">Large</label>
+                          <div class="float-right">44</div>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="Writesize4" checked>
+                          <label class="form-check-label" for="Writesize4">X-Large</label>
+                          <div class="float-right">22</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="clearfix"></div>
+              <!-- user -->
+              <div class="card">
+                <div class="card-body">
+                  <div class="card-title">User</div>
+                  <div class="card-text">
+                    <div class="form-group">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="WriteSomeUser1" checked>
+                        <label class="form-check-label" for="WriteSomeUser1">Airflow_Loader</label>
+                        <div class="float-right">74</div>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="WriteSomeUser2" checked>
+                        <label class="form-check-label" for="WriteSomeUser2">Circle_User</label>
+                        <div class="float-right">67</div>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="WriteSomeUser3" checked>
+                        <label class="form-check-label" for="WriteSomeUser3">dbt Transform</label>
+                        <div class="float-right">12</div>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="WriteSomeUser4" checked>
+                        <label class="form-check-label" for="WriteSomeUser4">Some User</label>
+                        <div class="float-right">12</div>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="WriteSomeUser5" checked>
+                        <label class="form-check-label" for="WriteSomeUser5">Some User</label>
+                        <div class="float-right">11</div>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="WriteSomeUser6" checked>
+                        <label class="form-check-label" for="WriteSomeUser6">Some User</label>
+                        <div class="float-right">7</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="clearfix"></div>
+              <!-- type -->
+              <div class="card">
+                <div class="card-body">
+                  <div class="card-title">Type</div>
+                  <div class="card-text">
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Search types...">
+                      <div class="facet">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="WriteTypes1" checked>
+                          <label class="form-check-label" for="WriteTypes1">create_table_as_select</label>
+                          <div class="float-right">814</div>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="WriteTypes2" checked>
+                          <label class="form-check-label" for="WriteTypes2">alter</label>
+                          <div class="float-right">334</div>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="WriteTypes3" checked>
+                          <label class="form-check-label" for="WriteTypes3">drop_table</label>
+                          <div class="float-right">274</div>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="WriteTypes4" checked>
+                          <label class="form-check-label" for="WriteTypes4">create_table</label>
+                          <div class="float-right">209</div>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="WriteTypes5" checked>
+                          <label class="form-check-label" for="WriteTypes5">create_view</label>
+                          <div class="float-right">100</div>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="WriteTypes6" checked>
+                          <label class="form-check-label" for="WriteTypes6">copy</label>
+                          <div class="float-right">55</div>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="WriteTypes7" checked>
+                          <label class="form-check-label" for="WriteTypes7">merge</label>
+                          <div class="float-right">45</div>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="WriteTypes8" checked>
+                          <label class="form-check-label" for="WriteTypes8">insert_into</label>
+                          <div class="float-right">32</div>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="WriteTypes9" checked>
+                          <label class="form-check-label" for="WriteTypes9">put</label>
+                          <div class="float-right">22</div>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="WriteTypes10" checked>
+                          <label class="form-check-label" for="WriteTypes10">delete_from</label>
+                          <div class="float-right">21</div>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="WriteTypes11" checked>
+                          <label class="form-check-label" for="WriteTypes11">truncate</label>
+                          <div class="float-right">19</div>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="WriteTypes12" checked>
+                          <label class="form-check-label" for="WriteTypes12">update</label>
+                          <div class="float-right">8</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="clearfix"></div>
+              <!-- status -->
+              <div class="card">
+                <div class="card-body">
+                  <div class="card-title">Status</div>
+                  <div class="card-text">
+                    <div class="form-group">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="WriteFailed" checked>
+                        <label class="form-check-label" for="WriteFailed">Failed</label>
+                        <div class="float-right">814</div>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="WriteQueued" checked>
+                        <label class="form-check-label" for="WriteQueued">Queued</label>
+                        <div class="float-right">334</div>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="WriteSuccess" checked>
+                        <label class="form-check-label" for="WriteSuccess">Success</label>
+                        <div class="float-right">274</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="clearfix"></div>
+              <!-- db -->
+              <div class="card">
+                <div class="card-body">
+                  <div class="card-title">Database</div>
+                  <div class="card-text">
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Search databases...">
+                      <div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="Writedb1" checked>
+                          <label class="form-check-label" for="Writedb1">analytics</label>
+                          <div class="float-right">325</div>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="Writedb2" checked>
+                          <label class="form-check-label" for="Writedb2">raw</label>
+                          <div class="float-right">66</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="clearfix"></div>
+              <!-- schema -->
+              <div class="card">
+                <div class="card-body">
+                  <div class="card-title">Schema</div>
+                  <div class="card-text">
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Search schema...">
+                      <div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="Writeschema1" checked>
+                          <label class="form-check-label" for="Writeschema1">monolith export</label>
+                          <div class="float-right">325</div>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="Writeschema2" checked>
+                          <label class="form-check-label" for="Writeschema2">prod</label>
+                          <div class="float-right">222</div>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="Writeschema3" checked>
+                          <label class="form-check-label" for="Writeschema3">some_schema_name</label>
+                          <div class="float-right">117</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="clearfix"></div>
+              <!-- table -->
+              <div class="card">
+                <div class="card-body">
+                  <div class="card-title">Destination Table</div>
+                  <div class="card-text">
+                    <div class="form-group">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="WriteDTableX" checked>
+                        <label class="form-check-label" for="WriteDTableX">destination_table_x</label>
+                        <div class="float-right">152</div>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="WriteDTableY" checked>
+                        <label class="form-check-label" for="WriteDTableY">destination_table_y</label>
+                        <div class="float-right">82</div>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="WriteDTableZ" checked>
+                        <label class="form-check-label" for="WriteDTableZ">destination_table_z</label>
+                        <div class="float-right">36</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-10">
+            <div class="card">
+              <div class="card-body">
+                <div class="float-right">
+                  <div class="btn-group btn-group-toggle" data-bs-toggle="buttons">
+                    <label class="btn btn-sm btn-primary">
+                      Runtime
+                    </label>
+                    <label class="btn btn-sm btn-outline-primary">
+                      Credits
+                    </label>
+                  </div>
+                  <div class="btn-group btn-group-toggle" data-bs-toggle="buttons">
+                    <label class="btn btn-sm btn-outline-primary">
+                      Average
+                    </label>
+                    <label class="btn btn-sm btn-outline-primary">
+                      Max
+                    </label>
+                    <label class="btn btn-sm btn-primary">
+                      Total
+                    </label>
+                  </div>
+                </div>
+                <div class="card-title">
+                  Query Runtime
+                </div>
+                <div class="card-text">
+                  <div id="chartwrites" class="chartz"></div>
+                  <table class="table table-hover table-outside">
+                    <thead>
+                      <tr>
+                        <th class="checky"></th>
+                        <th>Query</th>
+                        <th>User</th>
+                        <th class="right">Queries<i class="ti ti-arrow-down"></i></th>
+                        <th class="right">Total Runtime</th>
+                        <th>Job</th>
+                        <th>Table</th>
+                        <th>Snowflake Warehouse</th>
+                        <th>Snowflake Warehouse Size</th>
+                        <th class="checky"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="checky"><i class="ti ti-eye" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Hide"></i></td>
+                        <td class="query"><span class="dot dot-1"></span> THIS is some sorta WRITE query</td>
+                        <td>User</td>
+                        <td class="right">528</td>
+                        <td class="right">7min 12s</td>
+                        <td><a href="asset_job.html">Job Name</a></td>
+                        <td><a href="asset.html">some_longer_table</a></td>
+                        <td>TRANSFORMING_2</td>
+                        <td>Medium</td>
+                        <td>
+                          <a href="#" class="btn btn-link" data-bs-toggle="offcanvas" data-bs-target="#drawerperf"><i class="ti ti-player-play" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="View Details"></i></a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="checky"><i class="ti ti-eye" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Hide"></i></td>
+                        <td class="query"><span class="dot dot-2"></span> THIS is some sorta WRITE query</td>
+                        <td>User</td>
+                        <td class="right">428</td>
+                        <td class="right">568s</td>
+                        <td><a href="asset_job.html">Job Name</a></td>
+                        <td><a href="asset.html">active_monitors</a></td>
+                        <td>LOADING</td>
+                        <td>Large</td>
+                        <td>
+                          <a href="#" class="btn btn-link" data-bs-toggle="offcanvas" data-bs-target="#drawerperf"><i class="ti ti-player-play" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="View Details"></i></a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="checky"><i class="ti ti-eye" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Hide"></i></td>
+                        <td class="query"><span class="dot dot-3"></span> THIS is some sorta WRITE query</td>
+                        <td>User</td>
+                        <td class="right">368</td>
+                        <td class="right">78s</td>
+                        <td></td>
+                        <td><a href="asset.html">metric_types</a></td>
+                        <td>TRANSFORMING_2</td>
+                        <td>Medium</td>
+                        <td>
+                          <a href="#" class="btn btn-link" data-bs-toggle="offcanvas" data-bs-target="#drawerperf"><i class="ti ti-player-play" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="View Details"></i></a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="checky"><i class="ti ti-eye" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Hide"></i></td>
+                        <td class="query"><span class="dot dot-4"></span> THIS is some sorta WRITE query</td>
+                        <td>User</td>
+                        <td class="right">285</td>
+                        <td class="right">4s</td>
+                        <td><a href="asset_job.html">Job Name</a></td>
+                        <td><a href="asset.html">active_monitors</a></td>
+                        <td>TRANSFORMING_2</td>
+                        <td>Medium</td>
+                        <td>
+                          <a href="#" class="btn btn-link" data-bs-toggle="offcanvas" data-bs-target="#drawerperf"><i class="ti ti-player-play" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="View Details"></i></a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="checky"><i class="ti ti-eye" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Hide"></i></td>
+                        <td class="query"><span class="dot dot-5"></span> THIS is some sorta WRITE query</td>
+                        <td>User</td>
+                        <td class="right">228</td>
+                        <td class="right">28s</td>
+                        <td></td>
+                        <td><a href="asset.html">incident_flow</a></td>
+                        <td>TRANSFORMING_2</td>
+                        <td>Small</td>
+                        <td>
+                          <a href="#" class="btn btn-link" data-bs-toggle="offcanvas" data-bs-target="#drawerperf"><i class="ti ti-player-play" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="View Details"></i></a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="checky"><i class="ti ti-eye-off" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Show"></i></td>
+                        <td class="query"><span class="dot dot-1"></span> THIS is some sorta WRITE query</td>
+                        <td>User</td>
+                        <td class="right">198</td>
+                        <td class="right">7s</td>
+                        <td></td>
+                        <td><a href="asset.html">client_warehouses</a></td>
+                        <td>PATCH_WH</td>
+                        <td>Medium</td>
+                        <td>
+                          <a href="#" class="btn btn-link" data-bs-toggle="offcanvas" data-bs-target="#drawerperf"><i class="ti ti-player-play" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="View Details"></i></a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="checky"><i class="ti ti-eye" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Hide"></i></td>
+                        <td class="query"><span class="dot dot-6"></span> THIS is some sorta WRITE query</td>
+                        <td>User</td>
+                        <td class="right">253s</td>
+                        <td class="right">28s</td>
+                        <td></td>
+                        <td><a href="asset.html">active_monitors</a></td>
+                        <td>TRANSFORMING_2</td>
+                        <td>Large</td>
+                        <td>
+                          <a href="#" class="btn btn-link" data-bs-toggle="offcanvas" data-bs-target="#drawerperf"><i class="ti ti-player-play" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="View Details"></i></a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="checky"><i class="ti ti-eye" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Hide"></i></td>
+                        <td class="query"><span class="dot dot-7"></span> THIS is some sorta WRITE query</td>
+                        <td>User</td>
+                        <td class="right">55</td>
+                        <td class="right">34s</td>
+                        <td></td>
+                        <td><a href="asset.html">event_details</a></td>
+                        <td>TRANSFORMING_2</td>
+                        <td>Medium</td>
+                        <td>
+                          <a href="#" class="btn btn-link" data-bs-toggle="offcanvas" data-bs-target="#drawerperf"><i class="ti ti-player-play" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="View Details"></i></a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="checky"><i class="ti ti-eye" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Hide"></i></td>
+                        <td class="query"><span class="dot dot-8"></span> THIS is some sorta WRITE query</td>
+                        <td>User</td>
+                        <td class="right">26</td>
+                        <td class="right">356s</td>
+                        <td><a href="asset_job.html">Job Name</a></td>
+                        <td><a href="asset.html">active_monitors</a></td>
+                        <td>PATCH_WH</td>
+                        <td>Medium</td>
+                        <td>
+                          <a href="#" class="btn btn-link" data-bs-toggle="offcanvas" data-bs-target="#drawerperf"><i class="ti ti-player-play" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="View Details"></i></a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="checky"><i class="ti ti-eye" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Hide"></i></td>
+                        <td class="query"><span class="dot dot-9"></span> this is some sorta WRITE query</td>
+                        <td>User</td>
+                        <td class="right">21</td>
+                        <td class="right">28s</td>
+                        <td><a href="asset_job.html">Job Name</a></td>
+                        <td><a href="asset.html">client_hub</a></td>
+                        <td>TRANSFORMING_2</td>
+                        <td>Small</td>
+                        <td>
+                          <a href="#" class="btn btn-link" data-bs-toggle="offcanvas" data-bs-target="#drawerperf"><i class="ti ti-player-play" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="View Details"></i></a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <nav>
+                    <ul class="pagination justify-content-end">
+                      <li class="page-item">
+                        <a class="page-link" href="#">
+                          <i class="ti ti-chevron-left"></i>
+                        </a>
+                      </li>
+                      <li class="page-item"><a class="page-link" href="#">1</a></li>
+                      <li class="page-item"><a class="page-link active" href="#">2</a></li>
+                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                      <li class="page-item">
+                        <a class="page-link" href="#">
+                          <i class="ti ti-chevron-right"></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane" id="Reads">
+        <div class="row">
+          <div class="col-md-2">
+            <div class="stickier">
+              <input type="text" class="form-control" placeholder="Search filters...">
+              <!-- warehouse -->
+              <div class="card">
+                <div class="card-body">
+                  <div class="card-title">Warehouse</div>
+                  <div class="card-text">
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Search warehouses...">
+                      <div class="facet">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="ReadWarehouse1" checked>
+                          <label class="form-check-label" for="ReadWarehouse1">LOADING</label>
+                          <div class="float-right">1325</div>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="ReadWarehouse2" checked>
+                          <label class="form-check-label" for="ReadWarehouse2">CIRCLE_WH</label>
+                          <div class="float-right">1266</div>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="ReadWarehouse3" checked>
+                          <label class="form-check-label" for="ReadWarehouse3">PATCH_WH</label>
+                          <div class="float-right">1000</div>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="ReadWarehouse4" checked>
+                          <label class="form-check-label" for="ReadWarehouse4">TF_2</label>
+                          <div class="float-right">966</div>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="ReadWarehouse5" checked>
+                          <label class="form-check-label" for="ReadWarehouse5">TF_FRESHNESS</label>
+                          <div class="float-right">825</div>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="ReadWarehouse6" checked>
+                          <label class="form-check-label" for="ReadWarehouse6">TF_INTERNAL_BI</label>
+                          <div class="float-right">766</div>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="ReadWarehouse7" checked>
+                          <label class="form-check-label" for="ReadWarehouse7">TF_TRAINING</label>
+                          <div class="float-right">625</div>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="ReadWarehouse8" checked>
+                          <label class="form-check-label" for="ReadWarehouse8">TRANSFORM</label>
+                          <div class="float-right">266</div>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="ReadWarehouse9" checked>
+                          <label class="form-check-label" for="ReadWarehouse9">TF_LINEAGE</label>
+                          <div class="float-right">555</div>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="ReadWarehouse10" checked>
+                          <label class="form-check-label" for="ReadWarehouse10">REGRESSION_TESTING</label>
+                          <div class="float-right">444</div>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="ReadWarehouse11" checked>
+                          <label class="form-check-label" for="ReadWarehouse11">TF_INSIGHTS</label>
+                          <div class="float-right">325</div>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="ReadWarehouse12" checked>
+                          <label class="form-check-label" for="ReadWarehouse12">DEV_SCRATCH</label>
+                          <div class="float-right">266</div>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="ReadWarehouse13" checked>
+                          <label class="form-check-label" for="ReadWarehouse13">RESEARCH</label>
+                          <div class="float-right">122</div>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="ReadWarehouse14" checked>
+                          <label class="form-check-label" for="ReadWarehouse14">FIVETRAN_WAREHOUSE</label>
+                          <div class="float-right">44</div>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="ReadWarehouse15" checked>
+                          <label class="form-check-label" for="ReadWarehouse15">REPORTING</label>
+                          <div class="float-right">22</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="clearfix"></div>
+              <!-- size -->
+              <div class="card">
+                <div class="card-body">
+                  <div class="card-title">Warehouse Size</div>
+                  <div class="card-text">
+                    <div class="form-group">
+                      <div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="Readsize1" checked>
+                          <label class="form-check-label" for="Readsize1">Small</label>
+                          <div class="float-right">325</div>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="Readsize2" checked>
+                          <label class="form-check-label" for="Readsize2">Medium</label>
+                          <div class="float-right">66</div>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="Readsize3" checked>
+                          <label class="form-check-label" for="Readsize3">Large</label>
+                          <div class="float-right">44</div>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="Readsize4" checked>
+                          <label class="form-check-label" for="Readsize4">X-Large</label>
+                          <div class="float-right">22</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="clearfix"></div>
+              <!-- user -->
+              <div class="card">
+                <div class="card-body">
+                  <div class="card-title">User</div>
+                  <div class="card-text">
+                    <div class="form-group">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="ReadSomeUser1" checked>
+                        <label class="form-check-label" for="ReadSomeUser1">Airflow_Loader</label>
+                        <div class="float-right">74</div>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="ReadSomeUser2" checked>
+                        <label class="form-check-label" for="ReadSomeUser2">Circle_User</label>
+                        <div class="float-right">67</div>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="ReadSomeUser3" checked>
+                        <label class="form-check-label" for="ReadSomeUser3">dbt Transform</label>
+                        <div class="float-right">12</div>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="ReadSomeUser4" checked>
+                        <label class="form-check-label" for="ReadSomeUser4">Some User</label>
+                        <div class="float-right">12</div>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="ReadSomeUser5" checked>
+                        <label class="form-check-label" for="ReadSomeUser5">Some User</label>
+                        <div class="float-right">11</div>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="ReadSomeUser6" checked>
+                        <label class="form-check-label" for="ReadSomeUser6">Some User</label>
+                        <div class="float-right">7</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="clearfix"></div>
+              <!-- status -->
+              <div class="card">
+                <div class="card-body">
+                  <div class="card-title">Status</div>
+                  <div class="card-text">
+                    <div class="form-group">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="ReadFailed" checked>
+                        <label class="form-check-label" for="ReadFailed">Failed</label>
+                        <div class="float-right">814</div>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="ReadQueued" checked>
+                        <label class="form-check-label" for="ReadQueued">Queued</label>
+                        <div class="float-right">334</div>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="ReadSuccess" checked>
+                        <label class="form-check-label" for="ReadSuccess">Success</label>
+                        <div class="float-right">274</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="clearfix"></div>
+              <!-- db -->
+              <div class="card">
+                <div class="card-body">
+                  <div class="card-title">Database</div>
+                  <div class="card-text">
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Search databases...">
+                      <div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="Readdb1" checked>
+                          <label class="form-check-label" for="Readdb1">analytics</label>
+                          <div class="float-right">325</div>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="Readdb2" checked>
+                          <label class="form-check-label" for="Readdb2">raw</label>
+                          <div class="float-right">66</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="clearfix"></div>
+              <!-- schema -->
+              <div class="card">
+                <div class="card-body">
+                  <div class="card-title">Schema</div>
+                  <div class="card-text">
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Search schema...">
+                      <div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="Readschema1" checked>
+                          <label class="form-check-label" for="Readschema1">monolith export</label>
+                          <div class="float-right">325</div>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="Readschema2" checked>
+                          <label class="form-check-label" for="Readschema2">prod</label>
+                          <div class="float-right">222</div>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="Readschema3" checked>
+                          <label class="form-check-label" for="Readschema3">some_schema_name</label>
+                          <div class="float-right">117</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="clearfix"></div>
+              <!-- dashboard -->
+              <div class="card">
+                <div class="card-body">
+                  <div class="card-title">Tableau Dashboard</div>
+                  <div class="card-text">
+                    <div class="form-group">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="ReadDTableau1" checked>
+                        <label class="form-check-label" for="ReadDTableau1">Tableau Dashboard 1</label>
+                        <div class="float-right">152</div>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="ReadDTableau2" checked>
+                        <label class="form-check-label" for="ReadDTableau2">Tableau Dashboard 2</label>
+                        <div class="float-right">82</div>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="ReadDTableau3" checked>
+                        <label class="form-check-label" for="ReadDTableau3">Tableau Dashboard 3</label>
+                        <div class="float-right">36</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="clearfix"></div>
+              <!-- source table -->
+              <div class="card">
+                <div class="card-body">
+                  <div class="card-title">Source Table</div>
+                  <div class="card-text">
+                    <div class="form-group">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="ReadTableX" checked>
+                        <label class="form-check-label" for="ReadTableX">source_table_x</label>
+                        <div class="float-right">152</div>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="ReadTableY" checked>
+                        <label class="form-check-label" for="ReadTableY">source_table_y</label>
+                        <div class="float-right">82</div>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="ReadTableZ" checked>
+                        <label class="form-check-label" for="ReadTableZ">source_table_z</label>
+                        <div class="float-right">36</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-10">
+            <div class="card">
+              <div class="card-body">
+                <div class="card-title">
+                  Query Runtime
+                </div>
+                <div class="card-text">
+                  <div id="chartreads" class="chartz"></div>
+                  <table class="table table-outside">
+                    <thead>
+                      <tr>
+                        <td class="checky"></td>
+                        <th>Query</th>
+                        <th>Start Time</th>
+                        <th>User</th>
+                        <th class="right">Runtime<i class="ti ti-arrow-down"></i></th>
+                        <th>Snowflake Warehouse</th>
+                        <th>Snowflake Warehouse Size</th>
+                        <th>Source</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="checky"><i class="ti ti-chevron-down"></i></td>
+                        <td class="query">Some sorta READ query</td>
+                        <td>Aug 10th 2024 17:03:32 EDT</td>
+                        <td>User</td>
+                        <td class="right">3869s</td>
+                        <td>PATCH_WH</td>
+                        <td>Small</td>
+                        <td>raw.data_collector_events.dbt_cloud</td>
+                      </tr>
+                      <tr>
+                        <td colspan="8" class="expanded">
+                          <nav class="nav nav-tabz">
+                            <a class="nav-link active" data-bs-toggle="tab" href="#QueryQuery1">Query</a>
+                            <a class="nav-link" data-bs-toggle="tab" href="#Deets1">Details</a>
+                          </nav>
+                          <div class="tab-content">
+                            <div class="tab-pane active" id="QueryQuery1">
+                              <pre style="min-height: 100px;">SELECT column_name(s) FROM table1 INNER JOIN table2 ON table1.column_name = table2.column_name;</pre>
+                            </div>
+                            <div class="tab-pane" id="Deets1">
+                              <pre>
+                                {
+                                  "warehouse": "snowflake",
+                                  "database": [
+                                  "personal"
+                                  ],
+                                  "schema": [
+                                  "dbt_ilamden_prod"
+                                  ],
+                                  "destination": "personal:dbt_ilamden_prod.table_event_queries_1d_flatten_rqtv",
+                                  "user": "ILAMDEN",
+                                  "query_type": "create_table_as_select",
+                                  "status": "SUCCESS",
+                                  "snowflake_warehouse": "REGRESSION_TESTING",
+                                  "rows_produced": "77,677,272",
+                                  "bytes_scanned": "2,505,621,802,496"
+                                }
+                              </pre>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="checky"><i class="ti ti-chevron-right"></i></td>
+                        <td class="query">Some sorta READ query</td>
+                        <td>Aug 10th 2024 17:03:32 EDT</td>
+                        <td>User</td>
+                        <td class="right">3569s</td>
+                        <td>PATCH_WH</td>
+                        <td>Large</td>
+                        <td>raw.data_collector_events.dbt_cloud</td>
+                      </tr>
+                      <tr>
+                        <td class="checky"><i class="ti ti-chevron-right"></i></td>
+                        <td class="query">Some sorta READ query</td>
+                        <td>Aug 10th 2024 17:03:32 EDT</td>
+                        <td>User</td>
+                        <td class="right">3169s</td>
+                        <td>TRANSFORMING_2</td>
+                        <td>Medium</td>
+                        <td>raw.data_collector_events.dbt_cloud</td>
+                      </tr>
+                      <tr>
+                        <td class="checky"><i class="ti ti-chevron-right"></i></td>
+                        <td class="query">Some sorta READ query</td>
+                        <td>Aug 10th 2024 17:03:32 EDT</td>
+                        <td>User</td>
+                        <td class="right">2999s</td>
+                        <td>TRANSFORMING_2</td>
+                        <td>Medium</td>
+                        <td>raw.data_collector_events.dbt_cloud</td>
+                      </tr>
+                      <tr>
+                        <td class="checky"><i class="ti ti-chevron-right"></i></td>
+                        <td class="query">Some sorta READ query</td>
+                        <td>Aug 10th 2024 17:03:32 EDT</td>
+                        <td>User</td>
+                        <td class="right">2990s</td>
+                        <td>PATCH_WH</td>
+                        <td>Large</td>
+                        <td>raw.data_collector_events.dbt_cloud</td>
+                      </tr>
+                      <tr>
+                        <td class="checky"><i class="ti ti-chevron-right"></i></td>
+                        <td class="query">Some sorta READ query</td>
+                        <td>Aug 10th 2024 17:03:32 EDT</td>
+                        <td>User</td>
+                        <td class="right">2169s</td>
+                        <td>TRANSFORMING_2</td>
+                        <td>Small</td>
+                        <td>raw.data_collector_events.dbt_cloud</td>
+                      </tr>
+                      <tr>
+                        <td class="checky"><i class="ti ti-chevron-right"></i></td>
+                        <td class="query">Some sorta READ query</td>
+                        <td>Aug 10th 2024 17:03:32 EDT</td>
+                        <td>User</td>
+                        <td class="right">1869s</td>
+                        <td>TF_FRESHNESS</td>
+                        <td>Medium</td>
+                        <td>raw.data_collector_events.dbt_cloud</td>
+                      </tr>
+                      <tr>
+                        <td class="checky"><i class="ti ti-chevron-right"></i></td>
+                        <td class="query">Some sorta READ query</td>
+                        <td>Aug 10th 2024 17:03:32 EDT</td>
+                        <td>User</td>
+                        <td class="right">1569s</td>
+                        <td>TRANSFORMING_2</td>
+                        <td>Medium</td>
+                        <td>raw.data_collector_events.dbt_cloud</td>
+                      </tr>
+                      <tr>
+                        <td class="checky"><i class="ti ti-chevron-right"></i></td>
+                        <td class="query">Some sorta READ query</td>
+                        <td>Aug 10th 2024 17:03:32 EDT</td>
+                        <td>User</td>
+                        <td class="right">869s</td>
+                        <td>TRANSFORMING_2</td>
+                        <td>Medium</td>
+                        <td>raw.data_collector_events.dbt_cloud</td>
+                      </tr>
+                      <tr>
+                        <td class="checky"><i class="ti ti-chevron-right"></i></td>
+                        <td class="query">Some sorta READ query</td>
+                        <td>Aug 10th 2024 17:03:32 EDT</td>
+                        <td>User</td>
+                        <td class="right">669s</td>
+                        <td>TF_FRESHNESS</td>
+                        <td>Large</td>
+                        <td>raw.data_collector_events.dbt_cloud</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <nav>
+                    <ul class="pagination justify-content-end">
+                      <li class="page-item">
+                        <a class="page-link" href="#">
+                          <i class="ti ti-chevron-left"></i>
+                        </a>
+                      </li>
+                      <li class="page-item"><a class="page-link" href="#">1</a></li>
+                      <li class="page-item"><a class="page-link active" href="#">2</a></li>
+                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                      <li class="page-item">
+                        <a class="page-link" href="#">
+                          <i class="ti ti-chevron-right"></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- drawerperf -->
+  <div class="offcanvas offcanvas-end overflow-auto" id="drawerperf" style="width: 1080px;">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Runtime</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="metric-start">
+            <div class="metric-count">Table</div>
+            <div class="metric-label"><a href="asset.html">this_is_the_table_name</a></div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="metric">
+            <div class="metric-count">User</div>
+            <div class="metric-label">PATCH_USER</div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="metric">
+            <div class="metric-count">Snowflake Warehouse</div>
+            <div class="metric-label">TRANSFORMING_2</div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="metric">
+            <div class="metric-count">Snowflake Warehouse Size</div>
+            <div class="metric-label">Medium</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3">
+          <div class="metric-start">
+            <div class="metric-count">Queries</div>
+            <div class="metric-label">2169</div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="metric">
+            <div class="metric-count">Average Runtime</div>
+            <div class="metric-label">149.3(s)</div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="metric">
+            <div class="metric-count">Max Runtime</div>
+            <div class="metric-label">274.0(s)</div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="metric">
+            <div class="metric-count">Recent Pull Requests</div>
+            <div class="metric-label">0</div>
+          </div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <div class="card-title">Query Details</div>
+              <div class="card-text">
+                <div id="chartquery" class="chartz"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <div class="card-title">Volume - <a href="#">[destination table]</a></div>
+              <div class="card-text">
+                <div id="chartvolume" class="chartz"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+      <table class="table table-outside">
+        <thead>
+          <tr>
+            <td class="checky"></td>
+            <th>Query</th>
+            <th>Start Time</th>
+            <th class="right">Runtime</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="checky"><i class="ti ti-chevron-down"></i></td>
+            <td class="query">Some sorta WRITE query</td>
+            <td>Aug 10th 2024 17:03:32 EDT</td>
+            <td class="right">3869(s)</td>
+          </tr>
+          <tr>
+            <td colspan="4" class="expanded">
+              <nav class="nav nav-tabz">
+                <a class="nav-link active" data-bs-toggle="tab" href="#QueryQuery">Query</a>
+                <a class="nav-link" data-bs-toggle="tab" href="#Deets">Details</a>
+              </nav>
+              <div class="tab-content">
+                <div class="tab-pane active" id="QueryQuery">
+                  <pre style="min-height: 100px;">SELECT column_name(s) FROM table1 INNER JOIN table2 ON table1.column_name = table2.column_name;</pre>
+                </div>
+                <div class="tab-pane" id="Deets">
+                  <pre>
+{
+  "warehouse": "snowflake",
+  "database": [
+  "personal"
+  ],
+  "schema": [
+  "dbt_ilamden_prod"
+  ],
+  "destination": "personal:dbt_ilamden_prod.table_event_queries_1d_flatten_rqtv",
+  "user": "ILAMDEN",
+  "query_type": "create_table_as_select",
+  "status": "SUCCESS",
+  "snowflake_warehouse": "REGRESSION_TESTING",
+  "rows_produced": "77,677,272",
+  "bytes_scanned": "2,505,621,802,496"
+}
+                  </pre>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="checky"><i class="ti ti-chevron-right"></i></td>
+            <td class="query">Some sorta WRITE query</td>
+            <td>Aug 10th 2024 17:03:32 EDT</td>
+            <td class="right">3869(s)</td>
+          </tr>
+          <tr>
+            <td class="checky"><i class="ti ti-chevron-right"></i></td>
+            <td class="query">Some sorta WRITE query</td>
+            <td>Aug 10th 2024 17:03:32 EDT</td>
+            <td class="right">3869(s)</td>
+          </tr>
+          <tr>
+            <td class="checky"><i class="ti ti-chevron-right"></i></td>
+            <td class="query">Some sorta WRITE query</td>
+            <td>Aug 10th 2024 17:03:32 EDT</td>
+            <td class="right">3869(s)</td>
+          </tr>
+          <tr>
+            <td class="checky"><i class="ti ti-chevron-right"></i></td>
+            <td class="query">Some sorta WRITE query</td>
+            <td>Aug 10th 2024 17:03:32 EDT</td>
+            <td class="right">3869(s)</td>
+          </tr>
+          <tr>
+            <td class="checky"><i class="ti ti-chevron-right"></i></td>
+            <td class="query">Some sorta WRITE query</td>
+            <td>Aug 10th 2024 17:03:32 EDT</td>
+            <td class="right">3869(s)</td>
+          </tr>
+          <tr>
+            <td class="checky"><i class="ti ti-chevron-right"></i></td>
+            <td class="query">Some sorta WRITE query</td>
+            <td>Aug 10th 2024 17:03:32 EDT</td>
+            <td class="right">3869(s)</td>
+          </tr>
+          <tr>
+            <td class="checky"><i class="ti ti-chevron-right"></i></td>
+            <td class="query">Some sorta WRITE query</td>
+            <td>Aug 10th 2024 17:03:32 EDT</td>
+            <td class="right">3869(s)</td>
+          </tr>
+          <tr>
+            <td class="checky"><i class="ti ti-chevron-right"></i></td>
+            <td class="query">Some sorta WRITE query</td>
+            <td>Aug 10th 2024 17:03:32 EDT</td>
+            <td class="right">3869(s)</td>
+          </tr>
+          <tr>
+            <td class="checky"><i class="ti ti-chevron-right"></i></td>
+            <td class="query">Some sorta WRITE query</td>
+            <td>Aug 10th 2024 17:03:32 EDT</td>
+            <td class="right">3869(s)</td>
+          </tr>
+        </tbody>
+      </table>
+      <nav>
+        <ul class="pagination justify-content-end">
+          <li class="page-item">
+            <a class="page-link" href="#">
+              <i class="ti ti-chevron-left"></i>
+            </a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link active" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#">
+              <i class="ti ti-chevron-right"></i>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <!-- createmonitor -->
+  <div class="offcanvas offcanvas-end overflow-auto" id="createmonitor" style="width: 1200px;">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Create Monitor</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <!-- Rule -->
+      <div class="card">
+        <div class="card-body">
+          <div class="card-title">Select queries</div>
+          <div class="card-text">
+            <div class="form-group">
+              <label>Query Type</label>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="QueryRadios" id="Query1" value="Query1" checked>
+                <label class="form-check-label" for="Query1">
+                  Writes
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="QueryRadios" id="Query2" value="Query2">
+                <label class="form-check-label" for="Query2">
+                  Reads
+                </label>
+              </div>
+            </div>
+            <hr>
+            <div class="form-group">
+              <label>Query Filters</label>
+              <table class="table table-outside">
+                <tbody>
+                  <tr>
+                    <td class="checky"><i class="ti ti-chevron-right"></i></td>
+                    <td>Snowflake Warehouse</td>
+                    <td>Any</td>
+                  </tr>
+                  <tr>
+                    <td class="checky"><i class="ti ti-chevron-down"></i></td>
+                    <td>Warehouse Size</td>
+                    <td>5 selected</td>
+                  </tr>
+                  <tr>
+                    <td colspan="3">
+                      <div class="card">
+                        <div class="card-body">
+                          <div class="card-title">Warehouse Size</div>
+                          <div class="card-text">
+                            <div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="MCWritesize1" checked>
+                                <label class="form-check-label" for="MCWritesize1">Large</label>
+                                <div class="float-right">325</div>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="MCWritesize2" checked>
+                                <label class="form-check-label" for="MCWritesize2">Medium</label>
+                                <div class="float-right">66</div>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="MCWritesize3">
+                                <label class="form-check-label" for="MCWritesize3">2X-Large</label>
+                                <div class="float-right">44</div>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="MCWritesize4" checked>
+                                <label class="form-check-label" for="MCWritesize4">X-Small</label>
+                                <div class="float-right">22</div>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="MCWritesize5" checked>
+                                <label class="form-check-label" for="MCWritesize5">X-Large</label>
+                                <div class="float-right">22</div>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="MCWritesize6" checked>
+                                <label class="form-check-label" for="MCWritesize6">Small</label>
+                                <div class="float-right">8</div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="checky"><i class="ti ti-chevron-right"></i></td>
+                    <td>User</td>
+                    <td>2 selected</td>
+                  </tr>
+                  <tr>
+                    <td class="checky"><i class="ti ti-chevron-down"></i></td>
+                    <td>Query Type</td>
+                    <td>Any</td>
+                  </tr>
+                  <tr>
+                    <td colspan="3">
+                      <div class="card">
+                        <div class="card-body">
+                          <div class="card-title">Query Type</div>
+                          <div class="card-text">
+                            <div class="form-group">
+                              <input type="text" class="form-control" placeholder="Search types...">
+                              <div class="facet">
+                                <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" id="WriteType1" checked>
+                                  <label class="form-check-label" for="WriteType1">create_table_as_select</label>
+                                  <div class="float-right">814</div>
+                                </div>
+                                <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" id="WriteType2" checked>
+                                  <label class="form-check-label" for="WriteType2">alter</label>
+                                  <div class="float-right">334</div>
+                                </div>
+                                <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" id="WriteType3" checked>
+                                  <label class="form-check-label" for="WriteType3">drop_table</label>
+                                  <div class="float-right">274</div>
+                                </div>
+                                <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" id="WriteType4" checked>
+                                  <label class="form-check-label" for="WriteType4">create_table</label>
+                                  <div class="float-right">209</div>
+                                </div>
+                                <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" id="WriteType5" checked>
+                                  <label class="form-check-label" for="WriteType5">create_view</label>
+                                  <div class="float-right">100</div>
+                                </div>
+                                <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" id="WriteType6" checked>
+                                  <label class="form-check-label" for="WriteType6">copy</label>
+                                  <div class="float-right">55</div>
+                                </div>
+                                <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" id="WriteType7" checked>
+                                  <label class="form-check-label" for="WriteType7">merge</label>
+                                  <div class="float-right">43</div>
+                                </div>
+                                <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" id="WriteType8" checked>
+                                  <label class="form-check-label" for="WriteType8">insert_into</label>
+                                  <div class="float-right">32</div>
+                                </div>
+                                <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" id="WriteType9" checked>
+                                  <label class="form-check-label" for="WriteType9">put</label>
+                                  <div class="float-right">31</div>
+                                </div>
+                                <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" id="WriteType10" checked>
+                                  <label class="form-check-label" for="WriteType10">delete_from</label>
+                                  <div class="float-right">22</div>
+                                </div>
+                                <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" id="WriteType11" checked>
+                                  <label class="form-check-label" for="WriteType11">truncate</label>
+                                  <div class="float-right">17</div>
+                                </div>
+                                <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" id="WriteType12" checked>
+                                  <label class="form-check-label" for="WriteType12">update</label>
+                                  <div class="float-right">7</div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="checky"><i class="ti ti-chevron-right"></i></td>
+                    <td>Status</td>
+                    <td>Any</td>
+                  </tr>
+                  <tr>
+                    <td class="checky"><i class="ti ti-chevron-right"></i></td>
+                    <td>Database</td>
+                    <td>10 selected</td>
+                  </tr>
+                  <tr>
+                    <td class="checky"><i class="ti ti-chevron-right"></i></td>
+                    <td>Schema</td>
+                    <td>Any</td>
+                  </tr>
+                  <tr>
+                    <td class="checky"><i class="ti ti-chevron-right"></i></td>
+                    <td>Destination Table</td>
+                    <td>Any</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+      <!-- Alert Condition -->
+      <div class="card">
+        <div class="card-body">
+          <div class="card-title">
+            Define alert condition
+          </div>
+          <div class="card-text">
+            <div class="form-group">
+              <label>Comparison Threshold</label>
+              <form class="row">
+                <div class="col-md-3 form-align-text">
+                  Notify when query runs
+                </div>
+                <div class="col-md-2">
+                  <input type="number" class="form-control" value="100">
+                </div>
+                <div class="col-md-2 form-align-text">
+                  percent longer than past
+                </div>
+                <div class="col-md-1">
+                  <input type="number" class="form-control" value="4">
+                </div>
+                <div class="col-md-1 form-align-text">
+                  week
+                </div>
+                <div class="col-md-2">
+                  <select class="form-select">
+                    <option selected>median</option>
+                    <option>average</option>
+                  </select>
+                </div>
+              </form>
+            </div>
+            <hr>
+            <div class="form-group">
+              <label>Lower Bound</label>
+              <form class="row">
+                <div class="col-md-4 form-align-text">
+                  Notify if a query’s runtime exceeds
+                </div>
+                <div class="col-md-1">
+                  <input type="number" class="form-control" value="5">
+                </div>
+                <div class="col-md-2">
+                  <select class="form-select">
+                    <option selected>minutes</option>
+                    <option>hours</option>
+                  </select>
+                </div>
+              </form>
+            </div>
+            <hr>
+            <div class="form-group">
+              <label>Consecutive Breaches</label>
+              <form class="row">
+                <div class="col-md-2 form-align-text">
+                  Notify if
+                </div>
+                <div class="col-md-1">
+                  <select class="form-select">
+                    <option>1</option>
+                    <option>2</option>
+                    <option selected>3</option>
+                  </select>
+                </div>
+                <div class="col-md-4 form-align-text">
+                  consecutive breaches happen
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+      <!-- Desc Notes -->
+      <div class="card">
+        <div class="card-body">
+          <div class="card-title">
+            Add description and notes
+          </div>
+          <div class="card-text">
+            <div class="form-group">
+              <label>Description</label>
+              <input type="text" class="form-control" value="">
+            </div>
+            <hr>
+            <div class="form-group">
+              <label>Notes</label>
+              <textarea class="form-control" rows="8" maxlength="512" placeholder="Add notes to this monitor to reference in future incident notification messages"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+      <!-- Notification -->
+      <div class="card">
+        <div class="card-body">
+          <div class="card-title">Send notifications</div>
+          <div class="card-text">
+            <div class="form-group">
+              <label>Audience</label>
+              <form class="row">
+                <div class="col-auto">
+                  <select class="form-select">
+                    <option>&nbsp;</option>
+                    <option>Audience Name</option>
+                    <option>Audience Name</option>
+                    <option>Audience Name</option>
+                    <option>Audience Name</option>
+                    <option>Audience Name</option>
+                    <option>Audience Name</option>
+                    <option>Audience Name</option>
+                    <option>Audience Name</option>
+                  </select>
+                </div>
+                <div class="col-auto">
+                  <div class="text-muted form-align-text">Notification Channels will appear here once an audience is selected.</div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+      <div class="row">
+        <div class="col-md-12">
+          <a href="performance.html" class="btn btn-primary">Create</a>
+          <a href="performance.html" class="btn btn-outline-primary">Cancel</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- perfsettings -->
+  <div class="modal fade" id="perfsettings">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Performance Settings</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="customSwitch112">
+            <label class="form-check-label" for="customSwitch112">Make current view my Performance landing page</label>
+          </div>
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="customSwitch113" checked>
+            <label class="form-check-label" for="customSwitch113">Make Performance my Monte Carlo landing page</label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" data-bs-dismiss="modal">Save</button>
+          <button class="btn btn-outline-primary" data-bs-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- timezones -->
+  <div class="modal fade" id="timezones">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Edit Timezone</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>Timezone</label>
+            <input type="text" class="form-control" placeholder="Search...">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Save</button>
+          <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/highcharts-more.js"></script>
+  <script src="https://code.highcharts.com/modules/annotations.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/js/ion.rangeSlider.min.js"></script>
+  <script src="js/mc.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/performance.js"></script>
+</body>
+</html>

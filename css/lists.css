@@ -1,0 +1,38 @@
+.list-group-item,
+.list-group-item.active,
+.list-group-item.active:active,
+.list-group-item.active:hover,
+.list-group-item.active:focus,
+.list-group-item.active:visited,
+.list-group-item:active,
+.list-group-item:hover,
+.list-group-item:focus,
+.list-group-item:link,
+.list-group-item:visited {
+  background: transparent;
+  border-bottom: 0;
+  border-left: 0;
+  border-top-color: transparent;
+  border-right: 2px solid transparent;
+  color: #212529;
+  padding: 8px 12px;
+}
+.list-group-item.active,
+.list-group-item.active:active,
+.list-group-item.active:hover,
+.list-group-item.active:focus,
+.list-group-item.active:visited,
+.list-group-item:active,
+.list-group-item:hover,
+.list-group-item:focus {
+  background: #E5ECF2;
+  border-right: 2px solid #268BF0;
+  color: #212529;
+  z-index: 1;
+}
+.list-group-item-action img {
+  margin-right: 16px;
+}
+.list-group {
+  border-radius: 0 !important;
+}

@@ -1,0 +1,71 @@
+.form-align-text {
+  margin-top: 6px;
+}
+.form-group {
+  margin-bottom: 16px;
+}
+label {
+  color: #515F6A;
+  font-size: 14px;
+  letter-spacing: 0;
+}
+.form-control,
+.form-control:hover,
+.form-control:active,
+.form-control:focus:active,
+.form-control:focus {
+  background: #fff;
+  border: 1px solid #D1DBE4;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-bottom: 8px;
+  outline: none;
+  padding: 8px;
+}
+.dropdown-menu-end {
+  z-index: 99999;
+}
+.dropdown-item {
+  font-size: 14px;
+}
+.dropdown-item:hover,
+.dropdown-item:active,
+.dropdown-item:focus:active,
+.dropdown-item:focus {
+  background: #E5ECF2;
+  color: #212529;
+}
+.dropdown-item.active,
+.dropdown-item.active:hover {
+  background: #268BF0;
+  color: #fff;
+}
+/* select */
+.form-select {
+  font-size: 14px;
+  padding-bottom: 8px;
+  padding-top: 8px;
+}
+/* slider */
+.irs--round .irs-handle {
+  top: 30px;
+  width: 16px;
+  height: 16px;
+  border-radius: 16px;
+}
+.irs--round .irs-handle {
+  background-color: #268BF0;
+  border: 0;
+}
+.irs--round .irs-handle.state_hover,.irs--round .irs-handle:hover {
+  background-color: #268BF0;
+}
+.irs--round .irs-bar {
+  background-color: #268BF0;
+}
+.irs--round .irs-line {
+  background-color: #D1DBE4;
+}
+.irs--round .irs-grid-pol {
+  background-color: #D1DBE4;
+}

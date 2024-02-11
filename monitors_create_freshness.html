@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/mc.css" rel="stylesheet">
+  <title>Monte Carlo - Create Freshness Rule</title>
+</head>
+<body>
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <ul class="navbar-nav mr-auto">
+      <li class="navbar-brand">MC</li>
+      <li class="nav-item">
+        <a class="nav-link" href="index.html">Dashboards</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="monitors.html">Monitors</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="incidents.html">Incidents</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="performance.html">Performance</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="assets.html">Assets</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="settings.html">Settings</a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav ms-auto w-100 justify-content-end">
+      <li class="nav-item">
+        <a class="nav-link" href="#"><i class="ti ti-bell"></i></a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          All
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li class="dropdown-header">Domains</li>
+          <li><a class="dropdown-item" href="#">All <i class="ti ti-check float-right"></i></a></li>
+          <li><a class="dropdown-item" href="#">Analytics</a></li>
+          <li><a class="dropdown-item" href="#">Marketing</a></li>
+          <li><a class="dropdown-item" href="#">Raw</a></li>
+          <li><a class="dropdown-item" href="#">Test</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="settings.html">Create Domain</a></li>
+        </ul>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Matthew Stevens
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li class="dropdown-header">Account ID</li>
+          <li><a class="dropdown-item" href="#">d72bc4d1-f675-4d72-82a1-418220cca709</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">EDT timezone</a></li>
+          <li><a class="dropdown-item" href="#">Docs</a></li>
+          <li><a class="dropdown-item" href="#">Changelog</a></li>
+          <li><a class="dropdown-item" href="#">Support</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">Log Out</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  <ul class="navigation_sub">
+    <li>
+      <a href="monitors_create.html" class="btn btn-link"><i class="ti ti-chevron-left"></i></a>
+    </li>
+    <li class="title">Create Freshness Rule</li>
+  </ul>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+        <!-- Rule -->
+        <div class="card">
+          <div class="card-body">
+            <div class="card-title">
+              Rule
+            </div>
+            <div class="card-text">
+              <div class="form-group">
+                <label>Table</label>
+                <select class="form-select">
+                  <option>[snowflake] analytics:prod.customer_360</option>
+                  <option>[snowflake] analytics:prod.customer_360</option>
+                  <option>[snowflake] analytics:prod.customer_360</option>
+                  <option>[snowflake] analytics:prod.customer_360</option>
+                  <option>[snowflake] analytics:prod.customer_360</option>
+                  <option>[snowflake] analytics:prod.customer_360</option>
+                  <option>[snowflake] analytics:prod.customer_360</option>
+                  <option>[snowflake] analytics:prod.customer_360</option>
+                  <option>[snowflake] analytics:prod.customer_360</option>
+                  <option>[snowflake] analytics:prod.customer_360</option>
+                </select>
+              </div>
+              <hr>
+              <div class="form-group">
+                <label>Rule Name</label>
+                <input type="text" class="form-control" value="">
+              </div>
+              <hr>
+              <div>
+                This monitor will run every <strong>12 hours</strong> starting <strong>Dec 01st 2024 00:00 EDT</strong>.
+                <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit"><i class="ti ti-pencil"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+        <!-- Alert Condition -->
+        <div class="card">
+          <div class="card-body">
+            <div class="card-title">Alert Condition</div>
+            <div class="card-text">
+              <div class="row">
+                <div class="col-md-7">
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="card-title" style="font-weight: normal;">
+                        Table updates every <strong>12 hours</strong>
+                      </div>
+                      <div class="card-text">
+                        <div id="chartfreshness" class="chartz"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-5">
+                  <div class="form-group">
+                    <label>Threshold</label>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="Threshold" id="Threshold1" value="Threshold1" checked>
+                      <label class="form-check-label" for="Threshold1">
+                        Automatic
+                      </label>
+                    </div>
+                    <div style="margin-left: 24px;">
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="ThresholdAutomatic" id="ThresholdAutomatic1" value="ThresholdAutomatic1">
+                        <label class="form-check-label" for="ThresholdAutomatic1">
+                          Low<br><span class="text-muted">Notify when the table does not update within <strong>24 hours</strong></span>
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="ThresholdAutomatic" id="ThresholdAutomatic2" value="ThresholdAutomatic2" checked>
+                        <label class="form-check-label" for="ThresholdAutomatic2">
+                          Medium<br><span class="text-muted">Notify when the table does not update within <strong>18 hours</strong></span>
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="ThresholdAutomatic" id="ThresholdAutomatic3" value="ThresholdAutomatic3">
+                        <label class="form-check-label" for="ThresholdAutomatic3">
+                          High<br><span class="text-muted">Notify when the table does not update within <strong>14 hours</strong></span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="Threshold" id="Threshold2" value="Threshold2">
+                      <label class="form-check-label" for="Threshold2">
+                        Manual
+                      </label>
+                    </div>
+                  </div>
+                  <div class="form-group" style="margin-left: 24px; margin-top: -16px;">
+                    <label>Notify when the table does not update within</label>
+                    <form class="row">
+                      <div class="col-auto">
+                        <input type="number" class="form-control" value="10">
+                      </div>
+                      <div class="col-auto">
+                        <select class="form-select">
+                          <option>minutes</option>
+                          <option selected>hours</option>
+                          <option>days</option>
+                          <option>weeks</option>
+                        </select>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+        <!-- Notification -->
+        <div class="card">
+          <div class="card-body">
+            <div class="card-title">
+              Notification
+            </div>
+            <div class="card-text">
+              <div class="form-group">
+                <label>Notes</label>
+                <textarea class="form-control" rows="8" maxlength="512" placeholder="Add notes to this monitor to reference in future incident notification messages"></textarea>
+              </div>
+              <hr>
+              <div>
+                While threshold stays violated, send a notification <strong>every 4 runs</strong> of the rule.
+                <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit"><i class="ti ti-pencil"></i></a>
+              </div>
+              <hr>
+              <div>
+                <strong>Notify</strong> when the monitor fails to run.
+                <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit"><i class="ti ti-pencil"></i></a>
+              </div>
+              <hr>
+              <div class="form-group">
+                <label>Owner</label>
+                <select class="form-select">
+                  <option>Matthew Stevens</option>
+                  <option>Matthew Stevens</option>
+                  <option>Matthew Stevens</option>
+                  <option>Matthew Stevens</option>
+                </select>
+              </div>
+              <hr>
+              <div class="form-group">
+                <label>Severity</label>
+                <select class="form-select">
+                  <option>SEV-2</option>
+                  <option>SEV-2</option>
+                  <option>SEV-2</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="clearfix" style="height: 94px;"></div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card sticky" style="height: auto;">
+          <div class="card-body">
+            <div class="card-title">
+              Incident count under alert condition
+            </div>
+            <div class="card-text">
+              <div id="readguess" class="chartzy"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="row">
+        <div class="col-md-12">
+          <a href="monitor_freshness.html" class="btn btn-primary">Create</a>
+          <a href="monitors_create.html" class="btn btn-outline-primary">Cancel</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- timezones -->
+  <div class="modal fade" id="timezones">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Edit Timezone</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>Timezone</label>
+            <input type="text" class="form-control" placeholder="Search...">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Save</button>
+          <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/highcharts-more.js"></script>
+  <script src="https://code.highcharts.com/modules/dumbbell.js"></script>
+  <script src="https://code.highcharts.com/modules/lollipop.js"></script>
+  <script src="js/mc.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/monitor_create_freshness.js"></script>
+</body>
+</html>

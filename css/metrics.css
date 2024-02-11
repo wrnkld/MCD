@@ -1,0 +1,22 @@
+.metric {
+  border-left: 1px solid #D1DBE4;
+  padding-left: 8px;
+}
+.metric-start {
+  border-left: 0;
+  padding-left: 0;
+}
+.metric-count {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 32px;
+}
+.metric-label {
+  color: #515F6A;
+}
+.metric-trend-good {
+  color: #090;
+}
+.metric-trend-bad {
+  color: #c00;
+}

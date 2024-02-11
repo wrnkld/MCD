@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/mc.css" rel="stylesheet">
+  <style> hr { margin: 24px -16px } </style>
+  <title>Monte Carlo - dbt Incident</title>
+</head>
+<body>
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <ul class="navbar-nav mr-auto">
+      <li class="navbar-brand">MC</li>
+      <li class="nav-item">
+        <a class="nav-link" href="index.html">Dashboards</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="monitors.html">Monitors</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="incidents.html">Incidents</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="performance.html">Performance</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="assets.html">Assets</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="settings.html">Settings</a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav ms-auto w-100 justify-content-end">
+      <li class="nav-item">
+        <a class="nav-link" href="#"><i class="ti ti-bell"></i></a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          All
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li class="dropdown-header">Domains</li>
+          <li><a class="dropdown-item" href="#">All <i class="ti ti-check float-right"></i></a></li>
+          <li><a class="dropdown-item" href="#">Analytics</a></li>
+          <li><a class="dropdown-item" href="#">Marketing</a></li>
+          <li><a class="dropdown-item" href="#">Raw</a></li>
+          <li><a class="dropdown-item" href="#">Test</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="settings.html">Create Domain</a></li>
+        </ul>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Matthew Stevens
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li class="dropdown-header">Account ID</li>
+          <li><a class="dropdown-item" href="#">d72bc4d1-f675-4d72-82a1-418220cca709</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">EDT timezone</a></li>
+          <li><a class="dropdown-item" href="#">Docs</a></li>
+          <li><a class="dropdown-item" href="#">Changelog</a></li>
+          <li><a class="dropdown-item" href="#">Support</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">Log Out</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  <ul class="navigation_sub">
+    <li>
+      <a href="incidents.html" class="btn btn-link"><i class="ti ti-chevron-left"></i></a>
+    </li>
+    <li class="title">dbt model error in [event_reactions] in [snowflake] analytics:prod</li>
+    <li class="float-right">
+      <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown">No Status</button>
+      <div class="dropdown-menu dropdown-menu-end">
+        <a class="dropdown-item" href="#">Expected</a>
+        <a class="dropdown-item" href="#">False Positive</a>
+        <a class="dropdown-item" href="#">Fixed</a>
+        <a class="dropdown-item" href="#">Investigating</a>
+        <a class="dropdown-item" href="#">No Status</a>
+      </div>
+    </li>
+    <li class="float-right">
+      <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown">SEV-0</button>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#">SEV-0</a>
+        <a class="dropdown-item" href="#">SEV-1</a>
+        <a class="dropdown-item" href="#">SEV-2</a>
+        <a class="dropdown-item" href="#">SEV-3</a>
+        <a class="dropdown-item" href="#">SEV-4</a>
+        <a class="dropdown-item" href="#">No Severity</a>
+      </div>
+    </li>
+    <li class="float-right">
+      <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown">Bryce Heltzel</button>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#">Biswaroop Palit</a>
+        <a class="dropdown-item" href="#">Bryce Heltzel</a>
+        <a class="dropdown-item" href="#">Dave Leyden</a>
+        <a class="dropdown-item" href="#">Jesse Miller</a>
+        <a class="dropdown-item" href="#">Jonathan Avila</a>
+        <a class="dropdown-item" href="#">Lior Gavish</a>
+        <a class="dropdown-item" href="#">Mei Tao</a>
+        <a class="dropdown-item" href="#">Will Robins</a>
+        <a class="dropdown-item" href="#">No Owner</a>
+      </div>
+    </li>
+    <li class="float-right">
+      <a class="btn btn-link" href="#" data-bs-toggle="offcanvas" data-bs-target="#drawerjira"><img src="img/logo_jira.svg" data-bs-toggle="tooltip" data-bs-title="Add Jira Issue" alt=""></a>
+    </li>
+  </ul>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-10">
+        <!-- summary -->
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-body">
+                <div class="card-title">Summary</div>
+                <div class="card-text">
+                  <div class="row">
+                    <div class="col-md-3">
+                      <div class="metric-start">
+                        <div class="metric-count">Tables</div>
+                        <div class="metric-label"><a href="asset.html">this_is_the_table_name</a></div>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="metric-start">
+                        <div class="metric-count">Notification Channels</div>
+                        <div><img src="img/logo_slack.svg" alt="Slack" class="metric-logo"><a href="#">demo-monte-carlo-incidents</a></div>
+                        <div><img src="img/logo_slack.svg" alt="Slack" class="metric-logo"><a href="#">mcd-alerts</a></div>
+                        <div><img src="img/logo_teams.svg" alt="Teams" class="metric-logo"><a href="#">marketing-finance-teams</a></div>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="metric-start">
+                        <div class="metric-count">Jira</div>
+                        <table class="table table-sm table-borderless">
+                          <tbody>
+                            <tr>
+                              <td><img src="img/logo_jira.svg" alt="Jira" class="metric-logo"><a href="#">MC-245</a></td>
+                              <td>Task</td>
+                              <td>To Do</td>
+                              <td style="text-align: center;"><img src="https://ca.slack-edge.com/TKS0ZA890-U015QN6PH8C-b0736b05056f-512" class="avatar" alt=""></td>
+                              <td>
+                                <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Unlink"><i class="ti ti-link-off"></i></a>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td><img src="img/logo_jira.svg" alt="Jira" class="metric-logo"><a href="#">JF-9923</a></td>
+                              <td>Task</td>
+                              <td>In Progress</td>
+                              <td style="text-align: center;"><img src="https://ca.slack-edge.com/TKS0ZA890-U037TULT09H-6114944aac5e-512" class="avatar" alt=""></td>
+                              <td>
+                                <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Unlink"><i class="ti ti-link-off"></i></a>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+
+                    <div class="col-md-3">
+                      <div class="metric-start">
+                        <div class="metric-count">Downstream Reports</div>
+                        <div class="metric-label"><a href="#" data-bs-toggle="offcanvas" data-bs-target="#drawerreports">54 reports including 8 key reports</a></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- main event -->
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-body">
+                <div class="float-right" style="margin-top: 12px;">
+                  <a href="asset.html" class="btn btn-primary">Investigate Asset <i class="ti ti-arrow-right"></i></a>
+                </div>
+                <div class="card-title"><a href="#">custom_metrics</a> - dbt model error</div>
+                <div class="card-subtitle">Dec 22nd 2024 13:21 EDT</div>
+                <div class="card-text">
+                  <div id="chartdbt" class="chartz"></div>
+                  <table class="table table-outside">
+                    <thead>
+                      <tr>
+                        <th>Model Name</th>
+                        <th>Table Name</th>
+                        <th>Job Name</th>
+                        <th>Runtime</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>event_reactions</td>
+                        <td>event_reactions</td>
+                        <td>monolith_export</td>
+                        <td>12.715 seconds</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="float-right">
+                        <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Copy"><i class="ti ti-copy"></i></a>
+                      </div>
+                      <div class="card-title">Error Message</div>
+                      <div class="card-text">
+                        <pre style="min-height: 80px;">Got 10451185 results, configured to fail if != 0</pre>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="sticky">
+          <div class="form-group">
+            <label>Comment</label>
+            <textarea class="form-control" rows="4" placeholder="Markdown supported"></textarea>
+          </div>
+          <a href="#" class="btn btn-outline-primary">Add Comment</a>
+          <a href="#" class="btn btn-outline-primary">Preview</a>
+          <hr>
+          <div class="text-muted">Dec 23rd 2024 11:10 EDT</div>
+          <div>Incident status updated to <strong>fixed</strong> by <strong>Biswaroop Palit</strong></div>
+          <hr>
+          <div class="float-right" style="margin-top: -8px;">
+            <a href="#" class="btn btn-link" data-bs-toggle="dropdown"><i class="ti ti-dots"></i></a>
+            <div class="dropdown-menu dropdown-menu-end">
+              <a class="dropdown-item" href="#">Edit</a>
+              <a class="dropdown-item" href="#">Delete</a>
+            </div>
+          </div>
+          <div><img src="img/logo_slack.svg" alt="Slack" class="metric-logo">different-channel-name</div>
+          <div><strong>Mei Tao</strong></div>
+          <div class="text-muted">Dec 23rd 2024 11:10 EDT</div>
+          <div>Normalizing by row means you check the percentage of IIQ visit per feedback type.</div>
+          <hr>
+          <div class="form-check form-switch" style="margin-top: 8px;">
+            <input class="form-check-input" type="checkbox" id="Load">
+            <label class="form-check-label" for="Load">Comments from past incidents</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- drawerreports -->
+  <div class="offcanvas offcanvas-end" id="drawerreports" data-bs-backdrop="false" style="width: 1000px;">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Downstream Reports</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="card">
+        <div class="card-body">
+          <div class="float-right">
+            <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Download"><i class="ti ti-download"></i></a>
+          </div>
+          <div class="card-title">Downstream Reports</div>
+          <div class="card-text">
+            <div class="row">
+              <div class="col-md-8">
+                <div class="form-group">
+                  <label>Name</label>
+                  <input type="text" class="form-control" placeholder="Search...">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Type</label>
+                  <select class="form-select">
+                    <option>All</option>
+                    <option>Looker Dashboard</option>
+                    <option>Looker Dashboard Tile</option>
+                    <option>Looker Explore</option>
+                    <option>Looker Look</option>
+                    <option>Looker View</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <table class="table table-outside">
+              <thead>
+                <tr>
+                  <th class="checky"></th>
+                  <th>Name</th>
+                  <th>Type</th>
+                  <th>Folder</th>
+                  <th class="right">Table Importance</th>
+                  <th class="right">Views</th>
+                  <th>Owner</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="checky"><img src="img/logo_looker.svg" alt="Looker" style="width: 24px;"></td>
+                  <td><a href="#">Sales Customer Explorer</a></td>
+                  <td>Looker Dashboard</td>
+                  <td>Folder Name</td>
+                  <td class="right">.99</td>
+                  <td class="right">144</td>
+                  <td>Mei Tao</td>
+                </tr>
+                <tr>
+                  <td class="checky"><img src="img/logo_looker.svg" alt="Looker" style="width: 24px;"></td>
+                  <td><a href="#">Billable Tables [Shared externally]</a></td>
+                  <td>Looker Dashboard</td>
+                  <td>Folder Name</td>
+                  <td class="right">.99</td>
+                  <td class="right">144</td>
+                  <td>Mei Tao</td>
+                </tr>
+                <tr>
+                  <td class="checky"><img src="img/logo_looker.svg" alt="Looker" style="width: 24px;"></td>
+                  <td><a href="#">Customer lookup (Beta)</a></td>
+                  <td>Looker Dashboard</td>
+                  <td>Folder Name</td>
+                  <td class="right">.99</td>
+                  <td class="right">144</td>
+                  <td>Mei Tao</td>
+                </tr>
+                <tr>
+                  <td class="checky"><img src="img/logo_looker.svg" alt="Looker" style="width: 24px;"></td>
+                  <td><a href="#">Alert Fatigue</a></td>
+                  <td>Looker Dashboard</td>
+                  <td>Folder Name</td>
+                  <td class="right">.99</td>
+                  <td class="right">144</td>
+                  <td>Mei Tao</td>
+                </tr>
+                <tr>
+                  <td class="checky"><img src="img/logo_looker.svg" alt="Looker" style="width: 24px;"></td>
+                  <td><a href="#">Data Governance Dashboard</a></td>
+                  <td>Looker Dashboard</td>
+                  <td>Folder Name</td>
+                  <td class="right">.99</td>
+                  <td class="right">144</td>
+                  <td>Mei Tao</td>
+                </tr>
+                <tr>
+                  <td class="checky"><img src="img/logo_looker.svg" alt="Looker" style="width: 24px;"></td>
+                  <td><a href="#">Customer 360</a></td>
+                  <td>Looker Dashboard</td>
+                  <td>Folder Name</td>
+                  <td class="right">.99</td>
+                  <td class="right">144</td>
+                  <td>Mei Tao</td>
+                </tr>
+                <tr>
+                  <td class="checky"><img src="img/logo_looker.svg" alt="Looker" style="width: 24px;"></td>
+                  <td><a href="#">Customer Health Score</a></td>
+                  <td>Looker Dashboard</td>
+                  <td>Folder Name</td>
+                  <td class="right">.99</td>
+                  <td class="right">144</td>
+                  <td>Mei Tao</td>
+                </tr>
+                <tr>
+                  <td class="checky"><img src="img/logo_looker.svg" alt="Looker" style="width: 24px;"></td>
+                  <td><a href="#">Customer Success FY24 Metrics and Reporting</a></td>
+                  <td>Looker Dashboard</td>
+                  <td>Folder Name</td>
+                  <td class="right">.99</td>
+                  <td class="right">144</td>
+                  <td>Mei Tao</td>
+                </tr>
+                <tr>
+                  <td class="checky"><img src="img/logo_looker.svg" alt="Looker" style="width: 24px;"></td>
+                  <td><a href="#">Anomaly detection monitoring</a></td>
+                  <td>Looker Dashboard</td>
+                  <td>Folder Name</td>
+                  <td class="right">.99</td>
+                  <td class="right">144</td>
+                  <td>Mei Tao</td>
+                </tr>
+                <tr>
+                  <td class="checky"><img src="img/logo_looker.svg" alt="Looker" style="width: 24px;"></td>
+                  <td><a href="#">GUT (Incidents)</a></td>
+                  <td>Looker Dashboard</td>
+                  <td>Folder Name</td>
+                  <td class="right">.99</td>
+                  <td class="right">144</td>
+                  <td>Mei Tao</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <nav>
+              <ul class="pagination justify-content-end">
+                <li class="page-item">
+                  <a class="page-link" href="#">
+                    <i class="ti ti-chevron-left"></i>
+                  </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link active" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                  <a class="page-link" href="#">
+                    <i class="ti ti-chevron-right"></i>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- drawerfeedback -->
+  <div class="offcanvas offcanvas-end" id="drawerfeedback">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Share Feedback</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="form-group">
+        <label>Is this incident helpful?</label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="FeedbackRadios1" id="FeedRadios1" value="option1">
+          <label class="form-check-label" for="FeedRadios1">
+            Yes
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="FeedbackRadios1" id="FeedRadios2" value="option2" checked>
+          <label class="form-check-label" for="FeedRadios2">
+            No
+          </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Why not?</label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="FeedbackRadios2" id="FeedRadios3" value="option1">
+          <label class="form-check-label" for="FeedRadios3">
+            Detector too sensitive
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="FeedbackRadios2" id="FeedRadios4" value="option2">
+          <label class="form-check-label" for="FeedRadios4">
+            Don't care about this table
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="FeedbackRadios2" id="FeedRadios5" value="option2" checked>
+          <label class="form-check-label" for="FeedRadios5">
+            Seen this too many times
+          </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Comments</label>
+        <textarea class="form-control" rows="4" placeholder=""></textarea>
+      </div>
+      <div class="clearfix"></div>
+      <a href="#" class="btn btn-primary" data-bs-dismiss="offcanvas">Share</a>
+      <a href="#" class="btn btn-outline-primary" data-bs-dismiss="offcanvas">Cancel</a>
+    </div>
+  </div>
+  <!-- drawerjira -->
+  <div class="offcanvas offcanvas-end" id="drawerjira">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Add Jira Issue</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="form-group">
+        <label>Jira Issue</label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="JiraRadios1" id="Radios1" value="option1">
+          <label class="form-check-label" for="Radios1">
+            Create New
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="JiraRadios1" id="Radios2" value="option2" checked>
+          <label class="form-check-label" for="Radios2">
+            Link Existing
+          </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Jira URL</label>
+        <input type="text" class="form-control" placeholder="">
+      </div>
+      <div class="clearfix"></div>
+      <a href="#" class="btn btn-primary" data-bs-dismiss="offcanvas">Add</a>
+      <a href="#" class="btn btn-outline-primary" data-bs-dismiss="offcanvas">Cancel</a>
+    </div>
+  </div>
+  <!-- timezones -->
+  <div class="modal fade" id="timezones">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Edit Timezone</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>Timezone</label>
+            <input type="text" class="form-control" placeholder="Search...">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Save</button>
+          <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.3/echarts.min.js"></script>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/highcharts-more.js"></script>
+  <script src="https://code.highcharts.com/modules/annotations.js"></script>
+  <script src="js/mc.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/incident_dbt.js"></script>
+</body>
+</html>

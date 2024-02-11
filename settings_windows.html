@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/mc.css" rel="stylesheet">
+  <style> input[type="color"] { -webkit-appearance: none; border: none; width: 24px; height: 24px; } </style>
+  <title>Monte Carlo - Exclusion Windows</title>
+</head>
+<body>
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <ul class="navbar-nav mr-auto">
+      <li class="navbar-brand">MC</li>
+      <li class="nav-item">
+        <a class="nav-link" href="index.html">Dashboards</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="monitors.html">Monitors</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="incidents.html">Incidents</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="performance.html">Performance</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="assets.html">Assets</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="settings.html">Settings</a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav ms-auto w-100 justify-content-end">
+      <li class="nav-item">
+        <a class="nav-link" href="#"><i class="ti ti-bell"></i></a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          All
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li class="dropdown-header">Domains</li>
+          <li><a class="dropdown-item" href="#">All <i class="ti ti-check float-right"></i></a></li>
+          <li><a class="dropdown-item" href="#">Analytics</a></li>
+          <li><a class="dropdown-item" href="#">Marketing</a></li>
+          <li><a class="dropdown-item" href="#">Raw</a></li>
+          <li><a class="dropdown-item" href="#">Test</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="settings.html">Create Domain</a></li>
+        </ul>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Matthew Stevens
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li class="dropdown-header">Account ID</li>
+          <li><a class="dropdown-item" href="#">d72bc4d1-f675-4d72-82a1-418220cca709</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">EDT timezone</a></li>
+          <li><a class="dropdown-item" href="#">Docs</a></li>
+          <li><a class="dropdown-item" href="#">Changelog</a></li>
+          <li><a class="dropdown-item" href="#">Support</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">Log Out</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  <ul class="navigation_sub">
+    <li>
+      <a href="settings.html" class="btn btn-link"><i class="ti ti-chevron-left"></i></a>
+    </li>
+    <li class="title">Exclusion Windows</li>
+    <li class="float-right">
+      <a class="btn btn-primary btn-sm" data-bs-toggle="offcanvas" data-bs-target="#drawerexclusionwindows">Create Exclusion Window</a>
+    </li>
+    <li class="float-right">
+      <a class="btn btn-link" data-bs-toggle="tooltip" data-bs-title="Docs"><i class="ti ti-book"></i></a>
+    </li>
+  </ul>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="card-title">Exclusion Windows</div>
+            <div class="card-text">
+              <table class="table table-outside">
+                <thead>
+                  <tr>
+                    <th>Start</th>
+                    <th>End</th>
+                    <th>Duration</th>
+                    <th>Data</th>
+                    <th>Created by</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Sep 10th 2024 01:33 EDT	</td>
+                    <td>Sep 10th 2024 01:39 EDT	</td>
+                    <td>6 minutes</td>
+                    <td>Dataset: analytics:dbt_circle</td>
+                    <td>Will Robins</td>
+                    <td class="right">
+                      <div class="float-right">
+                        <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- drawerexclusionwindows -->
+  <div class="offcanvas offcanvas-end" id="drawerexclusionwindows">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Create Exclusion Window</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="form-group">
+        <label>Start</label>
+        <input type="datetime-local" class="form-control">
+      </div>
+      <div class="form-group">
+        <label>End</label>
+        <input type="datetime-local" class="form-control">
+      </div>
+      <div class="form-group">
+        <label>Data</label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="RadiosExclusion" id="Exclusion545" value="Exclusion545" checked>
+          <label class="form-check-label" for="Exclusion545">
+            All
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="RadiosExclusion" id="Exclusion544" value="Exclusion544">
+          <label class="form-check-label" for="Exclusion544">
+            Warehouse
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="RadiosExclusion" id="Exclusion543" value="Exclusion543">
+          <label class="form-check-label" for="Exclusion543">
+            Project
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="RadiosExclusion" id="Exclusion542" value="Exclusion542">
+          <label class="form-check-label" for="Exclusion542">
+            Dataset
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="RadiosExclusion" id="Exclusion541" value="Exclusion541">
+          <label class="form-check-label" for="Exclusion541">
+            Table
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- timezones -->
+  <div class="modal fade" id="timezones">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Edit Timezone</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>Timezone</label>
+            <input type="text" class="form-control" placeholder="Search...">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Save</button>
+          <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/mc.js"></script>
+</body>
+</html>

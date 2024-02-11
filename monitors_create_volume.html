@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/mc.css" rel="stylesheet">
+  <title>Monte Carlo - Create Volume Rule</title>
+</head>
+<body>
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <ul class="navbar-nav mr-auto">
+      <li class="navbar-brand">MC</li>
+      <li class="nav-item">
+        <a class="nav-link" href="index.html">Dashboards</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="monitors.html">Monitors</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="incidents.html">Incidents</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="performance.html">Performance</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="assets.html">Assets</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="settings.html">Settings</a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav ms-auto w-100 justify-content-end">
+    <li class="nav-item">
+      <a class="nav-link" href="#"><i class="ti ti-bell"></i></a>
+    </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          All
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li class="dropdown-header">Domains</li>
+          <li><a class="dropdown-item" href="#">All <i class="ti ti-check float-right"></i></a></li>
+          <li><a class="dropdown-item" href="#">Analytics</a></li>
+          <li><a class="dropdown-item" href="#">Marketing</a></li>
+          <li><a class="dropdown-item" href="#">Raw</a></li>
+          <li><a class="dropdown-item" href="#">Test</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="settings.html">Create Domain</a></li>
+        </ul>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Matthew Stevens
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li class="dropdown-header">Account ID</li>
+          <li><a class="dropdown-item" href="#">d72bc4d1-f675-4d72-82a1-418220cca709</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">EDT timezone</a></li>
+          <li><a class="dropdown-item" href="#">Docs</a></li>
+          <li><a class="dropdown-item" href="#">Changelog</a></li>
+          <li><a class="dropdown-item" href="#">Support</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">Log Out</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  <ul class="navigation_sub">
+    <li>
+      <a href="monitors_create.html" class="btn btn-link"><i class="ti ti-chevron-left"></i></a>
+    </li>
+    <li class="title">Create Volume Rule</li>
+  </ul>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+        <!-- Table -->
+        <div class="card">
+          <div class="card-body">
+            <div class="card-title">
+              Table
+            </div>
+            <div class="card-text">
+              <div class="form-group">
+                <label>Table</label>
+                <select class="form-select">
+                  <option>[snowflake] analytics:prod.customer360</option>
+                  <option>[snowflake] analytics:prod.customer360</option>
+                  <option>[snowflake] analytics:prod.customer360</option>
+                  <option>[snowflake] analytics:prod.customer360</option>
+                  <option>[snowflake] analytics:prod.customer360</option>
+                  <option>[snowflake] analytics:prod.customer360</option>
+                  <option>[snowflake] analytics:prod.customer360</option>
+                  <option>[snowflake] analytics:prod.customer360</option>
+                  <option>[snowflake] analytics:prod.customer360</option>
+                  <option>[snowflake] analytics:prod.customer360</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+        <!-- Alert -->
+        <div class="card">
+          <div class="card-body">
+            <div class="card-title">Alert condition</div>
+            <div class="card-text">
+              <div id="chartvolume" class="chartz"></div>
+              <div class="alert alert-info" role="alert">
+                <i class="ti ti-info-circle"></i> <strong>[snowflake] analytics:prod.customer_360</strong> grows <strong>5000 bytes</strong> on average.
+              </div>
+              <div class="clearfix"></div>
+              <div class="form-group">
+                <label>Notify when the table</label>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="vol1">
+                  <label class="form-check-label" for="vol1">Size decreases</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="vol2">
+                  <label class="form-check-label" for="vol2">Size does not change</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="vol3" checked>
+                  <label class="form-check-label" for="vol3">Grows too fast</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="vol4" checked>
+                  <label class="form-check-label" for="vol4">Grows too slow</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+        <!-- Schedule -->
+        <div class="card">
+          <div class="card-body">
+            <div class="card-title">Schedule</div>
+            <div class="card-text">
+              <div class="form-group">
+                <label>Trigger monitor to run</label>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="ScheduleRadios" id="Schedule1" value="Schedule1">
+                  <label class="form-check-label" for="Schedule1">
+                    Dynamically<br><span class="text-muted">Reduce time to detection by running monitor after each table update</span>
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="ScheduleRadios" id="Schedule2" value="Schedule2" checked>
+                  <label class="form-check-label" for="Schedule2">
+                    On a schedule
+                  </label>
+                </div>
+                <div style="margin-left: 24px;">
+                  <label>Run every:</label>
+                  <form class="row" style="margin-bottom: 0;">
+                    <div class="col-auto"><input type="number" class="form-control" value="6"></div>
+                    <div class="col-auto">
+                      <select class="form-select">
+                        <option>minutes</option>
+                        <option selected>hours</option>
+                        <option>days</option>
+                        <option>weeks</option>
+                      </select>
+                    </div>
+                    <div class="col-auto" style="margin-top: 8px;">starting</div>
+                    <div class="col-auto"><input class="form-control" type="text" placeholder="Select Date"></div>
+                  </form>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="ScheduleRadios" id="Schedule3" value="Schedule3">
+                  <label class="form-check-label" for="Schedule3">
+                    CRON expression
+                  </label>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+        <!-- Notifications -->
+        <div class="card">
+          <div class="card-body">
+            <div class="card-title">
+              Notifications
+            </div>
+            <div class="card-text">
+              <div class="form-group">
+                <label>Audiences</label>
+                <select class="form-select">
+                  <option>Audience Name 1</option>
+                  <option>Audience Name 2</option>
+                  <option>Audience Name 3</option>
+                  <option>Audience Name 4</option>
+                  <option>Audience Name 5</option>
+                  <option>Audience Name 6</option>
+                  <option>Audience Name 7</option>
+                  <option>Audience Name 8</option>
+                  <option>Audience Name 9</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Reduce Noise</label>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="Noise" id="Noise1" value="Noise1">
+                  <label class="form-check-label" for="Noise1">
+                    Send another notification every
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="Noise" id="Noise2" value="Noise2">
+                  <label class="form-check-label" for="Noise2">
+                    Don't send another notification
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="Noise" id="Noise3" value="Noise3" checked>
+                  <label class="form-check-label" for="Noise3">
+                    Notify every time
+                  </label>
+                </div>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="failswitch">
+                <label class="form-check-label" for="failswitch">Notify all configured channels when monitor fails</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+        <!-- Details -->
+        <div class="card">
+          <div class="card-body">
+            <div class="card-title">Details</div>
+            <div class="card-text">
+              <div class="form-group">
+                <label>Name</label>
+                <input type="text" class="form-control" value="">
+              </div>
+              <div class="form-group">
+                <label>Severity</label>
+                <select class="form-select">
+                  <option>Sev-0</option>
+                  <option>Sev-1</option>
+                  <option>Sev-2</option>
+                  <option>Sev-3</option>
+                  <option>Sev-4</option>
+                  <option selected>No Severity</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Owner</label>
+                <select class="form-select">
+                  <option>rkearns@montecarlodata.com</option>
+                  <option>rkearns@montecarlodata.com</option>
+                  <option>rkearns@montecarlodata.com</option>
+                  <option>rkearns@montecarlodata.com</option>
+                  <option>rkearns@montecarlodata.com</option>
+                  <option>rkearns@montecarlodata.com</option>
+                  <option selected>rkearns@montecarlodata.com</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Notes</label>
+                <textarea class="form-control" rows="8" maxlength="512" placeholder="Add notes to this monitor to reference in future incident notification messages"></textarea>
+              </div>
+              <div class="alert alert-info">
+                <i class="ti ti-info-circle"></i> Sending notifications to Slack? Use their <a href="#">formatting guide</a> to enrich this monitor’s notes.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="clearfix" style="height: 94px;"></div>
+      </div>
+      <div class="col-md-4">
+        whaddup
+      </div>
+    </div>
+    <div class="footer">
+      <div class="row">
+        <div class="col-md-12">
+          <a href="monitor_volume.html" class="btn btn-primary">Create</a>
+          <a href="monitors_create.html" class="btn btn-outline-primary">Cancel</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- timezones -->
+  <div class="modal fade" id="timezones">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Edit Timezone</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>Timezone</label>
+            <input type="text" class="form-control" placeholder="Search...">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Save</button>
+          <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="js/mc.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/monitor_create_volume.js"></script>
+</body>
+</html>

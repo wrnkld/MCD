@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/mc.css" rel="stylesheet">
+  <style> input[type="color"] { -webkit-appearance: none; border: none; width: 24px; height: 24px; } </style>
+  <title>Monte Carlo - Users</title>
+</head>
+<body>
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <ul class="navbar-nav mr-auto">
+      <li class="navbar-brand">MC</li>
+      <li class="nav-item">
+        <a class="nav-link" href="index.html">Dashboards</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="monitors.html">Monitors</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="incidents.html">Incidents</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="performance.html">Performance</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="assets.html">Assets</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="settings.html">Settings</a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav ms-auto w-100 justify-content-end">
+      <li class="nav-item">
+        <a class="nav-link" href="#"><i class="ti ti-bell"></i></a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          All
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li class="dropdown-header">Domains</li>
+          <li><a class="dropdown-item" href="#">All <i class="ti ti-check float-right"></i></a></li>
+          <li><a class="dropdown-item" href="#">Analytics</a></li>
+          <li><a class="dropdown-item" href="#">Marketing</a></li>
+          <li><a class="dropdown-item" href="#">Raw</a></li>
+          <li><a class="dropdown-item" href="#">Test</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="settings.html">Create Domain</a></li>
+        </ul>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Matthew Stevens
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li class="dropdown-header">Account ID</li>
+          <li><a class="dropdown-item" href="#">d72bc4d1-f675-4d72-82a1-418220cca709</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">EDT timezone</a></li>
+          <li><a class="dropdown-item" href="#">Docs</a></li>
+          <li><a class="dropdown-item" href="#">Changelog</a></li>
+          <li><a class="dropdown-item" href="#">Support</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">Log Out</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  <ul class="navigation_sub">
+    <li>
+      <a href="settings.html" class="btn btn-link"><i class="ti ti-chevron-left"></i></a>
+    </li>
+    <li class="title">Users</li>
+    <li class="float-right"><a href="#" data-bs-toggle="offcanvas" data-bs-target="#drawerusers" class="btn btn-primary btn-sm">Invite Users</a></li>
+    <li class="float-right">
+      <a class="btn btn-link" data-bs-toggle="tooltip" data-bs-title="Docs"><i class="ti ti-book"></i></a>
+    </li>
+  </ul>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="float-right">
+              <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Download"><i class="ti ti-download"></i></a>
+            </div>
+            <div class="card-title">Users</div>
+            <div class="card-text">
+              <nav class="nav nav-tabz">
+                <a class="nav-link active" data-bs-toggle="tab" href="#Pending">Pending Invitations</a>
+                <a class="nav-link" data-bs-toggle="tab" href="#Active">Active Users</a>
+              </nav>
+              <div class="tab-content">
+                <div class="tab-pane active" id="Pending">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search...">
+                      </div>
+                    </div>
+                  </div>
+                  <table class="table table-outside">
+                    <thead>
+                      <tr>
+                        <th>Email</th>
+                        <th>Invited</th>
+                        <th>Groups</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>ljimenez@montecarlodata.com</td>
+                        <td>May 15th 2024</td>
+                        <td>Account Owners</td>
+                        <td>
+                          <div class="float-right">
+                            <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Resend"><i class="ti ti-mail"></i></a>
+                            <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>opadovani@montecarlodata.com</td>
+                        <td>Apr 15th 2024</td>
+                        <td>Account Owners</td>
+                        <td>
+                          <div class="float-right">
+                            <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Resend"><i class="ti ti-mail"></i></a>
+                            <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>ltromba@montecarlodata.com</td>
+                        <td>Mar 25th 2024</td>
+                        <td>Editors</td>
+                        <td>
+                          <div class="float-right">
+                            <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Resend"><i class="ti ti-mail"></i></a>
+                            <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>ncastagnet@montecarlodata.com</td>
+                        <td>Mar 25th 2024</td>
+                        <td>Editors</td>
+                        <td>
+                          <div class="float-right">
+                            <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Resend"><i class="ti ti-mail"></i></a>
+                            <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>hgivelber@montecarlodata.com</td>
+                        <td>Feb 14th 2024</td>
+                        <td>Editors</td>
+                        <td>
+                          <div class="float-right">
+                            <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Resend"><i class="ti ti-mail"></i></a>
+                            <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>thisisatest@ellepyatt.com</td>
+                        <td>Feb 3rd 2024</td>
+                        <td>Account Owners</td>
+                        <td>
+                          <div class="float-right">
+                            <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Resend"><i class="ti ti-mail"></i></a>
+                            <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>lshemer@montecarlodata.com</td>
+                        <td>Oct 5th 2021</td>
+                        <td>Editors</td>
+                        <td>
+                          <div class="float-right">
+                            <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Resend"><i class="ti ti-mail"></i></a>
+                            <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="tab-pane" id="Active">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search...">
+                      </div>
+                    </div>
+                  </div>
+                  <table class="table table-outside">
+                    <thead>
+                      <tr>
+                        <th>Email</th>
+                        <th>Name</th>
+                        <th>Joined</th>
+                        <th>Groups</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>jdalittle@gmail.com</td>
+                        <td>Ambrose Test</td>
+                        <td>May 12th 2024</td>
+                        <td>Editors</td>
+                        <td>
+                          <div class="float-right">
+                            <a href="#" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#edituser"><i class="ti ti-pencil" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit"></i></a>
+                            <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>alittle+prod_viewer@montecarlodata.com</td>
+                        <td>Test Viewer</td>
+                        <td>May 12th 2024</td>
+                        <td>Raw Only</td>
+                        <td>
+                          <div class="float-right">
+                            <a href="#" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#edituser"><i class="ti ti-pencil" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit"></i></a>
+                            <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>saguiar@montecarlodata.com</td>
+                        <td>Santiago Aguiar</td>
+                        <td>Mar 21st 2024</td>
+                        <td>Account Owners</td>
+                        <td>
+                          <div class="float-right">
+                            <a href="#" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#edituser"><i class="ti ti-pencil" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit"></i></a>
+                            <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>amitelli@montecarlodata.com</td>
+                        <td>Alessandro Mitelli</td>
+                        <td>Mar 15th 2024</td>
+                        <td>Account Owners</td>
+                        <td>
+                          <div class="float-right">
+                            <a href="#" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#edituser"><i class="ti ti-pencil" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit"></i></a>
+                            <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>rick.bergfalk+discotest@gmail.com</td>
+                        <td>Rick Bergfalk</td>
+                        <td>Dec 9th 2021</td>
+                        <td>Viewers</td>
+                        <td>
+                          <div class="float-right">
+                            <a href="#" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#edituser"><i class="ti ti-pencil" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit"></i></a>
+                            <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- drawerusers -->
+  <div class="offcanvas offcanvas-end" id="drawerusers">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Invite Users</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="form-group">
+        <label>Addresses</label>
+        <textarea class="form-control" rows="3" placeholder="Enter a comma-separated list of email addresses"></textarea>
+      </div>
+      <div class="form-group">
+        <label>Default Groups</label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="DGRadios" id="DGRadios1" value="opt1">
+          <label class="form-check-label" for="DGRadios1">
+            Account Owners
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="DGRadios" id="DGRadios2" value="opt2" checked>
+          <label class="form-check-label" for="DGRadios2">
+            Data Consumers
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="DGRadios" id="DGRadios3" value="opt3">
+          <label class="form-check-label" for="DGRadios3">
+            Editors
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="DGRadios" id="DGRadios4" value="opt4">
+          <label class="form-check-label" for="DGRadios4">
+            Viewers
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="DGRadios" id="DGRadios5" value="opt5">
+          <label class="form-check-label" for="DGRadios5">
+            None
+          </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Custom Groups</label>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="analyst-viewers">
+          <label class="form-check-label" for="analyst-viewers">Analyst Viewers</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="prod-editors">
+          <label class="form-check-label" for="prod-editors">Prod Editors</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="sales-eng">
+          <label class="form-check-label" for="sales-eng">Sales Engineering</label>
+        </div>
+      </div>
+      <div class="offcanvas-footer">
+        <button class="btn btn-primary" data-bs-dismiss="offcanvas">Invite</button>
+        <button class="btn btn-outline-primary" data-bs-dismiss="offcanvas">Cancel</button>
+      </div>
+    </div>
+  </div>
+  <!-- edituser -->
+  <div class="modal fade" id="edituser">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Edit User</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>Default Groups</label>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="DGRadioz" id="DGRadioz1" value="opt1">
+              <label class="form-check-label" for="DGRadioz1">
+                Account Owners
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="DGRadioz" id="DGRadioz2" value="opt2" checked>
+              <label class="form-check-label" for="DGRadioz2">
+                Data Consumers
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="DGRadioz" id="DGRadioz3" value="opt3">
+              <label class="form-check-label" for="DGRadioz3">
+                Editors
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="DGRadioz" id="DGRadioz4" value="opt4">
+              <label class="form-check-label" for="DGRadioz4">
+                Viewers
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="DGRadioz" id="DGRadioz5" value="opt5">
+              <label class="form-check-label" for="DGRadioz5">
+                None
+              </label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Custom Groups</label>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="analyst-viewers1">
+              <label class="form-check-label" for="analyst-viewers1">Analyst Viewers</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="prod-editors1">
+              <label class="form-check-label" for="prod-editors1">Prod Editors</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="sales-eng1">
+              <label class="form-check-label" for="sales-eng1">Sales Engineering</label>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" data-bs-dismiss="modal">Save</button>
+          <button class="btn btn-outline-primary" data-bs-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- timezones -->
+  <div class="modal fade" id="timezones">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Edit Timezone</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>Timezone</label>
+            <input type="text" class="form-control" placeholder="Search...">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Save</button>
+          <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/mc.js"></script>
+</body>
+</html>

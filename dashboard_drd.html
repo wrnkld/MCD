@@ -1,0 +1,940 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/mc.css" rel="stylesheet">
+  <title>Monte Carlo - Data Reliability</title>
+  <style> .exec { height: 156px; margin-bottom: 16px; } </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <ul class="navbar-nav mr-auto">
+      <li class="navbar-brand">MC</li>
+      <li class="nav-item">
+        <a class="nav-link active" href="index.html">Dashboards</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="monitors.html">Monitors</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="incidents.html">Incidents</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="performance.html">Performance</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="assets.html">Assets</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="settings.html">Settings</a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav ms-auto w-100 justify-content-end">
+      <li class="nav-item">
+        <a class="nav-link" href="#"><i class="ti ti-bell"></i></a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          All
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li class="dropdown-header">Domains</li>
+          <li><a class="dropdown-item" href="#">All <i class="ti ti-check float-right"></i></a></li>
+          <li><a class="dropdown-item" href="#">Analytics</a></li>
+          <li><a class="dropdown-item" href="#">Marketing</a></li>
+          <li><a class="dropdown-item" href="#">Raw</a></li>
+          <li><a class="dropdown-item" href="#">Test</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="settings.html">Create Domain</a></li>
+        </ul>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Matthew Stevens
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li class="dropdown-header">Account ID</li>
+          <li><a class="dropdown-item" href="#">d72bc4d1-f675-4d72-82a1-418220cca709</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">EDT timezone</a></li>
+          <li><a class="dropdown-item" href="#">Docs</a></li>
+          <li><a class="dropdown-item" href="#">Changelog</a></li>
+          <li><a class="dropdown-item" href="#">Support</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">Log Out</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  <ul class="navigation_sub">
+    <li>
+      <a href="index.html" class="btn btn-link"><i class="ti ti-chevron-left"></i></a>
+    </li>
+    <li class="title">Data Reliability</li>
+    <li class="float-right">
+      <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown">Past 4 weeks</button>
+      <div class="dropdown-menu dropdown-menu-end">
+        <a class="dropdown-item" href="#">Past week</a>
+        <a class="dropdown-item" href="#">Past 2 weeks</a>
+        <a class="dropdown-item" href="#">Past 4 weeks</a>
+        <a class="dropdown-item" href="#">Past 6 months</a>
+        <a class="dropdown-item" href="#">Past 12 months</a>
+        <a class="dropdown-item" href="#">Custom</a>
+      </div>
+    </li>
+    <li class="float-right"><a href="#" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#drdsettings"><i class="ti ti-adjustments-horizontal"  data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Settings"></i></a></li>
+    <li class="float-right">
+      <a href="#" class="btn btn-link">
+        <i class="ti ti-link"  data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Copy shareable link"></i>
+      </a>
+    </li>
+  </ul>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-2">
+        <div class="sticky">
+          <!-- keyz -->
+          <div class="card">
+            <div class="card-body">
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="keyz">
+                <label class="form-check-label" for="keyz">Show key assets only</label>
+              </div>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+          <!-- tags -->
+          <div class="card">
+            <div class="card-body">
+              <div class="card-title">Tags</div>
+              <div class="card-text">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Search tags...">
+                  <div class="facet">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="TagX" checked>
+                      <label class="form-check-label" for="TagX">some_tag_x</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="TagY" checked>
+                      <label class="form-check-label" for="TagY">some_longer_tag_y</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="TagZ" checked>
+                      <label class="form-check-label" for="TagZ">some_longer_tag_z</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="Tag1X" checked>
+                      <label class="form-check-label" for="Tag1X">some_tag_x</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="Tag1Y" checked>
+                      <label class="form-check-label" for="Tag1Y">some_tag_y</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="Tag1Z" checked>
+                      <label class="form-check-label" for="Tag1Z">some_tag_z</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="Tag2X" checked>
+                      <label class="form-check-label" for="Tag2X">some_tag_x</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="Tag2Y" checked>
+                      <label class="form-check-label" for="Tag2Y">some_longer_tag_y</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="Tag2Z" checked>
+                      <label class="form-check-label" for="Tag2Z">some_tag_z</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="Tag3X" checked>
+                      <label class="form-check-label" for="Tag3X">some_tag_x</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="Tag3Y" checked>
+                      <label class="form-check-label" for="Tag3Y">some_tag_y</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="Tag3Z" checked>
+                      <label class="form-check-label" for="Tag3Z">some_longer_tag_z</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="Tag4X" checked>
+                      <label class="form-check-label" for="Tag4X">some_longer_tag_x</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="Tag4Y" checked>
+                      <label class="form-check-label" for="Tag4Y">some_longer_tag_y</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="Tag4Z" checked>
+                      <label class="form-check-label" for="Tag4Z">some_longer_tag_z</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+          <!-- type -->
+          <div class="card">
+            <div class="card-body">
+              <div class="card-title">Incident Type</div>
+              <div class="card-text">
+                <div class="form-group">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="Type1" checked>
+                    <label class="form-check-label" for="Type1">Airflow failures</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="Type2" checked>
+                    <label class="form-check-label" for="Type2">dbt errors</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="Type3" checked>
+                    <label class="form-check-label" for="Type3">Dimension anomalies</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="Type4" checked>
+                    <label class="form-check-label" for="Type4">Field Health anomalies</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="Type5" checked>
+                    <label class="form-check-label" for="Type5">Freshness anomalies</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="Type6" checked>
+                    <label class="form-check-label" for="Type6">Freshness rules</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="Type6a" checked>
+                    <label class="form-check-label" for="Type6a">Performance</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="Type7" checked>
+                    <label class="form-check-label" for="Type7">Schema changes</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="Type8" checked>
+                    <label class="form-check-label" for="Type8">SQL rules</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="Type9" checked>
+                    <label class="form-check-label" for="Type9">Volume anomalies</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="Type10" checked>
+                    <label class="form-check-label" for="Type10">Volume rules</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+          <!-- status -->
+          <div class="card">
+            <div class="card-body">
+              <div class="card-title">Status</div>
+              <div class="card-text">
+                <div class="form-group">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="Expected" checked>
+                    <label class="form-check-label" for="Expected">Expected</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="FalsePositive" checked>
+                    <label class="form-check-label" for="FalsePositive">False Positive</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="Fixed" checked>
+                    <label class="form-check-label" for="Fixed">Fixed</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="Investigating" checked>
+                    <label class="form-check-label" for="Investigating">Investigating</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="NoAction" checked>
+                    <label class="form-check-label" for="NoAction">No Action Needed</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="NoStatus" checked>
+                    <label class="form-check-label" for="NoStatus">No Status</label>
+                  </div>
+                </div>
+                <div class="clearfix" style="height: 8px"></div>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" id="normalized">
+                  <label class="form-check-label" for="normalized">Show normalized incidents</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-10">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="card-title">Stack</div>
+                    <div class="card-text">
+                      <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Snowflake_Logo.svg/2560px-Snowflake_Logo.svg.png"  style="height: 24px; margin: 8px 0" alt=""></div>
+                      <div class="row">
+                        <div class="col-md-4">
+                          <div class="metric-start">
+                            <div class="metric-count"><a href="#" data-bs-target="#drawer2" data-bs-toggle="offcanvas">5</a></div>
+                            <div class="metric-label">Projects</div>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="metric">
+                            <div class="metric-count"><a href="#">83</a></div>
+                            <div class="metric-label">Datasets</div>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="metric">
+                            <div class="metric-count"><a href="#" data-bs-target="#drawer4" data-bs-toggle="offcanvas">1,475</a></div>
+                            <div class="metric-label">Tables</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="clearfix"></div>
+                      <div class="row">
+                        <div class="col-md-4">
+                          <div class="metric-start">
+                            <div class="metric-count"><a href="#" data-bs-target="#drawer5" data-bs-toggle="offcanvas">96</a></div>
+                            <div class="metric-label">Views</div>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="metric">
+                            <div class="metric-count"><a href="#">21,704</a></div>
+                            <div class="metric-label">Fields</div>
+                          </div>
+                        </div>
+                      </div>
+                      <hr>
+                      <div><img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Looker.svg"  style="height: 18px; margin: 8px 0" alt=""></div>
+                      <div class="row">
+                        <div class="col-md-4">
+                          <div class="metric-start">
+                            <div class="metric-count"><a href="#" data-bs-target="#drawer5" data-bs-toggle="offcanvas">218</a></div>
+                            <div class="metric-label">Views</div>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="metric">
+                            <div class="metric-count"><a href="#" data-bs-target="#drawer7" data-bs-toggle="offcanvas">195</a></div>
+                            <div class="metric-label">Explores</div>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="metric">
+                            <div class="metric-count"><a href="#">240</a></div>
+                            <div class="metric-label">Dashboards</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="clearfix"></div>
+                      <div class="row">
+                        <div class="col-md-4">
+                          <div class="metric-start">
+                            <div class="metric-count"><a href="#">2,088</a></div>
+                            <div class="metric-label">Dashboard Tiles</div>
+                          </div>
+                        </div>
+                      </div>
+                      <hr>
+                      <div class="card-title">Data Lake</div>
+                      <div class="row">
+                        <div class="col-md-4">
+                          <div class="metric-start">
+                            <div class="metric-count"><a href="#" data-bs-target="#drawer2" data-bs-toggle="offcanvas">1</a></div>
+                            <div class="metric-label">Projects</div>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="metric">
+                            <div class="metric-count"><a href="#">7</a></div>
+                            <div class="metric-label">Datasets</div>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="metric">
+                            <div class="metric-count"><a href="#" data-bs-target="#drawer4" data-bs-toggle="offcanvas">277</a></div>
+                            <div class="metric-label">Tables</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="clearfix"></div>
+                      <div class="row">
+                        <div class="col-md-4">
+                          <div class="metric-start">
+                            <div class="metric-count"><a href="#" data-bs-target="#drawer5" data-bs-toggle="offcanvas">2</a></div>
+                            <div class="metric-label">Views</div>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="metric">
+                            <div class="metric-count"><a href="#">2,556</a></div>
+                            <div class="metric-label">Fields</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="clearfix"></div>
+                <div class="card">
+                  <div class="card-body">
+                    <div class="card-title">Incident Response</div>
+                    <div class="card-text">
+                      <div class="row">
+                        <div class="col-md-4">
+                          <div class="metric-start">
+                            <div class="metric-count"><a href="incidents.html">12%</a></div>
+                            <div class="metric-label">Incidents Classified</div>
+                          </div>
+                        </div>
+                        <div class="col-md-8">
+                          <div id="exec1" class="exec"></div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-4">
+                          <div class="metric-start">
+                            <div class="metric-count">2.4 Hours</div>
+                            <div class="metric-label">Time to Response</div>
+                          </div>
+                        </div>
+                        <div class="col-md-8">
+                          <div id="exec2" class="exec"></div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-4">
+                          <div class="metric-start">
+                            <div class="metric-count">5.6 Hours</div>
+                            <div class="metric-label">Time to Resolution</div>
+                          </div>
+                        </div>
+                        <div class="col-md-8">
+                          <div id="exec3" class="exec"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="card">
+                  <div class="card-body">
+                    <div class="card-title">Custom Monitors</div>
+                    <div class="card-text">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <div class="metric-start">
+                                <div class="metric-count"><a href="monitors.html">128</a></div>
+                                <div class="metric-label">Monitors</div>
+                              </div>
+                            </div>
+                            <div class="col-md-8">
+                              <div id="exec12" class="exec"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <table class="table table-outside table-sm">
+                        <thead>
+                          <tr>
+                            <th>Type</th>
+                            <th class="right">Monitors</th>
+                            <th class="right">Incidents</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>SQL Rule</td>
+                            <td class="right"><a href="monitors.html">44</a></td>
+                            <td class="right"><a href="incidents.html">52</a></td>
+                          </tr>
+                          <tr>
+                            <td>Dimension Tracking</td>
+                            <td class="right"><a href="monitors.html">17</a></td>
+                            <td class="right"><a href="incidents.html">36</a></td>
+                          </tr>
+                          <tr>
+                            <td>Field Health</td>
+                            <td class="right"><a href="monitors.html">16</a></td>
+                            <td class="right"><a href="incidents.html">762</a></td>
+                          </tr>
+                          <tr>
+                            <td>Freshness Rule</td>
+                            <td class="right"><a href="monitors.html">5</a></td>
+                            <td class="right"><a href="incidents.html">6</a></td>
+                          </tr>
+                          <tr>
+                            <td>Volume Rule</td>
+                            <td class="right"><a href="monitors.html">9</a></td>
+                            <td class="right"><a href="incidents.html">26</a></td>
+                          </tr>
+                          <tr>
+                            <td>Schema</td>
+                            <td class="right"><a href="monitors.html">22</a></td>
+                            <td class="right"><a href="incidents.html">821</a></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-8">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="card-title">Incidents</div>
+                    <div class="card-text">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <div class="metric-start">
+                                <div class="metric-count"><a href="incidents.html">2,446</a></div>
+                                <div class="metric-label">Total Incidents</div>
+                              </div>
+                            </div>
+                            <div class="col-md-8">
+                              <div id="exec4" class="exec"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <div class="metric-start">
+                                <div class="metric-count">186</div>
+                                <div class="metric-label">Incidents from Custom Monitors</div>
+                              </div>
+                            </div>
+                            <div class="col-md-8">
+                              <div id="exec5" class="exec"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="card">
+                  <div class="card-body">
+                    <div class="card-title">Table Uptime</div>
+                    <div class="card-text">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <div class="metric-start">
+                                <div class="metric-count">96.4%</div>
+                                <div class="metric-label">Freshness</div>
+                              </div>
+                            </div>
+                            <div class="col-md-8">
+                              <div id="exec6a" class="exec"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <div class="metric-start">
+                                <div class="metric-count">96.2%</div>
+                                <div class="metric-label">Volume</div>
+                              </div>
+                            </div>
+                            <div class="col-md-8">
+                              <div id="exec7a" class="exec"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <div class="metric-start">
+                                <div class="metric-count">96.4%</div>
+                                <div class="metric-label">Freshness Rule</div>
+                              </div>
+                            </div>
+                            <div class="col-md-8">
+                              <div id="exec6b" class="exec"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <div class="metric-start">
+                                <div class="metric-count">96.2%</div>
+                                <div class="metric-label">Volume Rule</div>
+                              </div>
+                            </div>
+                            <div class="col-md-8">
+                              <div id="exec7b" class="exec"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <div class="metric-start">
+                                <div class="metric-count">98.8%</div>
+                                <div class="metric-label">SQL Rules</div>
+                              </div>
+                            </div>
+                            <div class="col-md-8">
+                              <div id="exec8" class="exec"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <div class="metric-start">
+                                <div class="metric-count">99.2%</div>
+                                <div class="metric-label">Field Health</div>
+                              </div>
+                            </div>
+                            <div class="col-md-8">
+                              <div id="exec9" class="exec"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="card">
+                  <div class="card-body">
+                    <div class="card-title">Domains</div>
+                    <div class="card-text">
+                      <table class="table table-outside table-sm">
+                        <thead>
+                          <tr>
+                            <th>Name</th>
+                            <th class="right">Tables</th>
+                            <th class="right">Custom Monitors</th>
+                            <th class="right">Incidents</th>
+                            <th class="right">Status Update Rate</th>
+                            <th class="right">Time to Response</th>
+                            <th class="right">Time to Fixed</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><a href="asset.html">Golden</a></td>
+                            <td class="right">1,544</td>
+                            <td class="right">98</td>
+                            <td class="right">998</td>
+                            <td class="right">3.9%</td>
+                            <td class="right">4 hrs</td>
+                            <td class="right">15 hrs</td>
+                          </tr>
+                          <tr>
+                            <td><a href="asset.html">Silver</a></td>
+                            <td class="right">1,544</td>
+                            <td class="right">98</td>
+                            <td class="right">998</td>
+                            <td class="right">3.9%</td>
+                            <td class="right">4 hrs</td>
+                            <td class="right">15 hrs</td>
+                          </tr>
+                          <tr>
+                            <td><a href="asset.html">Bronze</a></td>
+                            <td class="right">1,544</td>
+                            <td class="right">98</td>
+                            <td class="right">998</td>
+                            <td class="right">3.9%</td>
+                            <td class="right">4 hrs</td>
+                            <td class="right">15 hrs</td>
+                          </tr>
+                          <tr>
+                            <td><em>No domain</em></td>
+                            <td class="right">1,544</td>
+                            <td class="right">98</td>
+                            <td class="right">998</td>
+                            <td class="right">3.9%</td>
+                            <td class="right">4 hrs</td>
+                            <td class="right">15 hrs</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="card">
+                  <div class="card-body">
+                    <div class="card-title">Users</div>
+                    <div class="card-text">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <div class="metric-start">
+                                <div class="metric-count"><a href="settings.html">63</a></div>
+                                <div class="metric-label">Users</div>
+                              </div>
+                            </div>
+                            <div class="col-md-8">
+                              <div id="exec10" class="exec"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <div class="metric-start">
+                                <div class="metric-count">2,642</div>
+                                <div class="metric-label">Page Views</div>
+                              </div>
+                            </div>
+                            <div class="col-md-8">
+                              <div id="exec11" class="exec"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <table class="table table-outside table-sm">
+                        <thead>
+                          <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th class="right">Page Views</th>
+                            <th>Last Activity</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Steven Something</td>
+                            <td>jdalittle@gmail.com</td>
+                            <td class="right">234</td>
+                            <td>Apr 13th 2024 11:10 EDT</td>
+                          </tr>
+                          <tr>
+                            <td>Claire O'Toole</td>
+                            <td>jdalittle@gmail.com</td>
+                            <td class="right">234</td>
+                            <td>Apr 13th 2024 11:10 EDT</td>
+                          </tr>
+                          <tr>
+                            <td>Perry Mason</td>
+                            <td>jdalittle@gmail.com</td>
+                            <td class="right">234</td>
+                            <td>Apr 13th 2024 11:10 EDT</td>
+                          </tr>
+                          <tr>
+                            <td>Steven Something</td>
+                            <td>jdalittle@gmail.com</td>
+                            <td class="right">234</td>
+                            <td>Apr 13th 2024 11:10 EDT</td>
+                          </tr>
+                          <tr>
+                            <td>Claire O'Toole</td>
+                            <td>jdalittle@gmail.com</td>
+                            <td class="right">234</td>
+                            <td>Apr 13th 2024 11:10 EDT</td>
+                          </tr>
+                          <tr>
+                            <td>Perry Mason</td>
+                            <td>jdalittle@gmail.com</td>
+                            <td class="right">234</td>
+                            <td>Apr 13th 2024 11:10 EDT</td>
+                          </tr>
+                          <tr>
+                            <td>Steven Something</td>
+                            <td>jdalittle@gmail.com</td>
+                            <td class="right">234</td>
+                            <td>Apr 13th 2024 11:10 EDT</td>
+                          </tr>
+                          <tr>
+                            <td>Claire O'Toole</td>
+                            <td>jdalittle@gmail.com</td>
+                            <td class="right">234</td>
+                            <td>Apr 13th 2024 11:10 EDT</td>
+                          </tr>
+                          <tr>
+                            <td>Perry Mason</td>
+                            <td>jdalittle@gmail.com</td>
+                            <td class="right">234</td>
+                            <td>Apr 13th 2024 11:10 EDT</td>
+                          </tr>
+                          <tr>
+                            <td>Steven Something</td>
+                            <td>jdalittle@gmail.com</td>
+                            <td class="right">234</td>
+                            <td>Apr 13th 2024 11:10 EDT</td>
+                          </tr>
+                          <tr>
+                            <td>Claire O'Toole</td>
+                            <td>jdalittle@gmail.com</td>
+                            <td class="right">234</td>
+                            <td>Apr 13th 2024 11:10 EDT</td>
+                          </tr>
+                          <tr>
+                            <td>Perry Mason</td>
+                            <td>jdalittle@gmail.com</td>
+                            <td class="right">234</td>
+                            <td>Apr 13th 2024 11:10 EDT</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- drawer 1 -->
+  <div class="offcanvas offcanvas-end" id="drawer1">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Data Sources</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      Data Sources listed here.
+    </div>
+  </div>
+  <!-- drawer 2 -->
+  <div class="offcanvas offcanvas-end" id="drawer2">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Projects</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      Projects listed here.
+    </div>
+  </div>
+  <!-- drawer 3 -->
+  <div class="offcanvas offcanvas-end" id="drawer3">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Schemas</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      Schemas listed here.
+    </div>
+  </div>
+  <!-- drawer 4 -->
+  <div class="offcanvas offcanvas-end" id="drawer4">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Tables</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      Tables listed here.
+    </div>
+  </div>
+  <!-- drawer 5 -->
+  <div class="offcanvas offcanvas-end" id="drawer5">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Views</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      Views listed here.
+    </div>
+  </div>
+  <!-- drawer 6 -->
+  <div class="offcanvas offcanvas-end" id="drawer6">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">External Tables</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      External Tables listed here.
+    </div>
+  </div>
+  <!-- drawer 7 -->
+  <div class="offcanvas offcanvas-end" id="drawer7">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Explores</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      Explores listed here.
+    </div>
+  </div>
+
+  <!-- drd settings -->
+  <div class="modal fade" id="drdsettings">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Data Reliability Settings</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="customSwitch112">
+            <label class="form-check-label" for="customSwitch112">Make current view my Data Reliability landing page</label>
+          </div>
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="customSwitch113" checked>
+            <label class="form-check-label" for="customSwitch113">Make Data Reliability my Monte Carlo landing page</label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" data-bs-dismiss="modal">Save</button>
+          <button class="btn btn-outline-primary" data-bs-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- timezones -->
+  <div class="modal fade" id="timezones">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Edit Timezone</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>Timezone</label>
+            <input type="text" class="form-control" placeholder="Search...">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Save</button>
+          <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="js/mc.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/dashboard_drd.js"></script>
+</body>
+</html>

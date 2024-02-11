@@ -1,0 +1,648 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/mc.css" rel="stylesheet">
+  <title>Monte Carlo - Table Health</title>
+  <style> td.checky, th.checky { width: 64px; } </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <ul class="navbar-nav mr-auto">
+      <li class="navbar-brand">MC</li>
+      <li class="nav-item">
+        <a class="nav-link active" href="index.html">Dashboards</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="monitors.html">Monitors</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="incidents.html">Incidents</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="performance.html">Performance</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="assets.html">Assets</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="settings.html">Settings</a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav ms-auto w-100 justify-content-end">
+      <li class="nav-item">
+        <a class="nav-link" href="#"><i class="ti ti-bell"></i></a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          All
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li class="dropdown-header">Domains</li>
+          <li><a class="dropdown-item" href="#">All <i class="ti ti-check float-right"></i></a></li>
+          <li><a class="dropdown-item" href="#">Analytics</a></li>
+          <li><a class="dropdown-item" href="#">Marketing</a></li>
+          <li><a class="dropdown-item" href="#">Raw</a></li>
+          <li><a class="dropdown-item" href="#">Test</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="settings.html">Create Domain</a></li>
+        </ul>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Matthew Stevens
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li class="dropdown-header">Account ID</li>
+          <li><a class="dropdown-item" href="#">d72bc4d1-f675-4d72-82a1-418220cca709</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">EDT timezone</a></li>
+          <li><a class="dropdown-item" href="#">Docs</a></li>
+          <li><a class="dropdown-item" href="#">Changelog</a></li>
+          <li><a class="dropdown-item" href="#">Support</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">Log Out</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  <ul class="navigation_sub">
+    <li>
+      <a href="index.html" class="btn btn-link"><i class="ti ti-chevron-left"></i></a>
+    </li>
+    <li class="title">Table Health</li>
+    <li class="float-right">
+      <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown">Past 4 weeks</button>
+      <div class="dropdown-menu dropdown-menu-end">
+        <a class="dropdown-item" href="#">Today</a>
+        <a class="dropdown-item" href="#">Yesterday</a>
+        <a class="dropdown-item" href="#">Past 1 week</a>
+        <a class="dropdown-item" href="#">Past 2 weeks</a>
+        <a class="dropdown-item" href="#">Past 3 weeks</a>
+        <a class="dropdown-item" href="#">Past 4 weeks</a>
+        <a class="dropdown-item" href="#">Custom</a>
+      </div>
+    </li>
+    <li class="float-right"><a href="#" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#thsettings "><i class="ti ti-adjustments-horizontal"  data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Settings"></i></a></li>
+    <li class="float-right">
+      <a href="#" class="btn btn-link">
+        <i class="ti ti-link"  data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Copy shareable link"></i>
+      </a>
+    </li>
+  </ul>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-2">
+        <div class="sticky">
+          <!-- table -->
+          <div class="card">
+            <div class="card-body">
+              <div class="card-title">Table</div>
+              <div class="card-text">
+                <input type="text" class="form-control" placeholder="Search tags...">
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" id="keyz">
+                  <label class="form-check-label" for="keyz">Show key assets only</label>
+                </div>
+                <div class="clearfix" style="height: 8px"></div>
+                <div class="form-group">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="TableX" checked>
+                    <label class="form-check-label" for="TableX">some_table_x</label>
+                    <div class="float-right">152</div>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="TableY" checked>
+                    <label class="form-check-label" for="TableY">some_table_y</label>
+                    <div class="float-right">82</div>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="TableZ" checked>
+                    <label class="form-check-label" for="TableZ">some_table_z</label>
+                    <div class="float-right">36</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+
+          <!-- tags -->
+          <div class="card">
+            <div class="card-body">
+              <div class="card-title">Tags</div>
+              <div class="card-text">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Search tags...">
+                  <div class="facet">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="TagX" checked>
+                      <label class="form-check-label" for="TagX">some_tag_x</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="TagY" checked>
+                      <label class="form-check-label" for="TagY">some_longer_tag_y</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="TagZ" checked>
+                      <label class="form-check-label" for="TagZ">some_longer_tag_z</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="Tag1X" checked>
+                      <label class="form-check-label" for="Tag1X">some_tag_x</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="Tag1Y" checked>
+                      <label class="form-check-label" for="Tag1Y">some_tag_y</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="Tag1Z" checked>
+                      <label class="form-check-label" for="Tag1Z">some_tag_z</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="Tag2X" checked>
+                      <label class="form-check-label" for="Tag2X">some_tag_x</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="Tag2Y" checked>
+                      <label class="form-check-label" for="Tag2Y">some_longer_tag_y</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="Tag2Z" checked>
+                      <label class="form-check-label" for="Tag2Z">some_tag_z</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="Tag3X" checked>
+                      <label class="form-check-label" for="Tag3X">some_tag_x</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="Tag3Y" checked>
+                      <label class="form-check-label" for="Tag3Y">some_tag_y</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="Tag3Z" checked>
+                      <label class="form-check-label" for="Tag3Z">some_longer_tag_z</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="Tag4X" checked>
+                      <label class="form-check-label" for="Tag4X">some_longer_tag_x</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="Tag4Y" checked>
+                      <label class="form-check-label" for="Tag4Y">some_longer_tag_y</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="Tag4Z" checked>
+                      <label class="form-check-label" for="Tag4Z">some_longer_tag_z</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+          <!-- status -->
+          <div class="card">
+            <div class="card-body">
+              <div class="card-title">Status</div>
+              <div class="card-text">
+                <div class="form-group">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="Expected" checked>
+                    <label class="form-check-label" for="Expected">Expected</label>
+                    <div class="float-right">12</div>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="FalsePositive" checked>
+                    <label class="form-check-label" for="FalsePositive">False Positive</label>
+                    <div class="float-right">12</div>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="Fixed" checked>
+                    <label class="form-check-label" for="Fixed">Fixed</label>
+                    <div class="float-right">2</div>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="Investigating" checked>
+                    <label class="form-check-label" for="Investigating">Investigating</label>
+                    <div class="float-right">2</div>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="NoAction" checked>
+                    <label class="form-check-label" for="NoAction">No Action Needed</label>
+                    <div class="float-right">6</div>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="NoStatus" checked>
+                    <label class="form-check-label" for="NoStatus">No Status</label>
+                    <div class="float-right">32</div>
+                  </div>
+                </div>
+                <div class="clearfix" style="height: 8px"></div>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" id="normalized">
+                  <label class="form-check-label" for="normalized">Show normalized incidents</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+
+          <!-- severity -->
+          <div class="card">
+            <div class="card-body">
+              <div class="card-title">Severity</div>
+              <div class="card-text">
+                <div class="form-group">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="SEV0">
+                    <label class="form-check-label" for="SEV0">SEV-0</label>
+                    <div class="float-right">6</div>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="SEV1">
+                    <label class="form-check-label" for="SEV1">SEV-1</label>
+                    <div class="float-right">6</div>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="SEV2" checked>
+                    <label class="form-check-label" for="SEV2">SEV-2</label>
+                    <div class="float-right">6</div>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="SEV3" checked>
+                    <label class="form-check-label" for="SEV3">SEV-3</label>
+                    <div class="float-right">6</div>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="SEV4" checked>
+                    <label class="form-check-label" for="SEV4">SEV-4</label>
+                    <div class="float-right">6</div>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="NoSeverity">
+                    <label class="form-check-label" for="NoSeverity">No severity</label>
+                    <div class="float-right">6</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+      <div class="col-md-10">
+        <div class="card">
+          <div class="card-body">
+            <div class="card-title">
+              Table Health
+            </div>
+            <div class="card-text">
+              <table class="table table-outside">
+                <thead>
+                  <tr>
+                    <th colspan="10" style="padding: 8px; font-weight: normal;">
+                      <a href="#" class="btn btn-sm btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown">Customize Columns</a>
+                      <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item">Name</a>
+                        <a href="#" class="dropdown-item">Table Importance</a>
+                        <a href="#" class="dropdown-item">Description</a>
+                        <a href="#" class="dropdown-item">Tags</a>
+                        <a href="#" class="dropdown-item">Summary</a>
+                        <a href="#" class="dropdown-item">SQL Rule</a>
+                        <a href="#" class="dropdown-item">Freshness</a>
+                        <a href="#" class="dropdown-item">Volume</a>
+                        <a href="#" class="dropdown-item">Field Metric</a>
+                        <a href="#" class="dropdown-item">Dimension</a>
+                        <a href="#" class="dropdown-item">Schema</a>
+                        <a href="#" class="dropdown-item">dbt Errors</a>
+                      </div>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th>Name</th>
+                    <th class="right">Table Importance</th>
+                    <th>Description</th>
+                    <th class="checky"><img src="img/monitor.svg" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="SQL Rule" alt=""></th>
+                    <th class="checky"><img src="img/freshness.svg" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Freshness" alt=""></th>
+                    <th class="checky"><img src="img/volume.svg" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Volume" alt=""></th>
+                    <th class="checky"><img src="img/fieldquality.svg" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Field Metric" alt=""></th>
+                    <th class="checky"><img src="img/dimension.svg" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Dimension" alt=""></th>
+                    <th class="checky"><img src="img/schema.svg" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Schema" alt=""></th>
+                    <th class="checky"><img src="img/logo_dbt.svg" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="dbt Errors" alt=""></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a href="#" data-bs-toggle="offcanvas" data-bs-target="#drawertable">dc_logs</a></td>
+                    <td class="right">0.99</td>
+                    <td>Warehouse information for each client.</td>
+                    <td class="inc-nostatus">
+                      <a href="#" data-bs-toggle="offcanvas" data-bs-target="#incidentdrawer">6</a>
+                    </td>
+                    <td class="inc-resolved"><i class="ti ti-check success"></i></td>
+                    <td class="inc-investigating">
+                      <a href="#" data-bs-toggle="offcanvas" data-bs-target="#incidentdrawer">3</a>
+                    </td>
+                    <td class="inc-resolved"><i class="ti ti-check success"></i></td>
+                    <td class="checky">
+                      <a href="#" data-bs-toggle="offcanvas" data-bs-target="#drawerdt" class="btn btn-link">
+                        <i class="ti ti-circle-plus" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Create Dimension Monitor"></i>
+                      </a>
+                    </td>
+                    <td class="inc-resolved"><i class="ti ti-check success"></i></td>
+                    <td class="checky">--</td>
+                  </tr>
+                  <tr>
+                    <td><a href="#" data-bs-toggle="offcanvas" data-bs-target="#drawertable">dc_logs</a></td>
+                    <td class="right">0.99</td>
+                    <td>Warehouse information for each client.</td>
+                    <td class="inc-nostatus">
+                      <a href="#" data-bs-toggle="offcanvas" data-bs-target="#incidentdrawer">6</a>
+                    </td>
+                    <td class="inc-resolved"><i class="ti ti-check success"></i></td>
+                    <td class="inc-investigating">
+                      <a href="#" data-bs-toggle="offcanvas" data-bs-target="#incidentdrawer">3</a>
+                    </td>
+                    <td class="inc-resolved"><i class="ti ti-check success"></i></td>
+                    <td class="checky">
+                      <a href="#" data-bs-toggle="offcanvas" data-bs-target="#drawerdt" class="btn btn-link">
+                        <i class="ti ti-circle-plus" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Create Dimension Monitor"></i>
+                      </a>
+                    </td>
+                    <td class="inc-resolved"><i class="ti ti-check success"></i></td>
+                    <td class="checky">--</td>
+                  </tr>
+                  <tr>
+                    <td><a href="#" data-bs-toggle="offcanvas" data-bs-target="#drawertable">dc_logs</a></td>
+                    <td class="right">0.99</td>
+                    <td>Warehouse information for each client.</td>
+                    <td class="inc-nostatus">
+                      <a href="#" data-bs-toggle="offcanvas" data-bs-target="#incidentdrawer">6</a>
+                    </td>
+                    <td class="inc-resolved"><i class="ti ti-check success"></i></td>
+                    <td class="inc-investigating">
+                      <a href="#" data-bs-toggle="offcanvas" data-bs-target="#incidentdrawer">3</a>
+                    </td>
+                    <td class="inc-resolved"><i class="ti ti-check success"></i></td>
+                    <td class="checky">
+                      <a href="#" data-bs-toggle="offcanvas" data-bs-target="#drawerdt" class="btn btn-link">
+                        <i class="ti ti-circle-plus" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Create Dimension Monitor"></i>
+                      </a>
+                    </td>
+                    <td class="inc-resolved"><i class="ti ti-check success"></i></td>
+                    <td class="checky">--</td>
+                  </tr>
+                  <tr>
+                    <td><a href="#" data-bs-toggle="offcanvas" data-bs-target="#drawertable">dc_logs</a></td>
+                    <td class="right">0.99</td>
+                    <td>Warehouse information for each client.</td>
+                    <td class="inc-nostatus">
+                      <a href="#" data-bs-toggle="offcanvas" data-bs-target="#incidentdrawer">6</a>
+                    </td>
+                    <td class="inc-resolved"><i class="ti ti-check success"></i></td>
+                    <td class="inc-investigating">
+                      <a href="#" data-bs-toggle="offcanvas" data-bs-target="#incidentdrawer">3</a>
+                    </td>
+                    <td class="inc-resolved"><i class="ti ti-check success"></i></td>
+                    <td class="checky">
+                      <a href="#" data-bs-toggle="offcanvas" data-bs-target="#drawerdt" class="btn btn-link">
+                        <i class="ti ti-circle-plus" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Create Dimension Monitor"></i>
+                      </a>
+                    </td>
+                    <td class="inc-resolved"><i class="ti ti-check success"></i></td>
+                    <td class="checky">--</td>
+                  </tr>
+                  <tr>
+                    <td><a href="#" data-bs-toggle="offcanvas" data-bs-target="#drawertable">dc_logs</a></td>
+                    <td class="right">0.99</td>
+                    <td>Warehouse information for each client.</td>
+                    <td class="inc-nostatus">
+                      <a href="#" data-bs-toggle="offcanvas" data-bs-target="#incidentdrawer">6</a>
+                    </td>
+                    <td class="inc-resolved"><i class="ti ti-check success"></i></td>
+                    <td class="inc-investigating">
+                      <a href="#" data-bs-toggle="offcanvas" data-bs-target="#incidentdrawer">3</a>
+                    </td>
+                    <td class="inc-resolved"><i class="ti ti-check success"></i></td>
+                    <td class="checky">
+                      <a href="#" data-bs-toggle="offcanvas" data-bs-target="#drawerdt" class="btn btn-link">
+                        <i class="ti ti-circle-plus" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Create Dimension Monitor"></i>
+                      </a>
+                    </td>
+                    <td class="inc-resolved"><i class="ti ti-check success"></i></td>
+                    <td class="checky">--</td>
+                  </tr>
+                  <tr>
+                    <td><a href="#" data-bs-toggle="offcanvas" data-bs-target="#drawertable">dc_logs</a></td>
+                    <td class="right">0.99</td>
+                    <td>Warehouse information for each client.</td>
+                    <td class="inc-nostatus">
+                      <a href="#" data-bs-toggle="offcanvas" data-bs-target="#incidentdrawer">6</a>
+                    </td>
+                    <td class="inc-resolved"><i class="ti ti-check success"></i></td>
+                    <td class="inc-investigating">
+                      <a href="#" data-bs-toggle="offcanvas" data-bs-target="#incidentdrawer">3</a>
+                    </td>
+                    <td class="inc-resolved"><i class="ti ti-check success"></i></td>
+                    <td class="checky">
+                      <a href="#" data-bs-toggle="offcanvas" data-bs-target="#drawerdt" class="btn btn-link">
+                        <i class="ti ti-circle-plus" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Create Dimension Monitor"></i>
+                      </a>
+                    </td>
+                    <td class="inc-resolved"><i class="ti ti-check success"></i></td>
+                    <td class="checky">--</td>
+                  </tr>
+                  <tr>
+                    <td><a href="#" data-bs-toggle="offcanvas" data-bs-target="#drawertable">dc_logs</a></td>
+                    <td class="right">0.99</td>
+                    <td>Warehouse information for each client.</td>
+                    <td class="inc-nostatus">
+                      <a href="#" data-bs-toggle="offcanvas" data-bs-target="#incidentdrawer">6</a>
+                    </td>
+                    <td class="inc-resolved"><i class="ti ti-check success"></i></td>
+                    <td class="inc-investigating">
+                      <a href="#" data-bs-toggle="offcanvas" data-bs-target="#incidentdrawer">3</a>
+                    </td>
+                    <td class="inc-resolved"><i class="ti ti-check success"></i></td>
+                    <td class="checky">
+                      <a href="#" data-bs-toggle="offcanvas" data-bs-target="#drawerdt" class="btn btn-link">
+                        <i class="ti ti-circle-plus" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Create Dimension Monitor"></i>
+                      </a>
+                    </td>
+                    <td class="inc-resolved"><i class="ti ti-check success"></i></td>
+                    <td class="checky">--</td>
+                  </tr>
+                  <tr>
+                    <td><a href="#" data-bs-toggle="offcanvas" data-bs-target="#drawertable">dc_logs</a></td>
+                    <td class="right">0.99</td>
+                    <td>Warehouse information for each client.</td>
+                    <td class="inc-nostatus">
+                      <a href="#" data-bs-toggle="offcanvas" data-bs-target="#incidentdrawer">6</a>
+                    </td>
+                    <td class="inc-resolved"><i class="ti ti-check success"></i></td>
+                    <td class="inc-investigating">
+                      <a href="#" data-bs-toggle="offcanvas" data-bs-target="#incidentdrawer">3</a>
+                    </td>
+                    <td class="inc-resolved"><i class="ti ti-check success"></i></td>
+                    <td class="checky">
+                      <a href="#" data-bs-toggle="offcanvas" data-bs-target="#drawerdt" class="btn btn-link">
+                        <i class="ti ti-circle-plus" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Create Dimension Monitor"></i>
+                      </a>
+                    </td>
+                    <td class="inc-resolved"><i class="ti ti-check success"></i></td>
+                    <td class="checky">--</td>
+                  </tr>
+                  <tr>
+                    <td><a href="#" data-bs-toggle="offcanvas" data-bs-target="#drawertable">dc_logs</a></td>
+                    <td class="right">0.99</td>
+                    <td>Warehouse information for each client.</td>
+                    <td class="inc-nostatus">
+                      <a href="#" data-bs-toggle="offcanvas" data-bs-target="#incidentdrawer">6</a>
+                    </td>
+                    <td class="inc-resolved"><i class="ti ti-check success"></i></td>
+                    <td class="inc-investigating">
+                      <a href="#" data-bs-toggle="offcanvas" data-bs-target="#incidentdrawer">3</a>
+                    </td>
+                    <td class="inc-resolved"><i class="ti ti-check success"></i></td>
+                    <td class="checky">
+                      <a href="#" data-bs-toggle="offcanvas" data-bs-target="#drawerdt" class="btn btn-link">
+                        <i class="ti ti-circle-plus" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Create Dimension Monitor"></i>
+                      </a>
+                    </td>
+                    <td class="inc-resolved"><i class="ti ti-check success"></i></td>
+                    <td class="checky">--</td>
+                  </tr>
+                  <tr>
+                    <td><a href="#" data-bs-toggle="offcanvas" data-bs-target="#drawertable">dc_logs</a></td>
+                    <td class="right">0.99</td>
+                    <td>Warehouse information for each client.</td>
+                    <td class="inc-nostatus">
+                      <a href="#" data-bs-toggle="offcanvas" data-bs-target="#incidentdrawer">6</a>
+                    </td>
+                    <td class="inc-resolved"><i class="ti ti-check success"></i></td>
+                    <td class="inc-investigating">
+                      <a href="#" data-bs-toggle="offcanvas" data-bs-target="#incidentdrawer">3</a>
+                    </td>
+                    <td class="inc-resolved"><i class="ti ti-check success"></i></td>
+                    <td class="checky">
+                      <a href="#" data-bs-toggle="offcanvas" data-bs-target="#drawerdt" class="btn btn-link">
+                        <i class="ti ti-circle-plus" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Create Dimension Monitor"></i>
+                      </a>
+                    </td>
+                    <td class="inc-resolved"><i class="ti ti-check success"></i></td>
+                    <td class="checky">--</td>
+                  </tr>
+                </tbody>
+              </table>
+              <ul class="pagination justify-content-end">
+                <li class="page-item">
+                  <a class="page-link" href="#">
+                    <i class="ti ti-chevron-left"></i>
+                  </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link active" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                  <a class="page-link" href="#">
+                    <i class="ti ti-chevron-right"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- drawerdt -->
+  <div class="offcanvas offcanvas-end overflow-auto" id="drawerdt">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Create Dimension Monitor</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      Dimension stuff here
+    </div>
+  </div>
+  <!-- incidentdrawer -->
+  <div class="offcanvas offcanvas-end" id="incidentdrawer" style="width: 1000px;">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Incidents</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      Incidents here
+    </div>
+  </div>
+  <!-- table drawer -->
+  <div class="offcanvas offcanvas-end" id="drawertable">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">[table name]</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      Table info here
+    </div>
+  </div>
+  <!-- thsettings -->
+  <div class="modal fade" id="thsettings">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Table Health Settings</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="customSwitch112">
+            <label class="form-check-label" for="customSwitch112">Make current view my Table Health landing page</label>
+          </div>
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="customSwitch113" checked>
+            <label class="form-check-label" for="customSwitch113">Make Table Health my Monte Carlo landing page</label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" data-bs-dismiss="modal">Save</button>
+          <button class="btn btn-outline-primary" data-bs-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- timezones -->
+  <div class="modal fade" id="timezones">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Edit Timezone</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>Timezone</label>
+            <input type="text" class="form-control" placeholder="Search...">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Save</button>
+          <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/highcharts-more.js"></script>
+  <script src="https://code.highcharts.com/modules/dumbbell.js"></script>
+  <script src="https://code.highcharts.com/modules/lollipop.js"></script>
+  <script src="js/mc.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/dashboard_thd.js"></script>
+</body>
+</html>

@@ -1,0 +1,547 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/mc.css" rel="stylesheet">
+  <title>Monte Carlo - Monitors</title>
+  <style> th:nth-child(5) { white-space: nowrap; } </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <ul class="navbar-nav mr-auto">
+      <li class="navbar-brand">MC</li>
+      <li class="nav-item">
+        <a class="nav-link" href="index.html">Dashboards</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="monitors.html">Monitors</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="incidents.html">Incidents</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="performance.html">Performance</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="assets.html">Assets</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="settings.html">Settings</a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav ms-auto w-100 justify-content-end">
+    <li class="nav-item">
+      <a class="nav-link" href="#"><i class="ti ti-bell"></i></a>
+    </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          All
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li class="dropdown-header">Domains</li>
+          <li><a class="dropdown-item" href="#">All <i class="ti ti-check float-right"></i></a></li>
+          <li><a class="dropdown-item" href="#">Analytics</a></li>
+          <li><a class="dropdown-item" href="#">Marketing</a></li>
+          <li><a class="dropdown-item" href="#">Raw</a></li>
+          <li><a class="dropdown-item" href="#">Test</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="settings.html">Create Domain</a></li>
+        </ul>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Matthew Stevens
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li class="dropdown-header">Account ID</li>
+          <li><a class="dropdown-item" href="#">d72bc4d1-f675-4d72-82a1-418220cca709</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">EDT timezone</a></li>
+          <li><a class="dropdown-item" href="#">Docs</a></li>
+          <li><a class="dropdown-item" href="#">Changelog</a></li>
+          <li><a class="dropdown-item" href="#">Support</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">Log Out</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  <ul class="navigation_sub">
+    <li class="title">Monitors</li>
+    <li class="float-right">
+      <a href="monitors_create.html" class="btn btn-primary shadow-none">
+        Create Monitor
+      </a>
+    </li>
+  </ul>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-2">
+        <div class="sticky">
+          <div class="card">
+            <div class="card-body">
+              <div class="card-title">Search</div>
+              <div class="card-text">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Search tables, fields, creator, namespace...">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+          <div class="card">
+            <div class="card-body">
+              <div class="card-title">Type</div>
+              <div class="card-text">
+                <div class="form-group">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="Cardinality">
+                    <label class="form-check-label" for="Dimension">Cardinality</label>
+                    <div class="float-right">0</div>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="Comparison">
+                    <label class="form-check-label" for="Comparison">Comparison</label>
+                    <div class="float-right">0</div>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="Dimension" checked>
+                    <label class="form-check-label" for="Dimension">Dimension Tracking</label>
+                    <div class="float-right">4</div>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="Metric" checked>
+                    <label class="form-check-label" for="Metric">Field Metric</label>
+                    <div class="float-right">2</div>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="Freshness" checked>
+                    <label class="form-check-label" for="Freshness">Freshness Rule</label>
+                    <div class="float-right">12</div>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="JSON" checked>
+                    <label class="form-check-label" for="JSON">JSON Schema</label>
+                    <div class="float-right">2</div>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="Performance" checked>
+                    <label class="form-check-label" for="Performance">Performance</label>
+                    <div class="float-right">2</div>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="Referential">
+                    <label class="form-check-label" for="Referential">Referential Integrity</label>
+                    <div class="float-right">0</div>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="SQL" checked>
+                    <label class="form-check-label" for="SQL">SQL Rule</label>
+                    <div class="float-right">31</div>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="Volume" checked>
+                    <label class="form-check-label" for="Volume">Volume Rule</label>
+                    <div class="float-right">14</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+          <div class="card">
+            <div class="card-body">
+              <div class="card-title">Status</div>
+              <div class="card-text">
+                <div class="form-group">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="Active" checked>
+                    <label class="form-check-label" for="Active">Active</label>
+                    <div class="float-right">42</div>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="Disabled" checked>
+                    <label class="form-check-label" for="Disabled">Disabled</label>
+                    <div class="float-right">6</div>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="Error" checked>
+                    <label class="form-check-label" for="Error">Error</label>
+                    <div class="float-right">1</div>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="Misconfigured" checked>
+                    <label class="form-check-label" for="Misconfigured">Misconfigured</label>
+                    <div class="float-right">2</div>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="Running" checked>
+                    <label class="form-check-label" for="Running">Running</label>
+                    <div class="float-right">3</div>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="Snoozed" checked>
+                    <label class="form-check-label" for="Snoozed">Snoozed</label>
+                    <div class="float-right">4</div>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="Training" checked>
+                    <label class="form-check-label" for="Training">Training</label>
+                    <div class="float-right">2</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+          <div class="card">
+            <div class="card-body">
+              <div class="card-title">Audience</div>
+              <div class="card-text">
+                <div class="form-group">
+                  <div class="facet">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="Audience" checked>
+                      <label class="form-check-label" for="Audience">No audience</label>
+                      <div class="float-right">2</div>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="Audience1" checked>
+                      <label class="form-check-label" for="Audience1">external</label>
+                      <div class="float-right">123</div>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="Audience2" checked>
+                      <label class="form-check-label" for="Audience2">training-dag</label>
+                      <div class="float-right">99</div>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="Audience3" checked>
+                      <label class="form-check-label" for="Audience3">audience 1</label>
+                      <div class="float-right">86</div>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="Audience4" checked>
+                      <label class="form-check-label" for="Audience4">audience 2</label>
+                      <div class="float-right">76</div>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="Audience5" checked>
+                      <label class="form-check-label" for="Audience5">event_details</label>
+                      <div class="float-right">62</div>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="Audience6" checked>
+                      <label class="form-check-label" for="Audience6">incident_flow</label>
+                      <div class="float-right">57</div>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="Audience7" checked>
+                      <label class="form-check-label" for="Audience7">incident_info</label>
+                      <div class="float-right">56</div>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="Audience8" checked>
+                      <label class="form-check-label" for="Audience8">snowflake optimization</label>
+                      <div class="float-right">45</div>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="Audience9" checked>
+                      <label class="form-check-label" for="Audience9">metric_types</label>
+                      <div class="float-right">35</div>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="Audience10" checked>
+                      <label class="form-check-label" for="Audience10">delta</label>
+                      <div class="float-right">33</div>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="Audience11" checked>
+                      <label class="form-check-label" for="Audience11">audience 5</label>
+                      <div class="float-right">32</div>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="Audience12" checked>
+                      <label class="form-check-label" for="Audience12">cs-monitors</label>
+                      <div class="float-right">23</div>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="Audience13" checked>
+                      <label class="form-check-label" for="Audience13">dataeng</label>
+                      <div class="float-right">12</div>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="Audience14" checked>
+                      <label class="form-check-label" for="Audience14">anomaly-monitoring</label>
+                      <div class="float-right">6</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-10">
+        <div class="card">
+          <div class="card-body">
+            <div class="card-title">Monitors (24 of 142)</div>
+            <div class="card-text">
+              <table class="table table-outside">
+                <thead>
+                  <tr>
+                    <th colspan="7" style="padding: 8px; font-weight: normal;">
+                      <a href="#" class="btn btn-sm btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown">Apply Audience</a>
+                      <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Audience Name</a>
+                        <a class="dropdown-item" href="#">Audience Name</a>
+                        <a class="dropdown-item" href="#">Audience Name</a>
+                        <a class="dropdown-item" href="#">Audience Name</a>
+                        <a class="dropdown-item" href="#">Audience Name</a>
+                        <a class="dropdown-item" href="#">Audience Name</a>
+                        <a class="dropdown-item" href="#">Audience Name</a>
+                        <a class="dropdown-item" href="#">Audience Name</a>
+                      </div>
+                      <a href="#" class="btn btn-sm btn-outline-primary">Disable</a>
+                      <a href="#" class="btn btn-sm btn-outline-primary">Delete</a>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th class="checky">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="some-checkbox">
+                      </div>
+                    </th>
+                    <th>Type</th>
+                    <th>Description</th>
+                    <th>Status</th>
+                    <th class="right">Incidents (30d)</th>
+                    <th>Audiences</th>
+                    <th style="min-width:140px;"></th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                  <tr>
+                    <td class="checky">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox">
+                      </div>
+                    </td>
+                    <td>Dimension Tracking</td>
+                    <td><a href="monitor_dimension.html">Dimension Tracking for user in analytics:prod_internal_bi.gut_retention</a></td>
+                    <td><span class="badge rounded-pill text-bg-danger">Error</span></td>
+                    <td class="right">2</td>
+                    <td><span class="badge rounded-pill text-bg-info">Audience Name</span></td>
+                    <td class="right">
+                      <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Clone"><i class="ti ti-files"></i></a>
+                      <a href="monitor_dimension.html" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" title="View Details"><i class="ti ti-player-play"></i></a>
+                      <a href="#" class="btn btn-link" data-bs-toggle="dropdown"><i class="ti ti-dots"></i></a>
+                      <div class="dropdown-menu dropdown-menu-end">
+                        <a class="dropdown-item" href="#">Disable</a>
+                        <a class="dropdown-item" href="#">Edit</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Delete</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="checky">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" checked>
+                      </div>
+                    </td>
+                    <td>Field Metric</td>
+                    <td><a href="monitor_field.html">Field Metric for 35 fields in [snowflake] analytics:prod.customer_360 by account_name</a></td>
+                    <td><span class="badge rounded-pill text-bg-info">Training</span></td>
+                    <td class="right">24</td>
+                    <td><span class="badge rounded-pill text-bg-info">Audience Name</span></td>
+                    <td class="right">
+                      <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Clone"><i class="ti ti-files"></i></a>
+                      <a href="monitor_fieldhealth.html" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" title="View Details"><i class="ti ti-player-play"></i></a>
+                      <a href="#" class="btn btn-link" data-bs-toggle="dropdown"><i class="ti ti-dots"></i></a>
+                      <div class="dropdown-menu dropdown-menu-end">
+                        <a class="dropdown-item" href="#">Disable</a>
+                        <a class="dropdown-item" href="#">Edit</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Delete</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="checky">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox">
+                      </div>
+                    </td>
+                    <td>Freshness Rule</td>
+                    <td><a href="monitor_freshness.html">Freshness Rule for [snowflake] ingest:data_collector_events.job_status</a></td>
+                    <td><span class="badge rounded-pill text-bg-success">Active</span></td>
+                    <td class="right">12</td>
+                    <td><span class="badge rounded-pill text-bg-info">Audience Name</span></td>
+                    <td class="right">
+                      <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Clone"><i class="ti ti-files"></i></a>
+                      <a href="monitor_freshness.html" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" title="View Details"><i class="ti ti-player-play"></i></a>
+                      <a href="#" class="btn btn-link" data-bs-toggle="dropdown"><i class="ti ti-dots"></i></a>
+                      <div class="dropdown-menu dropdown-menu-end">
+                        <a class="dropdown-item" href="#">Disable</a>
+                        <a class="dropdown-item" href="#">Edit</a>
+                        <a class="dropdown-item" href="#">Run</a>
+                        <a class="dropdown-item" href="#">Snooze</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Delete</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="checky">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox">
+                      </div>
+                    </td>
+                    <td>JSON Schema</td>
+                    <td><a href="monitor_schema.html">JSON Schema monitor for ingest_ts in [snowflake] ingest:normalized_events.cdc</a></td>
+                    <td><span class="badge rounded-pill text-bg-success">Active</span></td>
+                    <td class="right">3</td>
+                    <td><span class="badge rounded-pill text-bg-info">Audience Name</span></td>
+                    <td class="right">
+                      <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Clone"><i class="ti ti-files"></i></a>
+                      <a href="monitor_schema.html" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" title="View Details"><i class="ti ti-player-play"></i></a>
+                      <a href="#" class="btn btn-link" data-bs-toggle="dropdown"><i class="ti ti-dots"></i></a>
+                      <div class="dropdown-menu dropdown-menu-end">
+                        <a class="dropdown-item" href="#">Disable</a>
+                        <a class="dropdown-item" href="#">Edit</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Delete</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="checky">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox">
+                      </div>
+                    </td>
+                    <td>Performance</td>
+                    <td><a href="monitor_performance.html">Performance monitoring SF warehouse XYX size large</a></td>
+                    <td><span class="badge rounded-pill text-bg-success">Active</span></td>
+                    <td class="right">0</td>
+                    <td><span class="badge rounded-pill text-bg-info">Audience Name</span></td>
+                    <td class="right">
+                      <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Clone"><i class="ti ti-files"></i></a>
+                      <a href="monitor_performance.html" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" title="View Details"><i class="ti ti-player-play"></i></a>
+                      <a href="#" class="btn btn-link" data-bs-toggle="dropdown"><i class="ti ti-dots"></i></a>
+                      <div class="dropdown-menu dropdown-menu-end">
+                        <a class="dropdown-item" href="#">Disable</a>
+                        <a class="dropdown-item" href="#">Edit</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Delete</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="checky">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox">
+                      </div>
+                    </td>
+                    <td>SQL Rule</td>
+                    <td><a href="monitor_sqlrule.html">Andes NEW: Seasonality for size_diff incidents (consecutive days)</a></td>
+                    <td><span class="badge rounded-pill text-bg-warning">Misconfigured</span></td>
+                    <td class="right">3</td>
+                    <td><span class="badge rounded-pill text-bg-info">Audience Name</span></td>
+                    <td class="right">
+                      <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Clone"><i class="ti ti-files"></i></a>
+                      <a href="monitor_sqlrule.html" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" title="View Details"><i class="ti ti-player-play"></i></a>
+                      <a href="#" class="btn btn-link" data-bs-toggle="dropdown"><i class="ti ti-dots"></i></a>
+                      <div class="dropdown-menu dropdown-menu-end">
+                        <a class="dropdown-item" href="#">Disable</a>
+                        <a class="dropdown-item" href="#">Edit</a>
+                        <a class="dropdown-item" href="#">Run</a>
+                        <a class="dropdown-item" href="#">Snooze</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Delete</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="checky">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox">
+                      </div>
+                    </td>
+                    <td>Volume Rule</td>
+                    <td><a href="monitor_volume.html">Volume Rule for [snowflake] analytics:prod_detectors.filtered_events</a></td>
+                    <td><span class="badge rounded-pill text-bg-success">Active</span></td>
+                    <td class="right">25</td>
+                    <td><span class="badge rounded-pill text-bg-info">Audience Name</span></td>
+                    <td class="right">
+                      <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Clone"><i class="ti ti-files"></i></a>
+                      <a href="monitor_volume.html" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" title="View Details"><i class="ti ti-player-play"></i></a>
+                      <a href="#" class="btn btn-link" data-bs-toggle="dropdown"><i class="ti ti-dots"></i></a>
+                      <div class="dropdown-menu dropdown-menu-end">
+                        <a class="dropdown-item" href="#">Disable</a>
+                        <a class="dropdown-item" href="#">Edit</a>
+                        <a class="dropdown-item" href="#">Snooze</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Delete</a>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <nav>
+                <ul class="pagination justify-content-end">
+                  <li class="page-item">
+                    <a class="page-link" href="#">
+                      <i class="ti ti-chevron-left"></i>
+                    </a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link active" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item">
+                    <a class="page-link" href="#">
+                      <i class="ti ti-chevron-right"></i>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- timezones -->
+  <div class="modal fade" id="timezones">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Edit Timezone</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>Timezone</label>
+            <input type="text" class="form-control" placeholder="Search...">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Save</button>
+          <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="js/mc.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/monitors.js"></script>
+</body>
+</html>

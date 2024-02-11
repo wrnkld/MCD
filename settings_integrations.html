@@ -1,0 +1,734 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/mc.css" rel="stylesheet">
+  <style> input[type="color"] { -webkit-appearance: none; border: none; width: 24px; height: 24px; } </style>
+  <title>Monte Carlo - Integrations</title>
+</head>
+<body>
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <ul class="navbar-nav mr-auto">
+      <li class="navbar-brand">MC</li>
+      <li class="nav-item">
+        <a class="nav-link" href="index.html">Dashboards</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="monitors.html">Monitors</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="incidents.html">Incidents</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="performance.html">Performance</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="assets.html">Assets</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="settings.html">Settings</a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav ms-auto w-100 justify-content-end">
+      <li class="nav-item">
+        <a class="nav-link" href="#"><i class="ti ti-bell"></i></a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          All
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li class="dropdown-header">Domains</li>
+          <li><a class="dropdown-item" href="#">All <i class="ti ti-check float-right"></i></a></li>
+          <li><a class="dropdown-item" href="#">Analytics</a></li>
+          <li><a class="dropdown-item" href="#">Marketing</a></li>
+          <li><a class="dropdown-item" href="#">Raw</a></li>
+          <li><a class="dropdown-item" href="#">Test</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="settings.html">Create Domain</a></li>
+        </ul>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Matthew Stevens
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li class="dropdown-header">Account ID</li>
+          <li><a class="dropdown-item" href="#">d72bc4d1-f675-4d72-82a1-418220cca709</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">EDT timezone</a></li>
+          <li><a class="dropdown-item" href="#">Docs</a></li>
+          <li><a class="dropdown-item" href="#">Changelog</a></li>
+          <li><a class="dropdown-item" href="#">Support</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">Log Out</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  <ul class="navigation_sub">
+    <li>
+      <a href="settings.html" class="btn btn-link"><i class="ti ti-chevron-left"></i></a>
+    </li>
+    <li class="title">Integrations</li>
+    <li class="float-right">
+      <a class="btn btn-link" data-bs-toggle="tooltip" data-bs-title="Docs"><i class="ti ti-book"></i></a>
+    </li>
+  </ul>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="float-right"><a href="#" class="btn btn-outline-primary btn-sm">Test Network</a></div>
+            <div class="card-title">Integrations</div>
+            <div class="card-text">
+              <div class="card">
+                <div class="card-body">
+                  <div class="float-right">
+                    <button type="button" class="btn btn-outline-primary btn-sm dropdown-toggle" data-bs-toggle="dropdown">
+                      Create
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-end">
+                      <a class="dropdown-item" href="#">BigQuery</a>
+                      <a class="dropdown-item" href="#">Data Lake</a>
+                      <a class="dropdown-item" href="#" data-bs-toggle="offcanvas" data-bs-target="#drawercreatedatabricks">Databricks</a>
+                      <a class="dropdown-item" href="#" data-bs-toggle="offcanvas" data-bs-target="#drawercreateredshift">Redshift</a>
+                      <a class="dropdown-item" href="#">Snowflake</a>
+                    </div>
+                  </div>
+                  <div class="card-title">Data Lakes and Warehouses</div>
+                  <div class="card-text">
+                    <table class="table table-outside">
+                      <thead>
+                        <tr>
+                          <th></th>
+                          <th style="width: 180px;">Type</th>
+                          <th style="width: 60%;">Details</th>
+                          <th style="width: 160px;">Status</th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="checky"><img src="img/logo_databricks.svg" alt="Databricks"></td>
+                          <td>Databricks</td>
+                          <td>databricks_cluster_id: 0621-211350-xcj1ej5z</td>
+                          <td><span class="badge rounded-pill text-bg-success">Active</span></td>
+                          <td>
+                            <div class="float-right">
+                              <a href="#" class="btn btn-link" data-bs-toggle="offcanvas" data-bs-target="#databrix"><i class="ti ti-pencil" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit Databricks Integration"></i></a>
+                              <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="checky"><img src="img/logo_snowflake.svg" alt="Looker"></td>
+                          <td>Snowflake</td>
+                          <td>account: dka87615.us-east-1</td>
+                          <td><span class="badge rounded-pill text-bg-success">Active</span></td>
+                          <td>
+                            <div class="float-right">
+                              <a href="#" class="btn btn-link" data-bs-toggle="offcanvas" data-bs-target="#testsnowflake"><i class="ti ti-bug" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Test"></i></a>
+                              <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit"><i class="ti ti-pencil"></i></a>
+                              <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="clearfix"></div>
+              <div class="card">
+                <div class="card-body">
+                  <div class="float-right">
+                    <button type="button" class="btn btn-outline-primary dropdown-toggle btn-sm" data-bs-toggle="dropdown">
+                      Create
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-end">
+                      <a class="dropdown-item" href="#">Looker</a>
+                      <a class="dropdown-item" href="#" data-bs-toggle="offcanvas" data-bs-target="#createtableau">Tableau</a>
+                    </div>
+                  </div>
+                  <div class="card-title">Business Intelligence</div>
+                  <div class="card-text">
+                    <table class="table table-outside">
+                      <thead>
+                        <tr>
+                          <th></th>
+                          <th style="width: 180px;">Type</th>
+                          <th style="width: 60%;">Details</th>
+                          <th style="width: 160px;">Status</th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="checky"><img src="img/logo_looker.svg" alt="Looker"></td>
+                          <td>Looker</td>
+                          <td>repo_url: git@github.com:monte-carlo-data/looker-monte-carlo-analytics.git</td>
+                          <td><span class="badge rounded-pill text-bg-success">Active</span></td>
+                          <td>
+                            <div class="float-right">
+                              <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit"><i class="ti ti-pencil"></i></a>
+                              <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="checky"><img src="img/logo_tableau.svg" alt="Tableau"></td>
+                          <td>Tableau</td>
+                          <td>Server Name: https://prod-useast-a.online.tableau.com/</td>
+                          <td><span class="badge rounded-pill text-bg-success">Active</span></td>
+                          <td>
+                            <div class="float-right">
+                              <a href="#" class="btn btn-link" data-bs-toggle="offcanvas" data-bs-target="#draweredittableau"><i class="ti ti-pencil" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit"></i></a>
+                              <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="checky"><img src="img/logo_looker.svg" alt="Looker"></td>
+                          <td>Looker</td>
+                          <td>base_url: https://montecarlodata.looker.com:19999</td>
+                          <td><span class="badge rounded-pill text-bg-success">Active</span></td>
+                          <td>
+                            <div class="float-right">
+                              <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit"><i class="ti ti-pencil"></i></a>
+                              <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="clearfix"></div>
+              <div class="card">
+                <div class="card-body">
+                  <div class="float-right">
+                    <button type="button" class="btn btn-outline-primary btn-sm">
+                      Create
+                    </button>
+                  </div>
+                  <div class="card-title">Orchestration Tools</div>
+                  <div class="card-text">
+                    <table class="table table-outside">
+                      <thead>
+                        <tr>
+                          <th></th>
+                          <th style="width: 180px;">Type</th>
+                          <th style="width: 60%;">Details</th>
+                          <th style="width: 160px;">Status</th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="checky"><img src="img/logo_dbt.svg" alt="dbt"></td>
+                          <td>dbt Cloud</td>
+                          <td>Details</td>
+                          <td><span class="badge rounded-pill text-bg-success">Active</span></td>
+                          <td>
+                            <div class="float-right">
+                              <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit"><i class="ti ti-pencil"></i></a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="checky"><img src="img/logo_dbt.svg" alt="dbt"></td>
+                          <td>dbt Core</td>
+                          <td>Details</td>
+                          <td><span class="badge rounded-pill text-bg-success">Active</span></td>
+                          <td>
+                            <div class="float-right">
+                              <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit"><i class="ti ti-pencil"></i></a>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="clearfix"></div>
+              <div class="card">
+                <div class="card-body">
+                  <div class="float-right">
+                    <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="offcanvas" data-bs-target="#drawerjira">
+                      Create
+                    </button>
+                  </div>
+                  <div class="card-title">Notifications and Collaboration</div>
+                  <div class="card-text">
+                    <table class="table table-outside">
+                      <thead>
+                        <tr>
+                          <th></th>
+                          <th style="width: 180px;">Type</th>
+                          <th style="width: 60%;">Details</th>
+                          <th style="width: 160px;">Status</th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="checky"><img src="img/logo_slack.svg" alt="Slack"></td>
+                          <td>Slack</td>
+                          <td>Details</td>
+                          <td><span class="badge rounded-pill text-bg-success">Active</span></td>
+                          <td>
+                            <div class="float-right">
+                              <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                            </div>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td class="checky"><img src="img/logo_jira.svg" alt="Jira"></td>
+                          <td>Jira</td>
+                          <td>Some details here</td>
+                          <td><span class="badge rounded-pill text-bg-success">Active</span></td>
+                          <td>
+                            <div class="float-right">
+                              <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Test"><i class="ti ti-bug"></i></a>
+                              <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit"><i class="ti ti-pencil"></i></a>
+                              <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- testsnowflake -->
+  <div class="offcanvas offcanvas-end" id="testsnowflake">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Test Snowflake Integration</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <table class="table table-outside">
+        <thead>
+          <tr>
+            <th class="checky"></th>
+            <th class="checky"></th>
+            <th>Test</th>
+            <th>Details</th>
+            <th class="checky"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="checky"><i class="ti ti-chevron-down"></i></td>
+            <td class="checky"><i class="ti ti-circle-check success"></i></td>
+            <td>Outbound internet</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td colspan="5" class="expanded">
+              <table class="table table-outside">
+                <thead>
+                  <tr>
+                    <th>Projects Validated</th>
+                    <th>Query</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>ANALYTICS</td>
+                    <td><span class="query">SELECT * FROM somthing or other</span></td>
+                  </tr>
+                  <tr>
+                    <td>ANDY_RENAME_DATABASE</td>
+                    <td><span class="query">SELECT * FROM somthing or other</span></td>
+                  </tr>
+                  <tr>
+                    <td>ANDY_RENAME_DATABASE_PROD</td>
+                    <td><span class="query">SELECT * FROM somthing or other</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td class="checky"><i class="ti ti-chevron-right"></i></td>
+            <td class="checky"><i class="ti ti-circle-check success"></i></td>
+            <td>Snowflake connection</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="checky" style="vertical-align: top; padding-top: 4px;"><i class="ti ti-chevron-right"></i></td>
+            <td class="checky" style="vertical-align: top; padding-top: 4px;"><i class="ti ti-alert-circle danger"></i></td>
+            <td style="vertical-align: top; padding-top: 4px;">Query logs</td>
+            <td style="vertical-align: top; padding-top: 4px;">Query logs are not accessible. Lineage and Query Logs will not be displayed in Monte Carlo. Grant access to snowflake.account_usage.query_history per Monte Carlo's <a href="#">Snowflake Documentation</a></td>
+            <td style="vertical-align: top;"><a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Retry"><i class="ti ti-reload"></i></a></td>
+          </tr>
+          <tr>
+            <td class="checky"><i class="ti ti-chevron-right"></i></td>
+            <td class="checky"><i class="ti ti-circle-check success"></i></td>
+            <td>Copy history</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="checky"><i class="ti ti-chevron-right"></i></td>
+            <td class="checky"><i class="ti ti-circle-check success"></i></td>
+            <td>Show views in database</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="checky"><i class="ti ti-chevron-right"></i></td>
+            <td class="checky"><i class="ti ti-alert-triangle warning"></i></td>
+            <td style="white-space: nowrap;">Show external tables in database</td>
+            <td>Not sure if we still have warnings.</td>
+            <td><a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Retry"><i class="ti ti-reload"></i></a></td>
+          </tr>
+          <tr>
+            <td class="checky"><i class="ti ti-chevron-right"></i></td>
+            <td class="checky"><img src="img/loading.svg" alt=""></td>
+            <td>Show streams in database</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="checky"><i class="ti ti-chevron-right"></i></td>
+            <td class="checky"><img src="img/loading.svg" alt=""></td>
+            <td>Show tags in account</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="checky"><i class="ti ti-chevron-right"></i></td>
+            <td class="checky"><i class="ti ti-circle-check success"></i></td>
+            <td>Fetch tags</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="checky"><i class="ti ti-chevron-right"></i></td>
+            <td class="checky"><i class="ti ti-circle-check success"></i></td>
+            <td>Column metadata</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="checky"><i class="ti ti-chevron-right"></i></td>
+            <td class="checky"><i class="ti ti-circle-check success"></i></td>
+            <td style="vertical-align: top; padding-top: 6px;">Table metadata</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="checky"><i class="ti ti-chevron-right"></i></td>
+            <td class="checky"><i class="ti ti-circle-check success"></i></td>
+            <td>Select tables</td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!-- createtableau -->
+  <div class="offcanvas offcanvas-end" id="createtableau">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Create Tableau Integration</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="form-group">
+        <label>Authentication Method</label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="exRadios" id="exRadios1" value="opt1" checked>
+          <label class="form-check-label" for="exRadios1">
+            Personal Token
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="exRadios" id="exRadios2" value="opt2">
+          <label class="form-check-label" for="exRadios2">
+            Service Account
+          </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Username</label>
+        <input type="text" class="form-control" placeholder="">
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" class="form-control" placeholder="">
+      </div>
+      <div class="form-group">
+        <label>Server Name</label>
+        <input type="text" class="form-control" placeholder="">
+      </div>
+      <div class="form-group">
+        <label>Site Name</label>
+        <input type="text" class="form-control" placeholder="">
+      </div>
+      <div class="offcanvas-footer">
+        <button class="btn btn-primary" data-bs-dismiss="offcanvas">Create</button>
+        <button class="btn btn-outline-primary" data-bs-dismiss="offcanvas">Cancel</button>
+      </div>
+    </div>
+  </div>
+  <!-- draweredittableau -->
+  <div class="offcanvas offcanvas-end" id="draweredittableau">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Edit Tableau Integration</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" id="customSwitch13" checked>
+        <label class="form-check-label" for="customSwitch13">Enabled</label>
+      </div>
+      <div class="clearfix"></div>
+      <div class="form-group">
+        <label>Authentication Method</label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="exRadios" id="exRadioss1" value="opt1" checked>
+          <label class="form-check-label" for="exRadioss1">
+            Personal Token
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="exRadios" id="exRadioss2" value="opt2">
+          <label class="form-check-label" for="exRadioss2">
+            Service Account
+          </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Username</label>
+        <input type="text" class="form-control" value="sdfsdfsdf">
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" class="form-control" value="sdfgsdfsdf">
+      </div>
+      <div class="form-group">
+        <label>Server Name</label>
+        <input type="text" class="form-control" placeholder="fgjhgfjghjghj">
+      </div>
+      <div class="form-group">
+        <label>Site Name</label>
+        <input type="text" class="form-control" value="dfgdfgdfgdfg">
+      </div>
+      <div class="offcanvas-footer">
+        <button class="btn btn-primary" data-bs-dismiss="offcanvas">Save</button>
+        <button class="btn btn-outline-primary" data-bs-dismiss="offcanvas">Cancel</button>
+      </div>
+    </div>
+  </div>
+  <!-- drawercreateredshift -->
+  <div class="offcanvas offcanvas-end" id="drawercreateredshift">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Create Redshift Integration</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="form-group">
+        <label>Username</label>
+        <input type="text" class="form-control" placeholder="">
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" class="form-control" placeholder="">
+      </div>
+      <div class="form-group">
+        <label>Host</label>
+        <input type="text" class="form-control" placeholder="redshift-cluster-1.abc123xyz.us-east-2.redshift.amazonaws.com">
+      </div>
+      <div class="form-group">
+        <label>PORT</label>
+        <input type="text" class="form-control" placeholder="5439">
+      </div>
+      <div class="form-group">
+        <label>Database Name</label>
+        <input type="text" class="form-control" placeholder="">
+      </div>
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" class="form-control" placeholder="">
+      </div>
+      <div class="offcanvas-footer">
+        <button class="btn btn-primary" data-bs-dismiss="offcanvas">Create</button>
+        <button class="btn btn-outline-primary" data-bs-dismiss="offcanvas">Cancel</button>
+      </div>
+    </div>
+  </div>
+  <!-- drawercreatedatabricks -->
+  <div class="offcanvas offcanvas-end" id="drawercreatedatabricks">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Create Databricks Integration</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="form-group">
+        <label>Workspace URL</label>
+        <input type="text" class="form-control" placeholder="">
+      </div>
+      <div class="form-group">
+        <label>Workspace ID</label>
+        <input type="text" class="form-control" placeholder="">
+      </div>
+      <div class="form-group">
+        <label>Cluster ID</label>
+        <input type="text" class="form-control" placeholder="">
+      </div>
+      <div class="form-group">
+        <label>Access Token</label>
+        <input type="password" class="form-control" placeholder="">
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="skip-secret-creation" checked>
+        <label class="form-check-label" for="skip-secret-creation">Skip secret creation</label>
+      </div>
+      <div class="form-group">
+        <label>Secret Key</label>
+        <input type="password" class="form-control" value="monte-carlo-collector-gateway-secret">
+      </div>
+      <div class="form-group">
+        <label>Secret Scope</label>
+        <input type="password" class="form-control" value="monte-carlo-collector-gateway-scope">
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="skip-notebook-creation" checked>
+        <label class="form-check-label" for="skip-notebook-creation">Skip notebook creation</label>
+      </div>
+      <div class="form-group">
+        <label>Job ID</label>
+        <input type="text" class="form-control" placeholder="">
+      </div>
+      <div class="form-group">
+        <label>Job Name</label>
+        <input type="text" class="form-control" placeholder="">
+      </div>
+      <div class="form-group">
+        <label>Notebook Path</label>
+        <input type="text" class="form-control" placeholder="">
+      </div>
+      <div class="form-group">
+        <label>UUID</label>
+        <input type="text" class="form-control" placeholder="">
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="skip-validation" checked>
+        <label class="form-check-label" for="skip-validation">Skip validation<br><span class="text-muted">Skip all connection tests</span></label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="validate-only" checked>
+        <label class="form-check-label" for="validate-only">Validate only<br><span class="text-muted">Run connection tests without adding</span></label>
+      </div>
+      <div class="clearfix"></div>
+      <div class="offcanvas-footer">
+        <button class="btn btn-primary" data-bs-dismiss="offcanvas">Create</button>
+        <button class="btn btn-outline-primary" data-bs-dismiss="offcanvas">Cancel</button>
+      </div>
+    </div>
+  </div>
+  <!-- databrix -->
+  <div class="offcanvas offcanvas-end" id="databrix">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Edit Databricks Integration</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="form-group">
+        <label>Workspace URL</label>
+        <input type="text" class="form-control" value="value">
+      </div>
+      <div class="form-group">
+        <label>Workspace ID</label>
+        <input type="text" class="form-control" value="value">
+      </div>
+      <div class="form-group">
+        <label>Cluster ID</label>
+        <input type="text" class="form-control" value="value">
+      </div>
+      <div class="form-group">
+        <label>Access Token</label>
+        <input type="password" class="form-control" value="value">
+      </div>
+      <div class="clearfix"></div>
+      <div class="offcanvas-footer">
+        <button class="btn btn-primary" data-bs-dismiss="offcanvas">Save</button>
+        <button class="btn btn-outline-primary" data-bs-dismiss="offcanvas">Cancel</button>
+      </div>
+    </div>
+  </div>
+  <!-- drawerjira -->
+  <div class="offcanvas offcanvas-end" id="drawerjira">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Create Jira Integration</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="form-group">
+        <label>Username</label>
+        <input type="text" class="form-control" placeholder="">
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" class="form-control" placeholder="">
+      </div>
+      <div class="form-group">
+        <label>Other Name</label>
+        <input type="text" class="form-control" placeholder="">
+      </div>
+      <div class="form-group">
+        <label>Other Name</label>
+        <input type="text" class="form-control" placeholder="">
+      </div>
+      <div class="offcanvas-footer">
+        <button class="btn btn-primary" data-bs-dismiss="offcanvas">Create</button>
+        <button class="btn btn-outline-primary" data-bs-dismiss="offcanvas">Cancel</button>
+      </div>
+    </div>
+  </div>
+  <!-- timezones -->
+  <div class="modal fade" id="timezones">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Edit Timezone</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>Timezone</label>
+            <input type="text" class="form-control" placeholder="Search...">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Save</button>
+          <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/mc.js"></script>
+</body>
+</html>

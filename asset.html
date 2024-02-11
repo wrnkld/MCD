@@ -1,0 +1,2971 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/css/ion.rangeSlider.min.css">
+  <link href="css/mc.css" rel="stylesheet">
+  <style>
+  .card-title img { margin-right: 8px; } .offcanvas.offcanvas-end.overflow-auto { width: 1200px; } .card-text::-webkit-scrollbar { display: none; }
+  .card-img-top { background: #F3F9FF; border-radius: 18px; height: 36px; width: 36px; padding: 6px; margin: 16px 0 0 16px; vertical-align: middle;}
+  .mondrian { width: 96px; text-align: center; }
+  th { white-space: nowrap; }
+  </style>
+  <title>Monte Carlo - Asset</title>
+</head>
+<body>
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <ul class="navbar-nav mr-auto">
+      <li class="navbar-brand">MC</li>
+      <li class="nav-item">
+        <a class="nav-link" href="index.html">Dashboards</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="monitors.html">Monitors</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="incidents.html">Incidents</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="performance.html">Performance</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="assets.html">Assets</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="settings.html">Settings</a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav ms-auto w-100 justify-content-end">
+      <li class="nav-item">
+        <a class="nav-link" href="#"><i class="ti ti-bell"></i></a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          All
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li class="dropdown-header">Domains</li>
+          <li><a class="dropdown-item" href="#">All <i class="ti ti-check float-right"></i></a></li>
+          <li><a class="dropdown-item" href="#">Analytics</a></li>
+          <li><a class="dropdown-item" href="#">Marketing</a></li>
+          <li><a class="dropdown-item" href="#">Raw</a></li>
+          <li><a class="dropdown-item" href="#">Test</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="settings.html">Create Domain</a></li>
+        </ul>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Matthew Stevens
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li class="dropdown-header">Account ID</li>
+          <li><a class="dropdown-item" href="#">d72bc4d1-f675-4d72-82a1-418220cca709</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">EDT timezone</a></li>
+          <li><a class="dropdown-item" href="#">Docs</a></li>
+          <li><a class="dropdown-item" href="#">Changelog</a></li>
+          <li><a class="dropdown-item" href="#">Support</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">Log Out</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  <ul class="navigation_sub">
+    <li>
+      <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Open Tree"><i class="ti ti-layout-sidebar-right-collapse"></i></a>
+    </li>
+    <li class="title">
+      events
+    </li>
+    <li class="float-right">
+      <button class="btn btn-primary" type="button">Create Monitor</button>
+    </li>
+    <li class="float-right">
+      <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown">Past week</button>
+      <div class="dropdown-menu dropdown-menu-end">
+        <a class="dropdown-item" href="#">Yesterday</a>
+        <a class="dropdown-item" href="#">Past 3 days</a>
+        <a class="dropdown-item" href="#">Past 5 days</a>
+        <a class="dropdown-item" href="#">Past week</a>
+        <a class="dropdown-item" href="#">Past month</a>
+        <a class="dropdown-item" href="#">Custom</a>
+      </div>
+    </li>
+    <li class="float-right">
+      <a href="#" class="btn btn-link"><i class="ti ti-plug" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Test Connection"></i></a>
+    </li>
+    <li class="float-right">
+      <a href="#" class="btn btn-link"><i class="ti ti-bell-ringing" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Mute Table"></i></a>
+    </li>
+    <!-- <li class="float-right"><a href="#" class="btn btn-link" data-bs-toggle="offcanvas" data-bs-target="#draweralation"><img src="img/logo_alation.svg" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Escalate to Alation"></a></li> -->
+  </ul>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <ul class="nav nav-tabz">
+          <li class="nav-item">
+            <a class="nav-link active" data-bs-toggle="tab" href="#Overview">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#FullLineage">Lineage</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#Monitors">Monitors</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#Profile">Data Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#Reports">Downstream Reports</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#General">General Information</a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="Overview">
+            <div class="row">
+              <!-- timeline -->
+              <div class="col-md-12">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="card-title"><img src="img/incident.svg" alt="">Incident Timeline</div>
+                    <div class="card-text">
+                      <div id="chartevents" class="chartz" style="height: 164px;"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <!-- freshness -->
+              <div class="col-md-6">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="float-right">
+                      <a href="#" class="btn btn-link"><i class="ti ti-circle-plus" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Create Monitor"></i></a>
+                      <a href="#" class="btn btn-outline-primary btn-sm" data-bs-toggle="offcanvas" data-bs-target="#drawerfreshness">View Details</a>
+                    </div>
+                    <div class="float-right" style="margin-top: -6px;">
+                      <div class="badge rounded-pill text-bg-info" style="margin-right: 8px;">3 rules</div>
+                      <a href="#" data-bs-toggle="modal" data-bs-target="#detectorfreshness"><div class="badge rounded-pill text-bg-success">Active</div></a>
+                    </div>
+                    <div class="card-title"><img src="img/freshness.svg" alt="">Freshness</div>
+                    <div class="card-text">
+                      <div id="chartfreshness1" class="chartz"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- volume -->
+              <div class="col-md-6">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="float-right">
+                      <a href="#" class="btn btn-link"><i class="ti ti-circle-plus" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Create Monitor"></i></a>
+                      <a href="#" class="btn btn-outline-primary btn-sm" data-bs-toggle="offcanvas" data-bs-target="#drawervolume">View Details</a>
+                    </div>
+                    <div class="float-right" style="margin-top: -6px;">
+                      <a href="#" data-bs-toggle="modal" data-bs-target="#detectorvolume"><div class="badge rounded-pill text-bg-success">2 Active</div></a>
+                    </div>
+                    <div class="card-title"><img src="img/volume.svg" alt="">Volume</div>
+                    <div class="card-text">
+                      <div id="chartvolume1" class="chartz"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <!-- Airflow -->
+              <div class="col-md-6">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="float-right">
+                      <a href="#" class="btn btn-outline-primary btn-sm" data-bs-toggle="offcanvas" data-bs-target="#drawerairflow">View Details</a>
+                    </div>
+                    <div class="card-title"><img src="img/logo_airflow.svg" alt="">Airflow</div>
+                    <div class="card-text">
+                      <div id="chartairflow1" class="chartz"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- dbt -->
+              <div class="col-md-6">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="float-right">
+                      <a href="#" class="btn btn-outline-primary btn-sm" data-bs-toggle="offcanvas" data-bs-target="#drawerdbt">View Details</a>
+                    </div>
+                    <div class="card-title"><img src="img/logo_dbt.svg" alt="">dbt</div>
+                    <div class="card-text">
+                      <div id="chartdbt1" class="chartz"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <!-- query -->
+              <div class="col-md-6">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="float-right">
+                      <a href="#" class="btn btn-outline-primary btn-sm" data-bs-toggle="offcanvas" data-bs-target="#drawerquery">View Details</a>
+                    </div>
+                    <div class="card-title"><img src="img/querylogs.svg" alt="">Query Logs</div>
+                    <div class="card-text">
+                      <div id="chartquery1" class="chartz"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- GitHub -->
+              <div class="col-md-6">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="float-right">
+                      <a href="#" class="btn btn-outline-primary btn-sm" data-bs-toggle="offcanvas" data-bs-target="#drawergithub">View Details</a>
+                    </div>
+                    <div class="card-title"><img src="img/logo_github.svg" alt="">GitHub</div>
+
+                    <div class="card-text">
+                      <table class="table table-outside">
+                        <thead>
+                          <tr>
+                            <th>Pull Request</th>
+                            <th>Repository</th>
+                            <th>Author</th>
+                            <th>Merged</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><img src="img/logo_github.svg" alt="GitHub" class="metric-logo"><a href="#">3476 style: fix typography and layout in integrations page</a></td>
+                            <td><a href="#">monte-carlo-data/dbt</a></td>
+                            <td style="white-space: nowrap;"><img src="https://avatars.githubusercontent.com/u/18616324?s=96&v=4" class="avatar" alt="">alesmit</td>
+                            <td style="white-space: nowrap;">6 hours ago</td>
+                          </tr>
+                          <tr>
+                            <td><img src="img/logo_github.svg" alt="GitHub" class="metric-logo"><a href="#">3474 feat: [Alert Skip] Add static rule option back in</a></td>
+                            <td><a href="#">monte-carlo-data/saas-serverless</a></td>
+                            <td style="white-space: nowrap;"><img src="https://avatars.githubusercontent.com/u/4431460?s=96&v=4" class="avatar" alt="">benitezfede</td>
+                            <td style="white-space: nowrap;">2 weeks ago</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <!-- fivetran -->
+              <div class="col-md-12">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="float-right">
+                      <a href="#" class="btn btn-outline-primary btn-sm" data-bs-toggle="offcanvas" data-bs-target="#drawerfivetran">View Details</a>
+                    </div>
+                    <div class="card-title"><img src="img/logo_fivetran.svg" alt="">Fivetran</div>
+                    <div class="card-text">
+                      <div class="badge rounded-pill text-bg-success">2 Active</div> connectors
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" id="FullLineage">
+            <div class="row">
+              <div class="col-md-2">
+                <div class="stickier">
+                  <!-- view -->
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="card-title">View</div>
+                      <div class="card-text">
+                        <div class="form-check form-switch">
+                          <input class="form-check-input" type="checkbox" id="customSwitch296">
+                          <label class="form-check-label" for="customSwitch296">Show field lineage</label>
+                        </div>
+                        <div class="form-check form-switch">
+                          <input class="form-check-input" type="checkbox" id="customSwitch236" checked>
+                          <label class="form-check-label" for="customSwitch236">Show full table names</label>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="form-group">
+                          <label>Direction</label>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="DirectionRadios" id="Direction1" value="Direction1">
+                            <label class="form-check-label" for="Direction1">
+                              Upstream
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="DirectionRadios" id="Direction2" value="Direction2" checked>
+                            <label class="form-check-label" for="Direction2">
+                              Downstream
+                            </label>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label>Depth</label>
+                          <input type="text" value="" id="demo-step-asset">
+                        </div>
+                        <div class="form-group">
+                          <label>Asset Types</label>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="AssetTypes1" checked>
+                            <label class="form-check-label" for="AssetTypes1">Tables</label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="AssetTypes2" checked>
+                            <label class="form-check-label" for="AssetTypes2">Looker Views</label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="AssetTypes3" checked>
+                            <label class="form-check-label" for="AssetTypes3">Looker Explores</label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="AssetTypes4" checked>
+                            <label class="form-check-label" for="AssetTypes4">Looker Reports</label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="clearfix"></div>
+                  <!-- incidents -->
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="card-title">Incidents</div>
+                      <div class="card-text">
+                        <div class="form-check form-switch">
+                          <input class="form-check-input" type="checkbox" id="customSwitch237">
+                          <label class="form-check-label" for="customSwitch237">Show normalized incidents</label>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="form-group">
+                          <label>Incident Overlay</label>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="OverlayRadios" id="Overlay0" value="Overlay0">
+                            <label class="form-check-label" for="Overlay0">
+                              None
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="OverlayRadios" id="Overlay1" value="Overlay1">
+                            <label class="form-check-label" for="Overlay1">
+                              Past 1 hour
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="OverlayRadios" id="Overlay2" value="Overlay2" checked>
+                            <label class="form-check-label" for="Overlay2">
+                              Past 3 hours
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="OverlayRadios" id="Overlay3" value="Overlay3">
+                            <label class="form-check-label" for="Overlay3">
+                              Past 12 hours
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="OverlayRadios" id="Overlay4" value="Overlay4">
+                            <label class="form-check-label" for="Overlay4">
+                              Past 1 day
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="OverlayRadios" id="Overlay5" value="Overlay5">
+                            <label class="form-check-label" for="Overlay5">
+                              Past 7 days
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-10">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="float-right">
+                      <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Download"><i class="ti ti-download"></i></a>
+                    </div>
+                    <div class="float-right">
+                      <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Fullscreen"><i class="ti ti-window-maximize"></i></a>
+                    </div>
+                    <div class="float-right">
+                      <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Center"><i class="ti ti-focus-centered"></i></a>
+                    </div>
+                    <div class="float-right">
+                      <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Zoom Out"><i class="ti ti-zoom-out"></i></a>
+                    </div>
+                    <div class="float-right">
+                      <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Zoom In"><i class="ti ti-zoom-in"></i></a>
+                    </div>
+                    <div class="card-title"><img src="img/tablelineage.svg" alt="">Lineage</div>
+                    <div class="card-text">
+                      <div id="lineage" class="chartz" style="height: calc(100vh - 352px);"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" id="Monitors">
+            <div class="row">
+              <div class="col-md-9">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="card-title">Table monitors</div>
+                    <div class="card-text">
+                      <table class="table table-outside">
+                        <thead>
+                          <tr>
+                            <th style="width: 450px;"></th>
+                            <th class="mondrian">Automated</th>
+                            <th class="mondrian">Manual</th>
+                            <th class="mondrian"></th>
+                            <th class="mondrian"></th>
+                            <th></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Freshness</td>
+                            <td class="mondrian inc-resolved"><i class="ti ti-check success"></i></td>
+                            <td class="mondrian inc-nostatus"><a href="#">2</a></td>
+                            <td class="mondrian"><a href="#" class="btn btn-link"><i class="ti ti-circle-plus" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Create"></i></a></td>
+                            <td class="mondrian"></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Volume</td>
+                            <td class="mondrian inc-nostatus"><a href="#">1</a></td>
+                            <td class="mondrian"><a href="#" class="btn btn-link"><i class="ti ti-circle-plus" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Create"></i></a></td>
+                            <td class="mondrian"></td>
+                            <td class="mondrian"></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Schema</td>
+                            <td class="mondrian inc-investigating"><a href="#">2</a></td>
+                            <td class="mondrian"><a href="#" class="btn btn-link"><i class="ti ti-circle-plus" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Create"></i></a></td>
+                            <td class="mondrian"></td>
+                            <td class="mondrian"></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>SQL Rule</td>
+                            <td class="mondrian"><a href="#" class="btn btn-link"><i class="ti ti-circle-plus" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Create"></i></a></td>
+                            <td class="mondrian inc-resolved"><i class="ti ti-check success"></i></td>
+                            <td class="mondrian inc-nostatus"><a href="#">1</a></td>
+                            <td class="mondrian"><a href="#" class="btn btn-link"><i class="ti ti-circle-plus" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Create"></i></a></td>
+                            <td></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="card">
+                  <div class="card-body">
+                    <div class="card-title">Field metrics</div>
+                    <div class="card-text">
+                      <table class="table table-outside">
+                        <thead>
+                          <tr>
+                            <th style="width: 200px;"></th>
+                            <th style="width: 150px;"></th>
+                            <th style="width: 100px;"></th>
+                            <th class="mondrian">% null</th>
+                            <th class="mondrian">% unique</th>
+                            <th class="mondrian">% zero</th>
+                            <th class="mondrian">% negative</th>
+                            <th class="mondrian">Median</th>
+                            <th class="mondrian">Mean</th>
+                            <th class="mondrian">Max</th>
+                            <th class="mondrian">Min</th>
+                            <th></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Field Name</td>
+                            <td class="text-muted">TEXT</td>
+                            <td>0.99</td>
+                            <td class="mondrian inc-resolved"><i class="ti ti-check success"></i></td>
+                            <td class="mondrian inc-nostatus"><a href="#">2</a></td>
+                            <td class="mondrian"><a href="#" class="btn btn-link"><i class="ti ti-circle-plus" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Create"></i></a></td>
+                            <td class="mondrian inc-nostatus"><a href="#">1</a></td>
+                            <td class="mondrian"><a href="#" class="btn btn-link"><i class="ti ti-circle-plus" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Create"></i></a></td>
+                            <td class="mondrian"><a href="#" class="btn btn-link"><i class="ti ti-circle-plus" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Create"></i></a></td>
+                            <td class="mondrian"><a href="#" class="btn btn-link"><i class="ti ti-circle-plus" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Create"></i></a></td>
+                            <td class="mondrian"><a href="#" class="btn btn-link"><i class="ti ti-circle-plus" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Create"></i></a></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Field Name</td>
+                            <td class="text-muted">NUMERIC</td>
+                            <td>0.94</td>
+                            <td class="mondrian inc-nostatus"><a href="#">1</a></td>
+                            <td class="mondrian"><a href="#" class="btn btn-link" data-bs-toggle="offcanvas" data-bs-target="#drawerfieldmetric"><i class="ti ti-circle-plus" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Create"></i></a></td>
+                            <td class="mondrian"><a href="#" class="btn btn-link"><i class="ti ti-circle-plus" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Create"></i></a></td>
+                            <td class="mondrian"><a href="#" class="btn btn-link"><i class="ti ti-circle-plus" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Create"></i></a></td>
+                            <td class="mondrian"><a href="#" class="btn btn-link"><i class="ti ti-circle-plus" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Create"></i></a></td>
+                            <td class="mondrian"><a href="#" class="btn btn-link"><i class="ti ti-circle-plus" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Create"></i></a></td>
+                            <td class="mondrian"><a href="#" class="btn btn-link"><i class="ti ti-circle-plus" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Create"></i></a></td>
+                            <td class="mondrian"><a href="#" class="btn btn-link"><i class="ti ti-circle-plus" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Create"></i></a></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Field Name</td>
+                            <td class="text-muted">NUMERIC</td>
+                            <td>0.89</td>
+                            <td class="mondrian inc-investigating"><a href="#">2</a></td>
+                            <td class="mondrian"><a href="#" class="btn btn-link"><i class="ti ti-circle-plus" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Create"></i></a></td>
+                            <td class="mondrian"><a href="#" class="btn btn-link"><i class="ti ti-circle-plus" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Create"></i></a></td>
+                            <td class="mondrian"><a href="#" class="btn btn-link"><i class="ti ti-circle-plus" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Create"></i></a></td>
+                            <td class="mondrian inc-nostatus"><a href="#">2</a></td>
+                            <td class="mondrian"><a href="#" class="btn btn-link"><i class="ti ti-circle-plus" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Create"></i></a></td>
+                            <td class="mondrian"><a href="#" class="btn btn-link"><i class="ti ti-circle-plus" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Create"></i></a></td>
+                            <td class="mondrian"><a href="#" class="btn btn-link"><i class="ti ti-circle-plus" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Create"></i></a></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Field Name</td>
+                            <td class="text-muted">TEXT</td>
+                            <td>0.88</td>
+                            <td class="mondrian"><a href="#" class="btn btn-link"><i class="ti ti-circle-plus" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Create"></i></a></td>
+                            <td class="mondrian inc-resolved"><i class="ti ti-check success"></i></td>
+                            <td class="mondrian inc-nostatus"><a href="#">1</a></td>
+                            <td class="mondrian"><a href="#" class="btn btn-link"><i class="ti ti-circle-plus" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Create"></i></a></td>
+                            <td class="mondrian"><a href="#" class="btn btn-link"><i class="ti ti-circle-plus" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Create"></i></a></td>
+                            <td class="mondrian inc-resolved"><i class="ti ti-check success"></i></td>
+                            <td class="mondrian inc-resolved"><i class="ti ti-check success"></i></td>
+                            <td class="mondrian"><a href="#" class="btn btn-link"><i class="ti ti-circle-plus" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Create"></i></a></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Field Name</td>
+                            <td class="text-muted">TEXT</td>
+                            <td>0.88</td>
+                            <td class="mondrian"><a href="#" class="btn btn-link"><i class="ti ti-circle-plus" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Create"></i></a></td>
+                            <td class="mondrian inc-resolved"><i class="ti ti-check success"></i></td>
+                            <td class="mondrian inc-nostatus"><a href="#">1</a></td>
+                            <td class="mondrian"><a href="#" class="btn btn-link"><i class="ti ti-circle-plus" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Create"></i></a></td>
+                            <td class="mondrian"><a href="#" class="btn btn-link"><i class="ti ti-circle-plus" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Create"></i></a></td>
+                            <td class="mondrian inc-resolved"><i class="ti ti-check success"></i></td>
+                            <td class="mondrian inc-resolved"><i class="ti ti-check success"></i></td>
+                            <td class="mondrian"><a href="#" class="btn btn-link"><i class="ti ti-circle-plus" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Create"></i></a></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Field Name</td>
+                            <td class="text-muted">TEXT</td>
+                            <td>0.88</td>
+                            <td class="mondrian"><a href="#" class="btn btn-link"><i class="ti ti-circle-plus" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Create"></i></a></td>
+                            <td class="mondrian inc-resolved"><i class="ti ti-check success"></i></td>
+                            <td class="mondrian inc-nostatus"><a href="#">1</a></td>
+                            <td class="mondrian"><a href="#" class="btn btn-link"><i class="ti ti-circle-plus" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Create"></i></a></td>
+                            <td class="mondrian"><a href="#" class="btn btn-link"><i class="ti ti-circle-plus" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Create"></i></a></td>
+                            <td class="mondrian inc-resolved"><i class="ti ti-check success"></i></td>
+                            <td class="mondrian inc-resolved"><i class="ti ti-check success"></i></td>
+                            <td class="mondrian"><a href="#" class="btn btn-link"><i class="ti ti-circle-plus" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Create"></i></a></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Field Name</td>
+                            <td class="text-muted">TEXT</td>
+                            <td>0.88</td>
+                            <td class="mondrian"><a href="#" class="btn btn-link"><i class="ti ti-circle-plus" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Create"></i></a></td>
+                            <td class="mondrian inc-resolved"><i class="ti ti-check success"></i></td>
+                            <td class="mondrian inc-nostatus"><a href="#">1</a></td>
+                            <td class="mondrian"><a href="#" class="btn btn-link"><i class="ti ti-circle-plus" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Create"></i></a></td>
+                            <td class="mondrian"><a href="#" class="btn btn-link"><i class="ti ti-circle-plus" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Create"></i></a></td>
+                            <td class="mondrian inc-resolved"><i class="ti ti-check success"></i></td>
+                            <td class="mondrian inc-resolved"><i class="ti ti-check success"></i></td>
+                            <td class="mondrian"><a href="#" class="btn btn-link"><i class="ti ti-circle-plus" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Create"></i></a></td>
+                            <td></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="float-right">
+                      <a href="#" class="btn btn-outline-primary btn-sm" data-bs-toggle="offcanvas" data-bs-target="#drawersettingz">Edit</a>
+                    </div>
+                    <div class="card-title">Field monitor settings</div>
+                    <div class="card-subtitle">This is a line about it</div>
+                    <div class="card-text">
+                      <div class="form-group">
+                        <label>Select fields to segment the data</label>
+                        <div class="font-weight: bold;">account_id</div>
+                      </div>
+                      <hr>
+                      <div class="form-group">
+                        <label>Select timestamp field</label>
+                        <div class="font-weight: bold;">created_on</div>
+                      </div>
+                      <hr>
+                      <div class="form-group">
+                        <label>Define lookback period length as</label>
+                        <div class="font-weight: bold;">30 minutes</div>
+                      </div>
+                      <hr>
+                      <div class="form-group">
+                        <label>Aggregate metrics by</label>
+                        <div class="font-weight: bold;">hour</div>
+                      </div>
+                      <hr>
+                      <div class="form-group">
+                        <label>Schedule</label>
+                        <div>Dynamic</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" id="Profile">
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="float-right">
+                      <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Copy Reproduce Query"><i class="ti ti-message-code"></i></a>
+                      <a href="#" class="btn btn-outline-primary btn-sm" data-bs-toggle="offcanvas" data-bs-target="#drawerprofile">Run Profile</a>
+                    </div>
+                    <div class="card-title">Data profile</div>
+                    <div class="card-text">
+
+                      <div class="row">
+                        <div class="col-md-3">
+                          <div class="metric-start">
+                            <div class="metric-count">Row Count</div>
+                            <div class="metric-label">254,392</div>
+                          </div>
+                        </div>
+                        <div class="col-md-3">
+                          <div class="metric">
+                            <div class="metric-count">Profile Date</div>
+                            <div class="metric-label">Dec 22nd 2024 13:21 EDT</div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="metric">
+                            <div class="metric-count">WHERE</div>
+                            <div class="metric-label">start_session >= current_date()-180</div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" class="form-control" placeholder="Search fields...">
+                          </div>
+                        </div>
+                        <div class="col-md-3">
+                          <div class="form-group">
+                            <label>Segment</label>
+                            <select class="form-select">
+                              <option>2U</option>
+                              <option>BMG</option>
+                              <option>Gelato</option>
+                              <option>Opendoor</option>
+                              <option>Worldcoin</option>
+                              <option>Yotpo</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <table class="table table-outside">
+                        <thead>
+                          <tr>
+                            <th>Type</th>
+                            <th>Field</th>
+                            <th class="right">% null</th>
+                            <th class="right">Count null</th>
+                            <th class="right">% unique</th>
+                            <th class="right">Count unique</th>
+                            <th class="right">Mean</th>
+                            <th class="right">Median</th>
+                            <th class="right">Min</th>
+                            <th class="right">Max</th>
+                            <th class="right">Std Dev</th>
+                            <th>Distribution</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td class="checky"><i class="ti ti-abc" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="VARCHAR(16777216)"></i></td>
+                            <td>account_created_on</td>
+                            <td class="right">3937</td>
+                            <td class="right">3937</td>
+                            <td class="right">3937</td>
+                            <td class="right">3937</td>
+                            <td class="right">-</td>
+                            <td class="right">-</td>
+                            <td class="right">-</td>
+                            <td class="right">-</td>
+                            <td class="right">-</td>
+                            <td style="width: 320px;"><div id="profile1" style="height: 36px; width: 100%;"></div></td>
+                          </tr>
+                          <tr>
+                            <td class="checky"><i class="ti ti-abc" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="VARCHAR(16777216)"></i></td>
+                            <td>account_id</td>
+                            <td class="right">3937</td>
+                            <td class="right">3937</td>
+                            <td class="right">3937</td>
+                            <td class="right">3937</td>
+                            <td class="right">-</td>
+                            <td class="right">-</td>
+                            <td class="right">-</td>
+                            <td class="right">-</td>
+                            <td class="right">-</td>
+                            <td style="width: 320px;"><div id="profile2" style="height: 36px; width: 100%;"></div></td>
+                          </tr>
+                          <tr>
+                            <td class="checky"><i class="ti ti-abc" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="VARCHAR(16777216)"></i></td>
+                            <td>account_name</td>
+                            <td class="right">3937</td>
+                            <td class="right">3937</td>
+                            <td class="right">3937</td>
+                            <td class="right">3937</td>
+                            <td class="right">-</td>
+                            <td class="right">-</td>
+                            <td class="right">-</td>
+                            <td class="right">-</td>
+                            <td class="right">-</td>
+                            <td style="width: 320px;"><div id="profile3" style="height: 36px; width: 100%;"></div></td>
+                          </tr>
+                          <tr>
+                            <td class="checky"><i class="ti ti-abc" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="VARCHAR(16777216)"></i></td>
+                            <td>bi_integrations</td>
+                            <td class="right">3937</td>
+                            <td class="right">3937</td>
+                            <td class="right">3937</td>
+                            <td class="right">3937</td>
+                            <td class="right">-</td>
+                            <td class="right">-</td>
+                            <td class="right">-</td>
+                            <td class="right">-</td>
+                            <td class="right">-</td>
+                            <td style="width: 320px;"><div id="profile4" style="height: 36px; width: 100%;"></div></td>
+                          </tr>
+                          <tr>
+                            <td class="checky"><i class="ti ti-123" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="NUMBER(38,0)"></i></td>
+                            <td>bi_integration_count</td>
+                            <td class="right">3937</td>
+                            <td class="right">3937</td>
+                            <td class="right">3937</td>
+                            <td class="right">3937</td>
+                            <td class="right">3937</td>
+                            <td class="right">3937</td>
+                            <td class="right">3937</td>
+                            <td class="right">3937</td>
+                            <td class="right">3937</td>
+                            <td style="width: 320px;"><div id="profile5" style="height: 36px; width: 100%;"></div></td>
+                          </tr>
+                          <tr>
+                            <td class="checky"><i class="ti ti-123" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="NUMBER(38,0)"></i></td>
+                            <td>custom_sql_rule_count</td>
+                            <td class="right">3937</td>
+                            <td class="right">3937</td>
+                            <td class="right">3937</td>
+                            <td class="right">3937</td>
+                            <td class="right">3937</td>
+                            <td class="right">3937</td>
+                            <td class="right">3937</td>
+                            <td class="right">3937</td>
+                            <td class="right">3937</td>
+                            <td style="width: 320px;"><div id="profile6" style="height: 36px; width: 100%;"></div></td>
+                          </tr>
+                          <tr>
+                            <td class="checky"><i class="ti ti-123" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="NUMBER(38,0)"></i></td>
+                            <td>dim_tracking_monitor_count</td>
+                            <td class="right">3937</td>
+                            <td class="right">3937</td>
+                            <td class="right">3937</td>
+                            <td class="right">3937</td>
+                            <td class="right">3937</td>
+                            <td class="right">3937</td>
+                            <td class="right">3937</td>
+                            <td class="right">3937</td>
+                            <td class="right">3937</td>
+                            <td style="width: 320px;"><div id="profile7" style="height: 36px; width: 100%;"></div></td>
+                          </tr>
+                          <tr>
+                            <td class="checky"><i class="ti ti-123" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="NUMBER(38,0)"></i></td>
+                            <td>domains_count</td>
+                            <td class="right">3937</td>
+                            <td class="right">3937</td>
+                            <td class="right">3937</td>
+                            <td class="right">3937</td>
+                            <td class="right">3937</td>
+                            <td class="right">3937</td>
+                            <td class="right">3937</td>
+                            <td class="right">3937</td>
+                            <td class="right">3937</td>
+                            <td style="width: 320px;"><div id="profile8" style="height: 36px; width: 100%;"></div></td>
+                          </tr>
+                          <tr>
+                            <td class="checky"><i class="ti ti-123" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="NUMBER(38,0)"></i></td>
+                            <td>email_recipients</td>
+                            <td class="right">3937</td>
+                            <td class="right">3937</td>
+                            <td class="right">3937</td>
+                            <td class="right">3937</td>
+                            <td class="right">3937</td>
+                            <td class="right">3937</td>
+                            <td class="right">3937</td>
+                            <td class="right">3937</td>
+                            <td class="right">3937</td>
+                            <td style="width: 320px;"><div id="profile9" style="height: 36px; width: 100%;"></div></td>
+                          </tr>
+                          <tr>
+                            <td class="checky"><i class="ti ti-123" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="NUMBER(38,0)"></i></td>
+                            <td>event_count_last_7_days</td>
+                            <td class="right">3937</td>
+                            <td class="right">3937</td>
+                            <td class="right">3937</td>
+                            <td class="right">3937</td>
+                            <td class="right">3937</td>
+                            <td class="right">3937</td>
+                            <td class="right">3937</td>
+                            <td class="right">3937</td>
+                            <td class="right">3937</td>
+                            <td style="width: 320px;"><div id="profile10" style="height: 36px; width: 100%;"></div></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <nav>
+                        <ul class="pagination justify-content-end">
+                          <li class="page-item">
+                            <a class="page-link" href="#">
+                              <i class="ti ti-chevron-left"></i>
+                            </a>
+                          </li>
+                          <li class="page-item"><a class="page-link" href="#">1</a></li>
+                          <li class="page-item"><a class="page-link active" href="#">2</a></li>
+                          <li class="page-item"><a class="page-link" href="#">3</a></li>
+                          <li class="page-item">
+                            <a class="page-link" href="#">
+                              <i class="ti ti-chevron-right"></i>
+                            </a>
+                          </li>
+                        </ul>
+                      </nav>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" id="Reports">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="float-right">
+                      <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Download"><i class="ti ti-download"></i></a>
+                    </div>
+                    <div class="card-title">Downstream Reports</div>
+                    <div class="card-text">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" class="form-control" placeholder="Search...">
+                          </div>
+                        </div>
+                        <div class="col-md-3">
+                          <div class="form-group">
+                            <label>Type</label>
+                            <select class="form-select">
+                              <option>All</option>
+                              <option>Looker Dashboard</option>
+                              <option>Looker Dashboard Tile</option>
+                              <option>Looker Explore</option>
+                              <option>Looker Look</option>
+                              <option>Looker View</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <table class="table table-outside">
+                        <thead>
+                          <tr>
+                            <th class="checky"></th>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Folder</th>
+                            <th class="right">Table Importance</th>
+                            <th class="right">Views</th>
+                            <th>Owner</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td class="checky"><img src="img/logo_looker.svg" alt="Looker" style="width: 24px;"></td>
+                            <td><a href="#">Sales Customer Explorer</a></td>
+                            <td>Looker Dashboard</td>
+                            <td>Folder Name</td>
+                            <td class="right">.99</td>
+                            <td class="right">144</td>
+                            <td>Mei Tao</td>
+                          </tr>
+                          <tr>
+                            <td class="checky"><img src="img/logo_looker.svg" alt="Looker" style="width: 24px;"></td>
+                            <td><a href="#">Billable Tables [Shared externally]</a></td>
+                            <td>Looker Dashboard</td>
+                            <td>Folder Name</td>
+                            <td class="right">.99</td>
+                            <td class="right">144</td>
+                            <td>Mei Tao</td>
+                          </tr>
+                          <tr>
+                            <td class="checky"><img src="img/logo_looker.svg" alt="Looker" style="width: 24px;"></td>
+                            <td><a href="#">Customer lookup (Beta)</a></td>
+                            <td>Looker Dashboard</td>
+                            <td>Folder Name</td>
+                            <td class="right">.99</td>
+                            <td class="right">144</td>
+                            <td>Mei Tao</td>
+                          </tr>
+                          <tr>
+                            <td class="checky"><img src="img/logo_looker.svg" alt="Looker" style="width: 24px;"></td>
+                            <td><a href="#">Alert Fatigue</a></td>
+                            <td>Looker Dashboard</td>
+                            <td>Folder Name</td>
+                            <td class="right">.99</td>
+                            <td class="right">144</td>
+                            <td>Mei Tao</td>
+                          </tr>
+                          <tr>
+                            <td class="checky"><img src="img/logo_looker.svg" alt="Looker" style="width: 24px;"></td>
+                            <td><a href="#">Data Governance Dashboard</a></td>
+                            <td>Looker Dashboard</td>
+                            <td>Folder Name</td>
+                            <td class="right">.99</td>
+                            <td class="right">144</td>
+                            <td>Mei Tao</td>
+                          </tr>
+                          <tr>
+                            <td class="checky"><img src="img/logo_looker.svg" alt="Looker" style="width: 24px;"></td>
+                            <td><a href="#">Customer 360</a></td>
+                            <td>Looker Dashboard</td>
+                            <td>Folder Name</td>
+                            <td class="right">.99</td>
+                            <td class="right">144</td>
+                            <td>Mei Tao</td>
+                          </tr>
+                          <tr>
+                            <td class="checky"><img src="img/logo_looker.svg" alt="Looker" style="width: 24px;"></td>
+                            <td><a href="#">Customer Health Score</a></td>
+                            <td>Looker Dashboard</td>
+                            <td>Folder Name</td>
+                            <td class="right">.99</td>
+                            <td class="right">144</td>
+                            <td>Mei Tao</td>
+                          </tr>
+                          <tr>
+                            <td class="checky"><img src="img/logo_looker.svg" alt="Looker" style="width: 24px;"></td>
+                            <td><a href="#">Customer Success FY24 Metrics and Reporting</a></td>
+                            <td>Looker Dashboard</td>
+                            <td>Folder Name</td>
+                            <td class="right">.99</td>
+                            <td class="right">144</td>
+                            <td>Mei Tao</td>
+                          </tr>
+                          <tr>
+                            <td class="checky"><img src="img/logo_looker.svg" alt="Looker" style="width: 24px;"></td>
+                            <td><a href="#">Anomaly detection monitoring</a></td>
+                            <td>Looker Dashboard</td>
+                            <td>Folder Name</td>
+                            <td class="right">.99</td>
+                            <td class="right">144</td>
+                            <td>Mei Tao</td>
+                          </tr>
+                          <tr>
+                            <td class="checky"><img src="img/logo_looker.svg" alt="Looker" style="width: 24px;"></td>
+                            <td><a href="#">GUT (Incidents)</a></td>
+                            <td>Looker Dashboard</td>
+                            <td>Folder Name</td>
+                            <td class="right">.99</td>
+                            <td class="right">144</td>
+                            <td>Mei Tao</td>
+                          </tr>
+                        </tbody>
+                      </table>
+
+                      <nav>
+                        <ul class="pagination justify-content-end">
+                          <li class="page-item">
+                            <a class="page-link" href="#">
+                              <i class="ti ti-chevron-left"></i>
+                            </a>
+                          </li>
+                          <li class="page-item"><a class="page-link" href="#">1</a></li>
+                          <li class="page-item"><a class="page-link active" href="#">2</a></li>
+                          <li class="page-item"><a class="page-link" href="#">3</a></li>
+                          <li class="page-item">
+                            <a class="page-link" href="#">
+                              <i class="ti ti-chevron-right"></i>
+                            </a>
+                          </li>
+                        </ul>
+                      </nav>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" id="General">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="float-right"><a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Description"><i class="ti ti-pencil"></i></a></div>
+                    <div class="card-title">Description</div>
+                    <div class="card-text">
+                      <div><strong>About</strong></div>
+                      <div>This table contains core stats about MC clients including user counts, created date and name.</div>
+                      <div class="clearfix"></div>
+                      <div><strong>Common Joins</strong></div>
+                      <div>This table is commonly joined with prod.accounts and prod.users to analyze user behavior across accounts.</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="card">
+                  <div class="card-body">
+                    <div class="card-title">Usage</div>
+                    <div class="card-text">
+                      <table class="table">
+                        <tbody>
+                          <tr>
+                            <td>Key Asset</td>
+                            <td>
+                              <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="customSwitch482" checked>
+                                <label class="form-check-label" for="customSwitch482">Yes</label>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Table Importance</td>
+                            <td>0.97</td>
+                          </tr>
+                          <tr>
+                            <td>Authors</td>
+                            <td>DBT_TRANSFORM</td>
+                          </tr>
+                          <tr>
+                            <td>Reads per day</td>
+                            <td>796</td>
+                          </tr>
+                          <tr>
+                            <td>Writes per day</td>
+                            <td>10</td>
+                          </tr>
+                          <tr>
+                            <td>Created</td>
+                            <td>Aug 18th 2024 13:21 EDT</td>
+                          </tr>
+                          <tr>
+                            <td>Latest update</td>
+                            <td>2 hours ago</td>
+                          </tr>
+                          <tr>
+                            <td>Latest row count</td>
+                            <td>527</td>
+                          </tr>
+                          <tr>
+                            <td>Upstream dependencies</td>
+                            <td>4</td>
+                          </tr>
+                          <tr>
+                            <td>Downstream dependencies</td>
+                            <td>0</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="float-right"><a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Add Tag"><i class="ti ti-circle-plus"></i></a></div>
+                    <div class="card-title">Tags</div>
+                    <div class="card-text">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th>Key</th>
+                            <th>Value</th>
+                            <th></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Certified</td>
+                            <td>Gold</td>
+                            <td>
+                              <div class="float-right">
+                                <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit"><i class="ti ti-pencil"></i></a>
+                                <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>dri</td>
+                            <td>Lior Gavish</td>
+                            <td>
+                              <div class="float-right">
+                                <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit"><i class="ti ti-pencil"></i></a>
+                                <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>is_prod</td>
+                            <td>true</td>
+                            <td>
+                              <div class="float-right">
+                                <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit"><i class="ti ti-pencil"></i></a>
+                                <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                  <div class="clearfix"></div>
+                <div class="card">
+                  <div class="card-body">
+                    <div class="card-title">Recent Users</div>
+                    <div class="card-text">
+                      <table class="table table-hover">
+                        <thead>
+                          <tr>
+                            <th>User</th>
+                            <th>Queries</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>DBT_TRANSFORM</td>
+                            <td>897</td>
+                          </tr>
+                          <tr>
+                            <td>LOOKER</td>
+                            <td>796</td>
+                          </tr>
+                          <tr>
+                            <td>MONTE_CARLO_USER</td>
+                            <td>610</td>
+                          </tr>
+                          <tr>
+                            <td>DDABUSH</td>
+                            <td>545</td>
+                          </tr>
+                          <tr>
+                            <td>IKAMAEV</td>
+                            <td>527</td>
+                          </tr>
+                          <tr>
+                            <td>APELTINOVICH</td>
+                            <td>113</td>
+                          </tr>
+                          <tr>
+                            <td>MSCHWEIGHAUSER</td>
+                            <td>24</td>
+                          </tr>
+                          <tr>
+                            <td>EPARDES</td>
+                            <td>5</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="card-title">Schema</div>
+                    <div class="card-text">
+                      <table class="table table-outside">
+                        <thead>
+                          <tr>
+                            <th>Field Name</th>
+                            <th>Type</th>
+                            <th>Description</th>
+                            <th>Tags</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>created_on</td>
+                            <td>varchar(16777216)</td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>account_id</td>
+                            <td>varchar(16777216)</td>
+                            <td>This is the same account_id as in event_details or table_events</td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>client</td>
+                            <td>varchar(16777216)</td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>num_of_users</td>
+                            <td>number(18,0)</td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- draweralation -->
+  <div class="offcanvas offcanvas-end overflow-auto" id="draweralation" style="width: 640px;">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Escalate to Alation</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div>There is probably some text describing what this means.</div>
+      <div class="clearfix"></div>
+
+      <div class="alert alert-warning" role="alert">
+        This is the text I wrote about https://getmontecarlo.com/assets/MCON++d72bc4d1-f675-4d72-82a1-418220cca709++37072872-336a-4bf7-9195-4938630c4a75++table++analytics:prod.active_monitors
+      </div>
+      <div style="margin-top: -16px;">
+        <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit"><i class="ti ti-pencil"></i></a>
+        <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+      </div>
+      <div class="clearfix"></div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="AddDeprecation" checked>
+        <label class="form-check-label" for="AddDeprecation">Add Alation deprecation</label>
+        <textarea class="form-control" rows="4" placeholder="">https://getmontecarlo.com/assets/MCON++d72bc4d1-f675-4d72-82a1-418220cca709++37072872-336a-4bf7-9195-4938630c4a75++table++analytics:prod.active_monitors</textarea>
+      </div>
+      <div class="clearfix"></div>
+      <a href="#" class="btn btn-primary" data-bs-dismiss="offcanvas">Save</a>
+      <a href="#" class="btn btn-outline-primary" data-bs-dismiss="offcanvas">Cancel</a>
+    </div>
+  </div>
+  <!-- drawerfreshness -->
+  <div class="offcanvas offcanvas-end overflow-auto" id="drawerfreshness">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Freshness</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="card">
+        <div class="card-body">
+          <div class="card-title"><img src="img/freshness.svg" alt="">Freshness</div>
+          <div class="card-text">
+            <div id="chartfreshness2" class="chartz"></div>
+          </div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+      <table class="table table-outside">
+        <thead>
+          <tr>
+            <th>Table Updated</th>
+            <th>Lag</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Aug 18th 2024 13:21 EDT</td>
+            <td>12 hours</td>
+          </tr>
+          <tr>
+            <td>Aug 19th 2024 13:21 EDT</td>
+            <td>12 hours</td>
+          </tr>
+          <tr>
+            <td>Aug 20th 2024 13:21 EDT</td>
+            <td>12 hours</td>
+          </tr>
+          <tr>
+            <td>Aug 21st 2024 13:21 EDT</td>
+            <td>12 hours</td>
+          </tr>
+          <tr class="table-danger">
+            <td>Aug 22nd 2024 13:21 EDT</td>
+            <td>0</td>
+          </tr>
+          <tr>
+            <td>Aug 23rd 2024 13:21 EDT</td>
+            <td>12 hours</td>
+          </tr>
+          <tr>
+            <td>Aug 24th 2024 13:21 EDT</td>
+            <td>12 hours</td>
+          </tr>
+          <tr>
+            <td>Aug 25th 2024 13:21 EDT</td>
+            <td>12 hours</td>
+          </tr>
+          <tr>
+            <td>Aug 26th 2024 13:21 EDT</td>
+            <td>12 hours</td>
+          </tr>
+          <tr>
+            <td>Aug 27st 2024 13:21 EDT</td>
+            <td>12 hours</td>
+          </tr>
+        </tbody>
+      </table>
+      <nav>
+        <ul class="pagination justify-content-end">
+          <li class="page-item">
+            <a class="page-link" href="#">
+              <i class="ti ti-chevron-left"></i>
+            </a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link active" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#">
+              <i class="ti ti-chevron-right"></i>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <!-- drawervolume -->
+  <div class="offcanvas offcanvas-end overflow-auto" id="drawervolume">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Volume</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="card">
+        <div class="card-body">
+          <div class="card-title"><img src="img/volume.svg" alt="">Volume</div>
+          <div class="card-text">
+            <div id="chartvolume2" class="chartz"></div>
+          </div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+      <table class="table table-outside">
+        <thead>
+          <tr>
+            <th>Time</th>
+            <th class="right">Total Bytes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Aug 17th 2024 10:03 EDT</td>
+            <td class="right">626467</td>
+          </tr>
+          <tr>
+            <td>Aug 17th 2024 10:03 EDT</td>
+            <td class="right">626467</td>
+          </tr>
+          <tr>
+            <td>Aug 17th 2024 10:03 EDT</td>
+            <td class="right">626467</td>
+          </tr>
+          <tr>
+            <td>Aug 17th 2024 10:03 EDT</td>
+            <td class="right">626467</td>
+          </tr>
+          <tr>
+            <td>Aug 17th 2024 10:03 EDT</td>
+            <td class="right">626467</td>
+          </tr>
+          <tr>
+            <td>Aug 17th 2024 10:03 EDT</td>
+            <td class="right">626467</td>
+          </tr>
+          <tr>
+            <td>Aug 17th 2024 10:03 EDT</td>
+            <td class="right">626467</td>
+          </tr>
+          <tr>
+            <td>Aug 17th 2024 10:03 EDT</td>
+            <td class="right">626467</td>
+          </tr>
+          <tr>
+            <td>Aug 17th 2024 10:03 EDT</td>
+            <td class="right">626467</td>
+          </tr>
+          <tr>
+            <td>Aug 17th 2024 10:03 EDT</td>
+            <td class="right">626467</td>
+          </tr>
+        </tbody>
+      </table>
+      <nav>
+        <ul class="pagination justify-content-end">
+          <li class="page-item">
+            <a class="page-link" href="#">
+              <i class="ti ti-chevron-left"></i>
+            </a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link active" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#">
+              <i class="ti ti-chevron-right"></i>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <!-- drawerdbt -->
+  <div class="offcanvas offcanvas-end overflow-auto" id="drawerdbt">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">dbt</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="nav nav-tabz">
+        <li class="nav-item">
+          <a class="nav-link active" data-bs-toggle="tab" href="#Models">Model Runs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-bs-toggle="tab" href="#Tests">Test Runs</a>
+        </li>
+      </ul>
+      <div class="tab-content">
+        <div class="tab-pane active" id="Models">
+          <div class="card">
+            <div class="card-body">
+              <div class="float-right">
+                <a href="#" class="btn btn-outline-primary btn-sm">Show Model</a>
+              </div>
+              <div class="card-title">events</div>
+              <div class="card-subtitle">common/stage/monolith/events.sql</div>
+              <div class="card-text">
+                <div id="chartdbt2" class="chartz"></div>
+              </div>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+          <table class="table table-outside">
+            <thead>
+              <tr>
+                <th class="checky"></th>
+                <th>Start</th>
+                <th>Runtime</th>
+                <th>Job</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="checky"><i class="ti ti-chevron-down"></i></td>
+                <td>Aug 18th 2024 13:21 EDT</td>
+                <td>2.32 seconds</td>
+                <td><a href="#">monolith_export</a></td>
+                <td><span class="badge rounded-pill text-bg-success">Success</span></td>
+              </tr>
+              <tr>
+                <td colspan="5" class="expanded">
+                  <pre>logs</pre>
+                </td>
+              </tr>
+              <tr>
+                <td class="checky"><i class="ti ti-chevron-right"></i></td>
+                <td>Aug 18th 2024 13:21 EDT</td>
+                <td>2.32 seconds</td>
+                <td><a href="#">monolith_export</a></td>
+                <td><span class="badge rounded-pill text-bg-danger">Error</span></td>
+              </tr>
+              <tr>
+                <td class="checky"><i class="ti ti-chevron-right"></i></td>
+                <td>Aug 18th 2024 13:21 EDT</td>
+                <td>2.32 seconds</td>
+                <td><a href="#">monolith_export</a></td>
+                <td><span class="badge rounded-pill text-bg-success">Success</span></td>
+              </tr>
+              <tr>
+                <td class="checky"><i class="ti ti-chevron-right"></i></td>
+                <td>Aug 18th 2024 13:21 EDT</td>
+                <td>2.32 seconds</td>
+                <td><a href="#">monolith_export</a></td>
+                <td><span class="badge rounded-pill text-bg-success">Success</span></td>
+              </tr>
+              <tr>
+                <td class="checky"><i class="ti ti-chevron-right"></i></td>
+                <td>Aug 18th 2024 13:21 EDT</td>
+                <td>2.32 seconds</td>
+                <td><a href="#">monolith_export</a></td>
+                <td><span class="badge rounded-pill text-bg-warning">Warn</span></td>
+              </tr>
+              <tr>
+                <td class="checky"><i class="ti ti-chevron-right"></i></td>
+                <td>Aug 18th 2024 13:21 EDT</td>
+                <td>2.32 seconds</td>
+                <td><a href="#">monolith_export</a></td>
+                <td><span class="badge rounded-pill text-bg-info">Skipped</span></td>
+              </tr>
+              <tr>
+                <td class="checky"><i class="ti ti-chevron-right"></i></td>
+                <td>Aug 18th 2024 13:21 EDT</td>
+                <td>2.32 seconds</td>
+                <td><a href="#">monolith_export</a></td>
+                <td><span class="badge rounded-pill text-bg-success">Success</span></td>
+              </tr>
+              <tr>
+                <td class="checky"><i class="ti ti-chevron-right"></i></td>
+                <td>Aug 18th 2024 13:21 EDT</td>
+                <td>2.32 seconds</td>
+                <td><a href="#">monolith_export</a></td>
+                <td><span class="badge rounded-pill text-bg-success">Success</span></td>
+              </tr>
+              <tr>
+                <td class="checky"><i class="ti ti-chevron-right"></i></td>
+                <td>Aug 18th 2024 13:21 EDT</td>
+                <td>2.32 seconds</td>
+                <td><a href="#">monolith_export</a></td>
+                <td><span class="badge rounded-pill text-bg-success">Success</span></td>
+              </tr>
+              <tr>
+                <td class="checky"><i class="ti ti-chevron-right"></i></td>
+                <td>Aug 18th 2024 13:21 EDT</td>
+                <td>2.32 seconds</td>
+                <td><a href="#">monolith_export</a></td>
+                <td><span class="badge rounded-pill text-bg-success">Success</span></td>
+              </tr>
+            </tbody>
+          </table>
+          <nav>
+            <ul class="pagination justify-content-end">
+              <li class="page-item">
+                <a class="page-link" href="#">
+                  <i class="ti ti-chevron-left"></i>
+                </a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link active" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#">
+                  <i class="ti ti-chevron-right"></i>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="tab-pane" id="Tests">
+          <div class="card">
+            <div class="card-body">
+              <div class="float-right">
+                <a href="#" class="btn btn-outline-primary btn-sm">Hide Test</a>
+              </div>
+              <div class="card-title">unique_events_uuid</div>
+              <div class="card-subtitle">unique_events_uuid.sql</div>
+              <div class="card-text">
+                <pre style="min-height: 40px;">{{ test_unique(**_dbt_generic_test_kwargs) }}</pre>
+                <div id="chartdbt3" class="chartz"></div>
+              </div>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+          <table class="table table-outside">
+            <thead>
+              <tr>
+                <th class="checky"></th>
+                <th>Test</th>
+                <th>Start</th>
+                <th>Runtime</th>
+                <th>Job</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="checky"><i class="ti ti-chevron-right"></i></td>
+                <td>unique_client_warehouses_resource_id</td>
+                <td>Aug 18th 2024 13:21 EDT</td>
+                <td>2.32 seconds</td>
+                <td><a href="#">multifarious</a></td>
+                <td><span class="badge rounded-pill text-bg-success">Pass</span></td>
+              </tr>
+              <tr>
+                <td class="checky"><i class="ti ti-chevron-right"></i></td>
+                <td>unique_client_warehouses_resource_id</td>
+                <td>Aug 18th 2024 13:21 EDT</td>
+                <td>2.32 seconds</td>
+                <td><a href="#">monolith_export</a></td>
+                <td><span class="badge rounded-pill text-bg-danger">Fail</span></td>
+              </tr>
+              <tr>
+                <td class="checky"><i class="ti ti-chevron-right"></i></td>
+                <td>unique_client_warehouses_resource_id</td>
+                <td>Aug 18th 2024 13:21 EDT</td>
+                <td>2.32 seconds</td>
+                <td><a href="#">monolith_export</a></td>
+                <td><span class="badge rounded-pill text-bg-success">Pass</span></td>
+              </tr>
+              <tr>
+                <td class="checky"><i class="ti ti-chevron-right"></i></td>
+                <td>unique_client_warehouses_resource_id</td>
+                <td>Aug 18th 2024 13:21 EDT</td>
+                <td>2.32 seconds</td>
+                <td><a href="#">monolith_export</a></td>
+                <td><span class="badge rounded-pill text-bg-success">Pass</span></td>
+              </tr>
+              <tr>
+                <td class="checky"><i class="ti ti-chevron-down"></i></td>
+                <td>unique_client_warehouses_resource_id</td>
+                <td>Aug 18th 2024 13:21 EDT</td>
+                <td>2.32 seconds</td>
+                <td><a href="#">monolith_export</a></td>
+                <td><span class="badge rounded-pill text-bg-success">Pass</span></td>
+              </tr>
+              <tr>
+                <td colspan="6" class="expanded">
+                  <pre>logs</pre>
+                </td>
+              </tr>
+              <tr>
+                <td class="checky"><i class="ti ti-chevron-right"></i></td>
+                <td>unique_client_warehouses_resource_id</td>
+                <td>Aug 18th 2024 13:21 EDT</td>
+                <td>2.32 seconds</td>
+                <td><a href="#">monolith_export</a></td>
+                <td><span class="badge rounded-pill text-bg-success">Pass</span></td>
+              </tr>
+              <tr>
+                <td class="checky"><i class="ti ti-chevron-right"></i></td>
+                <td>unique_client_warehouses_resource_id</td>
+                <td>Aug 18th 2024 13:21 EDT</td>
+                <td>2.32 seconds</td>
+                <td><a href="#">monolith_export</a></td>
+                <td><span class="badge rounded-pill text-bg-success">Pass</span></td>
+              </tr>
+              <tr>
+                <td class="checky"><i class="ti ti-chevron-right"></i></td>
+                <td>unique_client_warehouses_resource_id</td>
+                <td>Aug 18th 2024 13:21 EDT</td>
+                <td>2.32 seconds</td>
+                <td><a href="#">monolith_export</a></td>
+                <td><span class="badge rounded-pill text-bg-success">Pass</span></td>
+              </tr>
+              <tr>
+                <td class="checky"><i class="ti ti-chevron-right"></i></td>
+                <td>unique_client_warehouses_resource_id</td>
+                <td>Aug 18th 2024 13:21 EDT</td>
+                <td>2.32 seconds</td>
+                <td><a href="#">monolith_export</a></td>
+                <td><span class="badge rounded-pill text-bg-success">Pass</span></td>
+              </tr>
+              <tr>
+                <td class="checky"><i class="ti ti-chevron-right"></i></td>
+                <td>unique_client_warehouses_resource_id</td>
+                <td>Aug 18th 2024 13:21 EDT</td>
+                <td>2.32 seconds</td>
+                <td><a href="#">monolith_export</a></td>
+                <td><span class="badge rounded-pill text-bg-success">Pass</span></td>
+              </tr>
+            </tbody>
+          </table>
+          <nav>
+            <ul class="pagination justify-content-end">
+              <li class="page-item">
+                <a class="page-link" href="#">
+                  <i class="ti ti-chevron-left"></i>
+                </a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link active" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#">
+                  <i class="ti ti-chevron-right"></i>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- drawerairflow -->
+  <div class="offcanvas offcanvas-end overflow-auto" id="drawerairflow">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Airflow</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="card">
+        <div class="card-body">
+          <div class="card-title"><img src="img/logo_airflow.svg" alt="">Airflow</div>
+          <div class="card-text">
+            <div id="chartairflow2" class="chartz"></div>
+          </div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+      <ul class="nav nav-tabz">
+        <li class="nav-item">
+          <a class="nav-link active" data-bs-toggle="tab" href="#Tasks">Tasks</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-bs-toggle="tab" href="#Runs">Runs</a>
+        </li>
+      </ul>
+      <div class="tab-content">
+        <div class="tab-pane active" id="Tasks">
+          <table class="table table-outside">
+            <thead>
+              <tr>
+                <th>DAG</th>
+                <th>Task</th>
+                <th style="text-align: center;">Successful Runs</th>
+                <th style="text-align: center;">In Progress Runs</th>
+                <th style="text-align: center;">Failed Runs</th>
+                <th>Last Run</th>
+                <th>Average Duration</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href="#">monolith_export</a></td>
+                <td><a href="#">Some Task</a></td>
+                <td style="text-align: center;"><span class="badge rounded-pill text-bg-success">14</span></td>
+                <td style="text-align: center;"><span class="badge rounded-pill text-bg-warning">2</span></td>
+                <td style="text-align: center;"><span class="badge rounded-pill text-bg-danger">12</span></td>
+                <td>Aug 18th 2024 13:21 EDT</td>
+                <td>00:11:31</td>
+              </tr>
+              <tr>
+                <td><a href="#">Some DAG</a></td>
+                <td><a href="#">core_objects-dbt-models</a></td>
+                <td style="text-align: center;"><span class="badge rounded-pill text-bg-success">24</span></td>
+                <td style="text-align: center;"><span class="badge rounded-pill text-bg-warning">2</span></td>
+                <td style="text-align: center;"><span class="badge rounded-pill text-bg-danger">4</span></td>
+                <td>Aug 18th 2024 13:21 EDT</td>
+                <td>00:11:31</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="tab-pane" id="Runs">
+          <table class="table table-outside">
+            <thead>
+              <tr>
+                <th>DAG</th>
+                <th>Task</th>
+                <th>Start</th>
+                <th>End</th>
+                <th>Duration</th>
+                <th>Status</th>
+                <th>Logs</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href="#">monolith_export</a></td>
+                <td><a href="#">core_objects-dbt-models</a></td>
+                <td>Aug 18th 2024 13:21 EDT</td>
+                <td>Aug 18th 2024 13:26 EDT</td>
+                <td>00:12:49</td>
+                <td><span class="badge rounded-pill text-bg-success">Success</span></td>
+                <td><img src="img/logo_airflow.svg" alt="Airflow" class="metric-logo"><a href="#">View logs</a></td>
+              </tr>
+              <tr>
+                <td><a href="#">monolith_export</a></td>
+                <td><a href="#">core_objects-dbt-models</a></td>
+                <td>Aug 18th 2024 13:21 EDT</td>
+                <td>Aug 18th 2024 13:26 EDT</td>
+                <td>00:12:49</td>
+                <td><span class="badge rounded-pill text-bg-warning">Skipped</span></td>
+                <td><img src="img/logo_airflow.svg" alt="Airflow" class="metric-logo"><a href="#">View logs</a></td>
+              </tr>
+              <tr>
+                <td><a href="#">monolith_export</a></td>
+                <td><a href="#">core_objects-dbt-models</a></td>
+                <td>Aug 18th 2024 13:21 EDT</td>
+                <td>Aug 18th 2024 13:26 EDT</td>
+                <td>00:12:49</td>
+                <td><span class="badge rounded-pill text-bg-success">Success</span></td>
+                <td><img src="img/logo_airflow.svg" alt="Airflow" class="metric-logo"><a href="#">View logs</a></td>
+              </tr>
+              <tr>
+                <td><a href="#">monolith_export</a></td>
+                <td><a href="#">core_objects-dbt-models</a></td>
+                <td>Aug 18th 2024 13:21 EDT</td>
+                <td>Aug 18th 2024 13:26 EDT</td>
+                <td>00:12:49</td>
+                <td><span class="badge rounded-pill text-bg-success">Success</span></td>
+                <td><img src="img/logo_airflow.svg" alt="Airflow" class="metric-logo"><a href="#">View logs</a></td>
+              </tr>
+              <tr>
+                <td><a href="#">monolith_export</a></td>
+                <td><a href="#">core_objects-dbt-models</a></td>
+                <td>Aug 18th 2024 13:21 EDT</td>
+                <td>Aug 18th 2024 13:26 EDT</td>
+                <td>00:12:49</td>
+                <td><span class="badge rounded-pill text-bg-danger">Failed</span></td>
+                <td><img src="img/logo_airflow.svg" alt="Airflow" class="metric-logo"><a href="#">View logs</a></td>
+              </tr>
+              <tr>
+                <td><a href="#">monolith_export</a></td>
+                <td><a href="#">core_objects-dbt-models</a></td>
+                <td>Aug 18th 2024 13:21 EDT</td>
+                <td>Aug 18th 2024 13:26 EDT</td>
+                <td>00:12:49</td>
+                <td><span class="badge rounded-pill text-bg-success">Success</span></td>
+                <td><img src="img/logo_airflow.svg" alt="Airflow" class="metric-logo"><a href="#">View logs</a></td>
+              </tr>
+              <tr>
+                <td><a href="#">monolith_export</a></td>
+                <td><a href="#">core_objects-dbt-models</a></td>
+                <td>Aug 18th 2024 13:21 EDT</td>
+                <td>Aug 18th 2024 13:26 EDT</td>
+                <td>00:12:49</td>
+                <td><span class="badge rounded-pill text-bg-success">Success</span></td>
+                <td><img src="img/logo_airflow.svg" alt="Airflow" class="metric-logo"><a href="#">View logs</a></td>
+              </tr>
+              <tr>
+                <td><a href="#">monolith_export</a></td>
+                <td><a href="#">core_objects-dbt-models</a></td>
+                <td>Aug 18th 2024 13:21 EDT</td>
+                <td>Aug 18th 2024 13:26 EDT</td>
+                <td>00:12:49</td>
+                <td><span class="badge rounded-pill text-bg-success">Success</span></td>
+                <td><img src="img/logo_airflow.svg" alt="Airflow" class="metric-logo"><a href="#">View logs</a></td>
+              </tr>
+              <tr>
+                <td><a href="#">monolith_export</a></td>
+                <td><a href="#">core_objects-dbt-models</a></td>
+                <td>Aug 18th 2024 13:21 EDT</td>
+                <td>Aug 18th 2024 13:26 EDT</td>
+                <td>00:12:49</td>
+                <td><span class="badge rounded-pill text-bg-success">Success</span></td>
+                <td><img src="img/logo_airflow.svg" alt="Airflow" class="metric-logo"><a href="#">View logs</a></td>
+              </tr>
+              <tr>
+                <td><a href="#">monolith_export</a></td>
+                <td><a href="#">core_objects-dbt-models</a></td>
+                <td>Aug 18th 2024 13:21 EDT</td>
+                <td>Aug 18th 2024 13:26 EDT</td>
+                <td>00:12:49</td>
+                <td><span class="badge rounded-pill text-bg-success">Success</span></td>
+                <td><img src="img/logo_airflow.svg" alt="Airflow" class="metric-logo"><a href="#">View logs</a></td>
+              </tr>
+            </tbody>
+          </table>
+          <nav>
+            <ul class="pagination justify-content-end">
+              <li class="page-item">
+                <a class="page-link" href="#">
+                  <i class="ti ti-chevron-left"></i>
+                </a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link active" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#">
+                  <i class="ti ti-chevron-right"></i>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- drawergithub -->
+  <div class="offcanvas offcanvas-end overflow-auto" id="drawergithub">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">GitHub</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <table class="table table-outside">
+        <thead>
+          <tr>
+            <th class="checky"></th>
+            <th>Pull Request</th>
+            <th>Repository</th>
+            <th>Author</th>
+            <th>Merged</th>
+            <th class="right">Files</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="checky"><i class="ti ti-chevron-down"></i></td>
+            <td><img src="img/logo_github.svg" alt="GitHub" class="metric-logo"><a href="#">3476 style: fix typography and layout in integrations page</a></td>
+            <td><a href="#">monte-carlo-data/dbt</a></td>
+            <td><img src="https://avatars.githubusercontent.com/u/18616324?s=96&v=4" class="avatar" alt="">alesmit</td>
+            <td>6 hours ago</td>
+            <td class="right">5</td>
+          </tr>
+          <tr>
+            <td colspan="6" class="expanded">
+              <table class="table table-outside">
+                <tbody>
+                  <tr>
+                    <td>Modified</td>
+                    <td>analytics/models/tables/wildcard_mapping.sql</td>
+                  </tr>
+                  <tr>
+                    <td>Modified</td>
+                    <td>analytics/models/tables/table_metadata.sql</td>
+                  </tr>
+                  <tr>
+                    <td>Modified</td>
+                    <td>analytics/models/tables/schema.yml</td>
+                  </tr>
+                  <tr>
+                    <td>Deleted</td>
+                    <td>analytics/models/tables/interim_wildcard_mapping.sql</td>
+                  </tr>
+                  <tr>
+                    <td>Modified</td>
+                    <td>analytics/models/metrics/table_update_sizes.sql</td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td class="checky"><i class="ti ti-chevron-right"></i></td>
+            <td><img src="img/logo_github.svg" alt="GitHub" class="metric-logo"><a href="#">3474 feat: [Alert Skip] Add static rule option back in</a></td>
+            <td><a href="#">monte-carlo-data/saas-serverless</a></td>
+            <td><img src="https://avatars.githubusercontent.com/u/4431460?s=96&v=4" class="avatar" alt="">benitezfede</td>
+            <td>2 weeks ago</td>
+            <td class="right">8</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!-- drawerquery -->
+  <div class="offcanvas offcanvas-end overflow-auto" id="drawerquery">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Query Logs</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="nav nav-tabz">
+        <li class="nav-item">
+          <a class="nav-link active" data-bs-toggle="tab" href="#Writes">Writes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-bs-toggle="tab" href="#Reads">Reads</a>
+        </li>
+      </ul>
+      <div class="tab-content">
+        <div class="tab-pane active" id="Writes">
+          <div class="row">
+            <div class="col-md-3">
+              <div class="form-group">
+                <label>Date Range</label>
+                <input class="form-control flatpickr" type="text" placeholder="Select Date" id="flatpickr6">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label>User</label>
+                <select class="form-select">
+                  <option>All</option>
+                  <option>DATABRICKS</option>
+                  <option>User</option>
+                  <option>User</option>
+                  <option>User</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label>Type</label>
+                <select class="form-select">
+                  <option>All</option>
+                  <option>Create Table</option>
+                  <option>Insert</option>
+                  <option>Query</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <div class="card-title"><img src="img/querylogs.svg" alt="">Write Queries</div>
+              <div class="card-text">
+                <div id="chartquery2" class="chartz"></div>
+              </div>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+          <table class="table table-outside">
+            <thead>
+              <tr>
+                <th colspan="6" style="padding: 8px; font-weight: normal;">
+                  <a href="#" class="btn btn-sm btn-outline-primary" style="background: none;">Compare Queries</a>
+                </th>
+              </tr>
+              <tr>
+                <th class="checky"></th>
+                <th class="checky"></th>
+                <th>Table Updated</th>
+                <th>User</th>
+                <th>Type</th>
+                <th>Query</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="checky">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox">
+                  </div>
+                </td>
+                <td><i class="ti ti-chevron-down"></i></td>
+                <td>Aug 18th 2024 13:21 EDT</td>
+                <td>DBT_TRANSFORM_USER</td>
+                <td>Query</td>
+                <td><span class="query">create or replace transient table analytics.prod</span></td>
+              </tr>
+              <tr>
+                <td colspan="6" class="expanded">
+                  <nav class="nav nav-tabz">
+                    <a class="nav-link active" data-bs-toggle="tab" href="#QueryQuery1">Query</a>
+                    <a class="nav-link" data-bs-toggle="tab" href="#Deets1">Details</a>
+                  </nav>
+                  <div class="tab-content">
+                    <div class="tab-pane active" id="QueryQuery1">
+                      <pre style="min-height: 100px;">SELECT column_name(s) FROM table1 INNER JOIN table2 ON table1.column_name = table2.column_name;</pre>
+                    </div>
+                    <div class="tab-pane" id="Deets1">
+                      <pre>
+                        {
+                          "warehouse": "snowflake",
+                          "database": [
+                          "personal"
+                          ],
+                          "schema": [
+                          "dbt_ilamden_prod"
+                          ],
+                          "destination": "personal:dbt_ilamden_prod.table_event_queries_1d_flatten_rqtv",
+                          "user": "ILAMDEN",
+                          "query_type": "create_table_as_select",
+                          "status": "SUCCESS",
+                          "snowflake_warehouse": "REGRESSION_TESTING",
+                          "rows_produced": "77,677,272",
+                          "bytes_scanned": "2,505,621,802,496"
+                        }
+                      </pre>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="checky">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox">
+                  </div>
+                </td>
+                <td><i class="ti ti-chevron-right"></i></td>
+                <td>Aug 18th 2024 13:21 EDT</td>
+                <td>DBT_TRANSFORM_USER</td>
+                <td>Insert</td>
+                <td><span class="query">create or replace transient table analytics.prod</span></td>
+              </tr>
+              <tr>
+                <td class="checky">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" checked="">
+                  </div>
+                </td>
+                <td><i class="ti ti-chevron-right"></i></td>
+                <td>Aug 18th 2024 13:21 EDT</td>
+                <td>DBT_TRANSFORM_USER</td>
+                <td>Insert</td>
+                <td><span class="query">create or replace transient table analytics.prod</span></td>
+              </tr>
+              <tr>
+                <td class="checky">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox">
+                  </div>
+                </td>
+                <td><i class="ti ti-chevron-right"></i></td>
+                <td>Aug 18th 2024 13:21 EDT</td>
+                <td>DBT_TRANSFORM_USER</td>
+                <td>Create Table</td>
+                <td><span class="query">create or replace transient table analytics.prod</span></td>
+              </tr>
+              <tr>
+                <td class="checky">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox">
+                  </div>
+                </td>
+                <td><i class="ti ti-chevron-right"></i></td>
+                <td>Aug 18th 2024 13:21 EDT</td>
+                <td>DBT_TRANSFORM_USER</td>
+                <td>Create Table</td>
+                <td><span class="query">create or replace transient table analytics.prod</span></td>
+              </tr>
+              <tr>
+                <td class="checky">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" checked="">
+                  </div>
+                </td>
+                <td><i class="ti ti-chevron-right"></i></td>
+                <td>Aug 18th 2024 13:21 EDT</td>
+                <td>DBT_TRANSFORM_USER</td>
+                <td>Insert</td>
+                <td><span class="query">create or replace transient table analytics.prod</span></td>
+              </tr>
+              <tr>
+                <td class="checky">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox">
+                  </div>
+                </td>
+                <td><i class="ti ti-chevron-right"></i></td>
+                <td>Aug 18th 2024 13:21 EDT</td>
+                <td>DBT_TRANSFORM_USER</td>
+                <td>Insert</td>
+                <td><span class="query">create or replace transient table analytics.prod</span></td>
+              </tr>
+              <tr>
+                <td class="checky">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox">
+                  </div>
+                </td>
+                <td><i class="ti ti-chevron-right"></i></td>
+                <td>Aug 18th 2024 13:21 EDT</td>
+                <td>DBT_TRANSFORM_USER</td>
+                <td>Insert</td>
+                <td><span class="query">create or replace transient table analytics.prod</span></td>
+              </tr>
+              <tr>
+                <td class="checky">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox">
+                  </div>
+                </td>
+                <td><i class="ti ti-chevron-right"></i></td>
+                <td>Aug 18th 2024 13:21 EDT</td>
+                <td>DBT_TRANSFORM_USER</td>
+                <td>Insert</td>
+                <td><span class="query">create or replace transient table analytics.prod</span></td>
+              </tr>
+              <tr>
+                <td class="checky">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox">
+                  </div>
+                </td>
+                <td><i class="ti ti-chevron-right"></i></td>
+                <td>Aug 18th 2024 13:21 EDT</td>
+                <td>DBT_TRANSFORM_USER</td>
+                <td>Query</td>
+                <td><span class="query">create or replace transient table analytics.prod</span></td>
+              </tr>
+            </tbody>
+          </table>
+          <nav>
+            <ul class="pagination justify-content-end">
+              <li class="page-item">
+                <a class="page-link" href="#">
+                  <i class="ti ti-chevron-left"></i>
+                </a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link active" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#">
+                  <i class="ti ti-chevron-right"></i>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="tab-pane" id="Reads">
+          <div class="row">
+            <div class="col-md-3">
+              <div class="form-group">
+                <label>Date Range</label>
+                <input class="form-control flatpickr" type="text" placeholder="Select Date" id="flatpickr7">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label>User</label>
+                <select class="form-select">
+                  <option>All</option>
+                  <option>DATABRICKS</option>
+                  <option>User</option>
+                  <option>User</option>
+                  <option>User</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label>Type</label>
+                <select class="form-select">
+                  <option>All</option>
+                  <option>Create Table</option>
+                  <option>Insert</option>
+                  <option>Query</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <table class="table table-outside">
+            <thead>
+              <tr>
+                <th colspan="6" style="padding: 8px; font-weight: normal;">
+                  <a href="#" class="btn btn-sm btn-outline-primary" style="background: none;">Compare Queries</a>
+                </th>
+              </tr>
+              <tr>
+                <th class="checky"></th>
+                <th class="checky"></th>
+                <th>Table Updated</th>
+                <th>User</th>
+                <th>Type</th>
+                <th>Query</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="checky">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox">
+                  </div>
+                </td>
+                <td><i class="ti ti-chevron-down"></i></td>
+                <td>Aug 18th 2024 13:21 EDT</td>
+                <td>DBT_TRANSFORM_USER</td>
+                <td>Query</td>
+                <td><span class="query">create or replace transient table analytics.prod</span></td>
+              </tr>
+              <tr>
+                <td colspan="6" class="expanded">
+                  <nav class="nav nav-tabz">
+                    <a class="nav-link active" data-bs-toggle="tab" href="#QQuery1">Query</a>
+                    <a class="nav-link" data-bs-toggle="tab" href="#DDeets1">Details</a>
+                  </nav>
+                  <div class="tab-content">
+                    <div class="tab-pane active" id="QQuery1">
+                      <pre style="min-height: 100px;">SELECT column_name(s) FROM table1 INNER JOIN table2 ON table1.column_name = table2.column_name;</pre>
+                    </div>
+                    <div class="tab-pane" id="DDeets1">
+                      <pre>
+                        {
+                          "warehouse": "snowflake",
+                          "database": [
+                          "personal"
+                          ],
+                          "schema": [
+                          "dbt_ilamden_prod"
+                          ],
+                          "destination": "personal:dbt_ilamden_prod.table_event_queries_1d_flatten_rqtv",
+                          "user": "ILAMDEN",
+                          "query_type": "create_table_as_select",
+                          "status": "SUCCESS",
+                          "snowflake_warehouse": "REGRESSION_TESTING",
+                          "rows_produced": "77,677,272",
+                          "bytes_scanned": "2,505,621,802,496"
+                        }
+                      </pre>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="checky">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox">
+                  </div>
+                </td>
+                <td><i class="ti ti-chevron-right"></i></td>
+                <td>Aug 18th 2024 13:21 EDT</td>
+                <td>DBT_TRANSFORM_USER</td>
+                <td>Insert</td>
+                <td><span class="query">create or replace transient table analytics.prod</span></td>
+              </tr>
+              <tr>
+                <td class="checky">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" checked="">
+                  </div>
+                </td>
+                <td><i class="ti ti-chevron-right"></i></td>
+                <td>Aug 18th 2024 13:21 EDT</td>
+                <td>DBT_TRANSFORM_USER</td>
+                <td>Insert</td>
+                <td><span class="query">create or replace transient table analytics.prod</span></td>
+              </tr>
+              <tr>
+                <td class="checky">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox">
+                  </div>
+                </td>
+                <td><i class="ti ti-chevron-right"></i></td>
+                <td>Aug 18th 2024 13:21 EDT</td>
+                <td>DBT_TRANSFORM_USER</td>
+                <td>Create Table</td>
+                <td><span class="query">create or replace transient table analytics.prod</span></td>
+              </tr>
+              <tr>
+                <td class="checky">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox">
+                  </div>
+                </td>
+                <td><i class="ti ti-chevron-right"></i></td>
+                <td>Aug 18th 2024 13:21 EDT</td>
+                <td>DBT_TRANSFORM_USER</td>
+                <td>Create Table</td>
+                <td><span class="query">create or replace transient table analytics.prod</span></td>
+              </tr>
+              <tr>
+                <td class="checky">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" checked="">
+                  </div>
+                </td>
+                <td><i class="ti ti-chevron-right"></i></td>
+                <td>Aug 18th 2024 13:21 EDT</td>
+                <td>DBT_TRANSFORM_USER</td>
+                <td>Insert</td>
+                <td><span class="query">create or replace transient table analytics.prod</span></td>
+              </tr>
+              <tr>
+                <td class="checky">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox">
+                  </div>
+                </td>
+                <td><i class="ti ti-chevron-right"></i></td>
+                <td>Aug 18th 2024 13:21 EDT</td>
+                <td>DBT_TRANSFORM_USER</td>
+                <td>Insert</td>
+                <td><span class="query">create or replace transient table analytics.prod</span></td>
+              </tr>
+              <tr>
+                <td class="checky">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox">
+                  </div>
+                </td>
+                <td><i class="ti ti-chevron-right"></i></td>
+                <td>Aug 18th 2024 13:21 EDT</td>
+                <td>DBT_TRANSFORM_USER</td>
+                <td>Insert</td>
+                <td><span class="query">create or replace transient table analytics.prod</span></td>
+              </tr>
+              <tr>
+                <td class="checky">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox">
+                  </div>
+                </td>
+                <td><i class="ti ti-chevron-right"></i></td>
+                <td>Aug 18th 2024 13:21 EDT</td>
+                <td>DBT_TRANSFORM_USER</td>
+                <td>Insert</td>
+                <td><span class="query">create or replace transient table analytics.prod</span></td>
+              </tr>
+              <tr>
+                <td class="checky">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox">
+                  </div>
+                </td>
+                <td><i class="ti ti-chevron-right"></i></td>
+                <td>Aug 18th 2024 13:21 EDT</td>
+                <td>DBT_TRANSFORM_USER</td>
+                <td>Query</td>
+                <td><span class="query">create or replace transient table analytics.prod</span></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <nav>
+            <ul class="pagination justify-content-end">
+              <li class="page-item">
+                <a class="page-link" href="#">
+                  <i class="ti ti-chevron-left"></i>
+                </a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link active" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#">
+                  <i class="ti ti-chevron-right"></i>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- drawerschema -->
+  <div class="offcanvas offcanvas-end overflow-auto" id="drawerschema">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Schema Changes</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <table class="table table-outside">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Field</th>
+            <th>Change</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Aug 26th 2024 04:31 EDT	</td>
+            <td>[Field name]</td>
+            <td>Added</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Aug 26th 2024 04:31 EDT	</td>
+            <td>[Field name]</td>
+            <td>Deleted</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Aug 26th 2024 04:31 EDT	</td>
+            <td>[Field name]</td>
+            <td>Added</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Aug 26th 2024 04:31 EDT	</td>
+            <td>[Field name]</td>
+            <td>Changed</td>
+            <td>varchar(16777216) &rarr; varchar(128)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!-- drawerfivetran -->
+  <div class="offcanvas offcanvas-end overflow-auto" id="drawerfivetran">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Fivetran</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <table class="table table-outside">
+        <thead>
+          <tr>
+            <th>Connector</th>
+            <th>Source</th>
+            <th>Incident Table Destination</th>
+            <th>Last Synced</th>
+            <th>Sync Cadence</th>
+            <th>Next Sync</th>
+            <th>Status</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>fivetran_log</td>
+            <td>Fivetran Log</td>
+            <td>log</td>
+            <td>2 hours ago</td>
+            <td>6 hours</td>
+            <td>4 hours</td>
+            <td><div class="badge rounded-pill text-bg-success">Active</div></td>
+            <td><img src="img/logo_fivetran.svg" alt="Fivetran" class="metric-logo"><a href="#">View in Fivetran</a></td>
+          </tr>
+          <tr>
+            <td>fivetran_log</td>
+            <td>Fivetran Log</td>
+            <td>log</td>
+            <td>2 hours ago</td>
+            <td>6 hours</td>
+            <td>4 hours</td>
+            <td><div class="badge rounded-pill text-bg-success">Active</div></td>
+            <td><img src="img/logo_fivetran.svg" alt="Fivetran" class="metric-logo"><a href="#">View in Fivetran</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!-- detectorfreshness -->
+  <div class="modal fade" id="detectorfreshness">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Freshness Detector</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="text-muted">Status</div>
+          <div class="badge rounded-pill text-bg-success">Active</div>
+          <div class="clearfix"></div>
+          <div class="text-muted">Previous change</div>
+          <div>Sep 13th 2024 16:00 EDT</div>
+          <div class="clearfix"></div>
+          <div class="text-muted">Next expected change</div>
+          <div>Sep 13th 2024 18:58 EDT</div>
+          <div class="clearfix"></div>
+          <div class="text-muted">Alert if no update by</div>
+          <div>Sep 13th 2024 22:55 EDT (3.9 hrs)</div>
+          <div class="clearfix"></div>
+          <div class="form-group">
+            <label>Freshness Sensitivity</label>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="SensitivityRadios" id="Sensitivity1" value="Sensitivity1">
+              <label class="form-check-label" for="Sensitivity1">
+                Low<br><span class="text-muted">Relaxes the freshness thresholds resulting in fewer anomalies.</span>
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="SensitivityRadios" id="Sensitivity2" value="Sensitivity2" checked>
+              <label class="form-check-label" for="Sensitivity2">
+                Medium (default)<br><span class="text-muted">Works well for consistent tables with less frequent update schedules such as 12 - 24 hour batch scheduled jobs.</span>
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="SensitivityRadios" id="Sensitivity3" value="Sensitivity3" checked>
+              <label class="form-check-label" for="Sensitivity3">
+                High<br><span class="text-muted">Tightens the freshness threshold. Best for detecting small outages on frequently updating tables (e.g. streaming, event, clickstream).</span>
+              </label>
+            </div>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Save</button>
+          <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- detectorvolume -->
+  <div class="modal fade" id="detectorvolume">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Volume Detectors</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <ul class="nav nav-tabz">
+            <li class="nav-item">
+              <a class="nav-link active" data-bs-toggle="tab" href="#VD1">Unchanged Size</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="tab" href="#VD2">Volume Change</a>
+            </li>
+          </ul>
+
+          <div class="tab-content">
+            <div class="tab-pane active" id="VD1">
+              <div class="text-muted">Status</div>
+              <div class="badge rounded-pill text-bg-success">Active</div>
+              <div class="clearfix"></div>
+              <div class="text-muted">Previous change</div>
+              <div>Sep 13th 2024 16:00 EDT</div>
+              <div class="clearfix"></div>
+              <div class="text-muted">Next expected change</div>
+              <div>Sep 13th 2024 18:58 EDT</div>
+              <div class="clearfix"></div>
+              <div class="text-muted">Alert if no update by</div>
+              <div>Sep 13th 2024 22:55 EDT (3.9 hrs)</div>
+              <div class="clearfix"></div>
+              <div class="form-group">
+                <label>Freshness Sensitivity</label>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="SSensitivityRadios" id="SSensitivity1" value="SSensitivity1">
+                  <label class="form-check-label" for="SSensitivity1">
+                    Low<br><span class="text-muted">Relaxes the unchanged size thresholds resulting in fewer anomalies.</span>
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="SSensitivityRadios" id="SSensitivity2" value="SSensitivity2" checked>
+                  <label class="form-check-label" for="SSensitivity2">
+                    Medium (default)<br><span class="text-muted">Works well for consistent tables with less frequent update schedules such as 12 - 24 hour batch scheduled jobs.</span>
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="SSensitivityRadios" id="SSensitivity3" value="SSensitivity3">
+                  <label class="form-check-label" for="SSensitivity3">
+                    High<br><span class="text-muted">Tightens the unchanged size threshold. Best for detecting small outages on frequently updating tables (e.g. streaming, event, clickstream).</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane" id="VD2">
+              <div class="text-muted">Status</div>
+              <div class="badge rounded-pill text-bg-success">Active</div>
+              <div class="clearfix"></div>
+              <div class="text-muted">Expected update range</div>
+              <div>Between 394 and 1.34M rows</div>
+              <div class="clearfix"></div>
+              <div class="form-group">
+                <label>Freshness Sensitivity</label>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="SSSensitivityRadios" id="SSSensitivity1" value="SSSensitivity1">
+                  <label class="form-check-label" for="SSSensitivity1">
+                    Low<br><span class="text-muted">Volume changes can be inconsistent. Detector will only alert on extreme variability..</span>
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="SSSensitivityRadios" id="SSSensitivity2" value="SSSensitivity2" checked>
+                  <label class="form-check-label" for="SSSensitivity2">
+                    Medium (default)<br><span class="text-muted">Volume changes can be somewhat inconsistent.</span>
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="SSSensitivityRadios" id="SSSensitivity3" value="SSSensitivity3">
+                  <label class="form-check-label" for="SSSensitivity3">
+                    High<br><span class="text-muted">Volume changes must be very consistent or will result in alerts.</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Save</button>
+          <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- drawerfieldmetric -->
+  <div class="offcanvas offcanvas-end overflow-auto" id="drawerfieldmetric">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Create Field Metric Monitor</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" id="fmsettings" checked>
+        <label class="form-check-label" for="fmsettings">Use field monitor settings</label>
+      </div>
+      <div class="clearfix"></div>
+
+      <div class="card">
+        <div class="card-body">
+          <div class="float-right"><i class="ti ti-chevron-down"></i></div>
+          <div class="card-title" style="margin-bottom: 0;">Select table(s)</div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+      <div class="card">
+        <div class="card-body">
+          <div class="float-right"><i class="ti ti-chevron-down"></i></div>
+          <div class="card-title" style="margin-bottom: 0;">Select field(s)</div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+      <div class="card">
+        <div class="card-body">
+          <div class="card-title">Metrics and alert condition</div>
+          <div class="card-text">
+            here
+          </div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+      <div class="card">
+        <div class="card-body">
+          <div class="float-right"><i class="ti ti-chevron-down"></i></div>
+          <div class="card-title" style="margin-bottom: 0;">Add description and notes</div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+      <div class="card">
+        <div class="card-body">
+          <div class="card-title">Send notifications</div>
+          <div class="card-text">
+            <div class="form-group">
+              <label>Audience</label>
+              <form class="row">
+                <div class="col-auto">
+                  <select class="form-select">
+                    <option>&nbsp;</option>
+                    <option>Audience Name</option>
+                    <option>Audience Name</option>
+                    <option>Audience Name</option>
+                    <option>Audience Name</option>
+                    <option>Audience Name</option>
+                    <option>Audience Name</option>
+                    <option>Audience Name</option>
+                    <option>Audience Name</option>
+                  </select>
+                </div>
+                <div class="col-auto">
+                  <div class="text-muted form-align-text">Notification Channels will appear here once an audience is selected.</div>
+                </div>
+              </form>
+            </div>
+            <a href="#" class="btn btn-outline-primary btn-sm">Create Audience</a>
+            <div class="clearfix"></div>
+            <div><a href="#">Advanced</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+      <a href="#" class="btn btn-primary">Create</a>
+      <a href="#" class="btn btn-outline-primary">Cancel</a>
+    </div>
+  </div>
+  <!-- drawersettingz -->
+  <div class="offcanvas offcanvas-end overflow-auto" id="drawersettingz" style="width: 800px">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Field monitor Settings</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="form-group">
+        <label>Select fields to segment the data</label>
+        <select class="form-select">
+          <option>account_id</option>
+          <option>client</option>
+          <option>connection_type</option>
+          <option>resource_id</option>
+          <option>resource_name</option>
+          <option>total_tables_count</option>
+        </select>
+      </div>
+      <div class="clearfix"></div>
+      <div class="form-group">
+        <label>Select timestamp field</label>
+        <select class="form-select">
+          <option>created_on</option>
+          <option>update_date</option>
+        </select>
+      </div>
+      <div class="clearfix"></div>
+      <div class="form-group">
+        <label>Define lookback period length as</label>
+        <form class="row">
+          <div class="col-auto">
+            <input type="number" class="form-control" value="30">
+          </div>
+          <div class="col-auto">
+            <select class="form-select">
+              <option>minutes</option>
+              <option>hours</option>
+              <option>days</option>
+              <option>weeks</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="form-group">
+        <label>Aggregate metrics by</label>
+        <select class="form-select">
+          <option>none</option>
+          <option>hour</option>
+          <option>day</option>
+        </select>
+      </div>
+      <div class="clearfix"></div>
+      <div class="form-group">
+        <label>Schedule type</label>
+        <div class="clearfix" style="height: 0;"></div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="Scheduletype" id="Scheduletype1" value="Scheduletype1" checked>
+          <label class="form-check-label" for="Scheduletype1">
+            Form based
+          </label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="Scheduletype" id="Scheduletype2" value="Scheduletype2">
+          <label class="form-check-label" for="Scheduletype2">
+            CRON based
+          </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Run every</label>
+        <form class="row">
+          <div class="col-md-2">
+            <input type="number" class="form-control" value="12">
+          </div>
+          <div class="col-md-4">
+            <select class="form-select">
+              <option selected>minutes</option>
+              <option>hours</option>
+              <option>days</option>
+              <option>weeks</option>
+            </select>
+          </div>
+          <div class="col-md-2 form-align-text">
+            starting
+          </div>
+          <div class="col-md-4">
+            <input type="date" class="form-control">
+          </div>
+        </form>
+      </div>
+      <div class="clearfix"></div>
+      <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Save</button>
+      <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Cancel</button>
+    </div>
+  </div>
+
+  <!-- drawerprofile -->
+  <div class="offcanvas offcanvas-end overflow-auto" id="drawerprofile" style="width: 800px">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Run Profile</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="form-group">
+        <label>Lookback period</label>
+        <div class="clearfix" style="height: 4px;"></div>
+        <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown">Past week</button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#">Past week</a>
+          <a class="dropdown-item" href="#">Past 2 weeks</a>
+          <a class="dropdown-item" href="#">Past month</a>
+          <a class="dropdown-item" href="#">Custom</a>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+      <div class="form-group">
+        <label>Select fields to segment the data</label>
+        <select class="form-select">
+          <option>account_id</option>
+          <option>client</option>
+          <option>connection_type</option>
+          <option>resource_id</option>
+          <option>resource_name</option>
+          <option>total_tables_count</option>
+        </select>
+      </div>
+      <div class="clearfix"></div>
+      <div class="form-group">
+        <label>Filter for recently added data</label>
+
+        <div class="card">
+          <div class="card-body">
+            <div class="float-right">
+              <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit"><i class="ti ti-pencil"></i></a>
+              <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Copy"><i class="ti ti-copy"></i></a>
+              <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Expand"><i class="ti ti-arrows-maximize"></i></a>
+            </div>
+            <div class="card-title">SQL Query</div>
+            <div class="card-text">
+              <pre style="min-height: 36px;">whaddup sql</pre>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+      <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Run</button>
+      <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Cancel</button>
+    </div>
+  </div>
+  <!-- timezones -->
+  <div class="modal fade" id="timezones">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Edit Timezone</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>Timezone</label>
+            <input type="text" class="form-control" placeholder="Search...">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Save</button>
+          <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.3/echarts.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/js/ion.rangeSlider.min.js"></script>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/highcharts-more.js"></script>
+  <script src="https://code.highcharts.com/modules/dumbbell.js"></script>
+  <script src="https://code.highcharts.com/modules/lollipop.js"></script>
+  <script src="https://code.highcharts.com/modules/annotations.js"></script>
+  <script src="js/mc.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/asset.js"></script>
+</body>
+</html>

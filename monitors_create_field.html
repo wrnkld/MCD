@@ -1,0 +1,972 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/mc.css" rel="stylesheet">
+  <style>.chartz { height: 240px; } .scrolly { max-height: 240px; height: 240px; overflow-y: scroll; } .scrolly::-webkit-scrollbar { display: none} </style>
+  <title>Monte Carlo - Monitor Field</title>
+</head>
+<body>
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <ul class="navbar-nav mr-auto">
+      <li class="navbar-brand">MC</li>
+      <li class="nav-item">
+        <a class="nav-link" href="index.html">Dashboards</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="monitors.html">Monitors</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="incidents.html">Incidents</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="performance.html">Performance</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="assets.html">Assets</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="settings.html">Settings</a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav ms-auto w-100 justify-content-end">
+      <li class="nav-item">
+        <a class="nav-link" href="#"><i class="ti ti-bell"></i></a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          All
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li class="dropdown-header">Domains</li>
+          <li><a class="dropdown-item" href="#">All <i class="ti ti-check float-right"></i></a></li>
+          <li><a class="dropdown-item" href="#">Analytics</a></li>
+          <li><a class="dropdown-item" href="#">Marketing</a></li>
+          <li><a class="dropdown-item" href="#">Raw</a></li>
+          <li><a class="dropdown-item" href="#">Test</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="settings.html">Create Domain</a></li>
+        </ul>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Matthew Stevens
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li class="dropdown-header">Account ID</li>
+          <li><a class="dropdown-item" href="#">d72bc4d1-f675-4d72-82a1-418220cca709</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">EDT timezone</a></li>
+          <li><a class="dropdown-item" href="#">Docs</a></li>
+          <li><a class="dropdown-item" href="#">Changelog</a></li>
+          <li><a class="dropdown-item" href="#">Support</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">Log Out</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  <ul class="navigation_sub">
+    <li>
+      <a href="monitors_create.html" class="btn btn-link"><i class="ti ti-chevron-left"></i></a>
+    </li>
+    <li class="title">Monitor Field</li>
+  </ul>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+        <!-- Rule -->
+        <div class="card">
+          <div class="card-body">
+            <div class="card-title">
+              Monitor
+            </div>
+            <div class="card-text">
+              <div class="form-group">
+                <label>Table</label>
+                <select class="form-select">
+                  <option>[snowflake] analytics:prod.customer_360</option>
+                  <option>[snowflake] analytics:prod.customer_360</option>
+                  <option>[snowflake] analytics:prod.customer_360</option>
+                  <option>[snowflake] analytics:prod.customer_360</option>
+                  <option>[snowflake] analytics:prod.customer_360</option>
+                  <option>[snowflake] analytics:prod.customer_360</option>
+                  <option>[snowflake] analytics:prod.customer_360</option>
+                  <option>[snowflake] analytics:prod.customer_360</option>
+                  <option>[snowflake] analytics:prod.customer_360</option>
+                  <option>[snowflake] analytics:prod.customer_360</option>
+                </select>
+              </div>
+              <hr>
+              <div class="form-group">
+                <label>Field</label>
+                <select class="form-select">
+                  <option>Some field</option>
+                  <option>Some field</option>
+                  <option>Some field</option>
+                  <option>Some field</option>
+                  <option>Some field</option>
+                  <option>Some field</option>
+                </select>
+              </div>
+              <hr>
+              <div class="form-group">
+                <label>Monitor Name</label>
+                <input type="text" class="form-control" value="defaults to table name plus metrics">
+              </div>
+              <hr>
+              <div>This monitor will run every <strong>12 hours</strong> starting <strong>Sep 01st 2024 00:00 EDT</strong>. <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit"><i class="ti ti-pencil"></i></a></div>
+            </div>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+        <!-- null -->
+        <div class="card">
+          <div class="card-body">
+            <div class="card-title">
+
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="null" checked>
+                <label class="form-check-label" for="null" style="color: #212529">Monitor % null</label>
+              </div>
+
+            </div>
+            <div class="card-text">
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="card-title" style="font-weight: normal;">
+                        % null is 2
+                      </div>
+                      <div class="card-text">
+                        <div id="chartnull" class="chartz"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label>Threshold</label>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="ThresholdNull" id="ThresholdNull1" value="ThresholdNull1">
+                      <label class="form-check-label" for="ThresholdNull1">
+                        Automatic
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="ThresholdNull" id="ThresholdNull2" value="ThresholdNull2">
+                      <label class="form-check-label" for="ThresholdNull2">
+                        Aggressive
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="ThresholdNull" id="ThresholdNull3" value="ThresholdNull3" checked>
+                      <label class="form-check-label" for="ThresholdNull3">
+                        Manual
+                      </label>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label>Notify when % null</label>
+                    <form class="row">
+                      <div class="col-md-8">
+                        <select class="form-select">
+                          <option>equal to</option>
+                          <option selected>greater than</option>
+                          <option>greater than or equal to</option>
+                          <option>less than</option>
+                          <option>less than or equal to</option>
+                        </select>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="input-group">
+                          <input type="number" class="form-control" value="0">
+                          <div class="input-group-append">
+                            <span class="input-group-text">%</span>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+        <!-- unique -->
+        <div class="card">
+          <div class="card-body">
+            <div class="card-title">
+
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="unique" checked>
+                <label class="form-check-label" for="unique" style="color: #212529">Monitor % unique</label>
+              </div>
+
+            </div>
+            <div class="card-text">
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="card-title" style="font-weight: normal;">
+                        % unique is 95
+                      </div>
+                      <div class="card-text">
+                        <div id="chartunique" class="chartz"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label>Threshold</label>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="ThresholdUnique" id="ThresholdUnique1" value="ThresholdUnique1">
+                      <label class="form-check-label" for="ThresholdUnique1">
+                        Automatic
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="ThresholdUnique" id="ThresholdUnique2" value="ThresholdUnique2" checked>
+                      <label class="form-check-label" for="ThresholdUnique2">
+                        Aggressive
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="ThresholdUnique" id="ThresholdUnique3" value="ThresholdUnique3">
+                      <label class="form-check-label" for="ThresholdUnique3">
+                        Manual
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+        <!-- zero -->
+        <div class="card">
+          <div class="card-body">
+            <div class="card-title" style="margin-bottom: -8px;">
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="zero">
+                <label class="form-check-label" for="zero" style="color: #212529">Monitor % zero</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+        <!-- negative -->
+        <div class="card">
+          <div class="card-body">
+            <div class="card-title" style="margin-bottom: -8px;">
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="negative">
+                <label class="form-check-label" for="negative" style="color: #212529">Monitor % negative</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+        <!-- Mean -->
+        <div class="card">
+          <div class="card-body">
+            <div class="card-title">
+
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="Mean" checked>
+                <label class="form-check-label" for="Mean" style="color: #212529">Monitor mean</label>
+              </div>
+
+            </div>
+            <div class="card-text">
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="card-title" style="font-weight: normal;">
+                        Mean is like 17 or so
+                      </div>
+                      <div class="card-text">
+                        <div id="chartmean" class="chartz"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label>Threshold</label>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="ThresholdMean" id="ThresholdMean1" value="ThresholdMean1" checked>
+                      <label class="form-check-label" for="ThresholdMean1">
+                        Automatic
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="ThresholdMean" id="ThresholdMean2" value="ThresholdMean2">
+                      <label class="form-check-label" for="ThresholdMean2">
+                        Aggressive
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="ThresholdMean" id="ThresholdMean3" value="ThresholdMean3">
+                      <label class="form-check-label" for="ThresholdMean3">
+                        Manual
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+        <!-- median -->
+        <div class="card">
+          <div class="card-body">
+            <div class="card-title" style="margin-bottom: -8px;">
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="median">
+                <label class="form-check-label" for="median" style="color: #212529">Monitor median</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+        <!-- max -->
+        <div class="card">
+          <div class="card-body">
+            <div class="card-title" style="margin-bottom: -8px;">
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="max">
+                <label class="form-check-label" for="max" style="color: #212529">Monitor max</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+        <!-- min -->
+        <div class="card">
+          <div class="card-body">
+            <div class="card-title" style="margin-bottom: -8px;">
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="min">
+                <label class="form-check-label" for="min" style="color: #212529">Monitor min</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+        <!-- allowed -->
+        <div class="card">
+          <div class="card-body">
+            <div class="card-title">
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="allowed" checked>
+                <label class="form-check-label" for="allowed" style="color: #212529">Monitor allowed values</label>
+              </div>
+            </div>
+            <div class="card-text">
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="card-title" style="font-weight: normal;">
+                        14 values found
+                      </div>
+                      <div class="card-text">
+                        <div class="scrolly">
+                          <table class="table table-outside">
+                            <thead>
+                              <tr>
+                                <th class="checky"></th>
+                                <th>Value</th>
+                                <th>Frequency</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td class="checky">
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" checked>
+                                  </div>
+                                </td>
+                                <td>Some value</td>
+                                <td>100%</td>
+                              </tr>
+                              <tr>
+                                <td class="checky">
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" checked>
+                                  </div>
+                                </td>
+                                <td>Some value</td>
+                                <td>100%</td>
+                              </tr>
+                              <tr>
+                                <td class="checky">
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" checked>
+                                  </div>
+                                </td>
+                                <td>Some value</td>
+                                <td>100%</td>
+                              </tr>
+                              <tr>
+                                <td class="checky">
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" checked>
+                                  </div>
+                                </td>
+                                <td>Some value</td>
+                                <td>100%</td>
+                              </tr>
+                              <tr>
+                                <td class="checky">
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" checked>
+                                  </div>
+                                </td>
+                                <td>Some value</td>
+                                <td>100%</td>
+                              </tr>
+                              <tr>
+                                <td class="checky">
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" checked>
+                                  </div>
+                                </td>
+                                <td>Some value</td>
+                                <td>100%</td>
+                              </tr>
+                              <tr>
+                                <td class="checky">
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" checked>
+                                  </div>
+                                </td>
+                                <td>Some value</td>
+                                <td>99%</td>
+                              </tr>
+                              <tr>
+                                <td class="checky">
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" checked>
+                                  </div>
+                                </td>
+                                <td>Some value</td>
+                                <td>94%</td>
+                              </tr>
+                              <tr>
+                                <td class="checky">
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" checked>
+                                  </div>
+                                </td>
+                                <td>Some value</td>
+                                <td>92%</td>
+                              </tr>
+                              <tr>
+                                <td class="checky">
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" checked>
+                                  </div>
+                                </td>
+                                <td>Some value</td>
+                                <td>88%</td>
+                              </tr>
+                              <tr>
+                                <td class="checky">
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" checked>
+                                  </div>
+                                </td>
+                                <td>Some value</td>
+                                <td>82%</td>
+                              </tr>
+                              <tr>
+                                <td class="checky">
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" checked>
+                                  </div>
+                                </td>
+                                <td>Some value</td>
+                                <td>77%</td>
+                              </tr>
+                              <tr>
+                                <td class="checky">
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" checked>
+                                  </div>
+                                </td>
+                                <td>Some value</td>
+                                <td>52%</td>
+                              </tr>
+                              <tr>
+                                <td class="checky">
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" checked>
+                                  </div>
+                                </td>
+                                <td>Some value</td>
+                                <td>22%</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label>Threshold</label>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="ThresholdAllowed" id="ThresholdAllowed1" value="ThresholdAllowed1" checked>
+                      <label class="form-check-label" for="ThresholdAllowed1">
+                        Automatic
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="ThresholdAllowed" id="ThresholdAllowed2" value="ThresholdAllowed2">
+                      <label class="form-check-label" for="ThresholdAllowed2">
+                        Aggressive
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="ThresholdAllowed" id="ThresholdAllowed3" value="ThresholdAllowed3">
+                      <label class="form-check-label" for="ThresholdAllowed3">
+                        Manual
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+        <!-- never -->
+        <div class="card">
+          <div class="card-body">
+            <div class="card-title">
+
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="never" checked>
+                <label class="form-check-label" for="never" style="color: #212529">Monitor never missing values</label>
+              </div>
+
+            </div>
+            <div class="card-text">
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="card-title" style="font-weight: normal;">
+                        14 values found
+                      </div>
+                      <div class="card-text">
+                        <div class="scrolly">
+                          <table class="table table-outside">
+                            <thead>
+                              <tr>
+                                <th class="checky"></th>
+                                <th>Value</th>
+                                <th>Frequency</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td class="checky">
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" checked>
+                                  </div>
+                                </td>
+                                <td>Some value</td>
+                                <td>100%</td>
+                              </tr>
+                              <tr>
+                                <td class="checky">
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" checked>
+                                  </div>
+                                </td>
+                                <td>Some value</td>
+                                <td>100%</td>
+                              </tr>
+                              <tr>
+                                <td class="checky">
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" checked>
+                                  </div>
+                                </td>
+                                <td>Some value</td>
+                                <td>100%</td>
+                              </tr>
+                              <tr>
+                                <td class="checky">
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" checked>
+                                  </div>
+                                </td>
+                                <td>Some value</td>
+                                <td>100%</td>
+                              </tr>
+                              <tr>
+                                <td class="checky">
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" checked>
+                                  </div>
+                                </td>
+                                <td>Some value</td>
+                                <td>100%</td>
+                              </tr>
+                              <tr>
+                                <td class="checky">
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" checked>
+                                  </div>
+                                </td>
+                                <td>Some value</td>
+                                <td>100%</td>
+                              </tr>
+                              <tr>
+                                <td class="checky">
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" checked>
+                                  </div>
+                                </td>
+                                <td>Some value</td>
+                                <td>99%</td>
+                              </tr>
+                              <tr>
+                                <td class="checky">
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" checked>
+                                  </div>
+                                </td>
+                                <td>Some value</td>
+                                <td>94%</td>
+                              </tr>
+                              <tr>
+                                <td class="checky">
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" checked>
+                                  </div>
+                                </td>
+                                <td>Some value</td>
+                                <td>92%</td>
+                              </tr>
+                              <tr>
+                                <td class="checky">
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" checked>
+                                  </div>
+                                </td>
+                                <td>Some value</td>
+                                <td>88%</td>
+                              </tr>
+                              <tr>
+                                <td class="checky">
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" checked>
+                                  </div>
+                                </td>
+                                <td>Some value</td>
+                                <td>82%</td>
+                              </tr>
+                              <tr>
+                                <td class="checky">
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" checked>
+                                  </div>
+                                </td>
+                                <td>Some value</td>
+                                <td>77%</td>
+                              </tr>
+                              <tr>
+                                <td class="checky">
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" checked>
+                                  </div>
+                                </td>
+                                <td>Some value</td>
+                                <td>52%</td>
+                              </tr>
+                              <tr>
+                                <td class="checky">
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" checked>
+                                  </div>
+                                </td>
+                                <td>Some value</td>
+                                <td>22%</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label>Threshold</label>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="ThresholdMissing" id="ThresholdMissing1" value="ThresholdMissing1" checked>
+                      <label class="form-check-label" for="ThresholdMissing1">
+                        Automatic
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="ThresholdMissing" id="ThresholdMissing2" value="ThresholdMissing2">
+                      <label class="form-check-label" for="ThresholdMissing2">
+                        Aggressive
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="ThresholdMissing" id="ThresholdMissing3" value="ThresholdMissing3">
+                      <label class="form-check-label" for="ThresholdMissing3">
+                        Manual
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+
+        <!-- count -->
+        <div class="card">
+          <div class="card-body">
+            <div class="card-title">
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="cdistinct" checked>
+                <label class="form-check-label" for="cdistinct" style="color: #212529">Monitor count distinct</label>
+              </div>
+            </div>
+
+            <div class="card-text">
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="card-title" style="font-weight: normal;">
+                        Count distinct is 1295
+                      </div>
+                      <div class="card-text">
+                        <div id="chartdistinct" class="chartz"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label>Threshold</label>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="ThresholdCount" id="ThresholdCount1" value="ThresholdCount1" checked>
+                      <label class="form-check-label" for="ThresholdCount1">
+                        Automatic
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="ThresholdCount" id="ThresholdCount2" value="ThresholdCount2">
+                      <label class="form-check-label" for="ThresholdCount2">
+                        Aggressive
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="ThresholdCount" id="ThresholdCount3" value="ThresholdCount3">
+                      <label class="form-check-label" for="ThresholdCount3">
+                        Manual
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+
+
+
+        <!-- dimension -->
+        <div class="card">
+          <div class="card-body">
+            <div class="card-title">
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="dimension" checked>
+                <label class="form-check-label" for="dimension" style="color: #212529">Monitor dimension</label>
+              </div>
+            </div>
+
+            <div class="card-text">
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="card-title" style="font-weight: normal;">
+                        Showing top 10 values
+                      </div>
+                      <div class="card-text">
+                        <div id="chartdimension" class="chartz"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label>Monitor for</label>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="DT1" checked>
+                      <label class="form-check-label" for="DT1">Value missing</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="DT2" checked>
+                      <label class="form-check-label" for="DT2">New values </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="DT3" checked>
+                      <label class="form-check-label" for="DT3">High rate</label>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label>Threshold</label>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="TThresholdRadiozzz" id="TThresholdRadiozzz1" value="TThresholdRadiozzz1" checked>
+                      <label class="form-check-label" for="TThresholdRadiozzz1">
+                        Automatic
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="TThresholdRadiozzz" id="TThresholdRadiozzz2" value="TThresholdRadiozzz2">
+                      <label class="form-check-label" for="TThresholdRadiozzz2">
+                        Aggressive
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="TThresholdRadiozzz" id="TThresholdRadiozzz3" value="TThresholdRadiozzz3">
+                      <label class="form-check-label" for="TThresholdRadiozzz3">
+                        Manual
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+
+
+
+        <!-- Notification -->
+        <div class="card">
+          <div class="card-body">
+            <div class="card-title">
+              Notification
+            </div>
+            <div class="card-text">
+              <div class="form-group">
+                <label>Audience</label>
+                <form class="row">
+                  <div class="col-auto">
+                    <select class="form-select">
+                      <option>&nbsp;</option>
+                      <option>Audience Name</option>
+                      <option>Audience Name</option>
+                      <option>Audience Name</option>
+                      <option>Audience Name</option>
+                      <option>Audience Name</option>
+                      <option>Audience Name</option>
+                      <option>Audience Name</option>
+                      <option>Audience Name</option>
+                    </select>
+                  </div>
+                  <div class="col-auto">
+                    <div class="text-muted" style="margin-top: 6px;">Notification Channels will appear here once an audience is selected.</div>
+                  </div>
+                </form>
+              </div>
+              <a href="#" class="btn btn-outline-primary btn-sm">Create Audience</a>
+              <hr>
+              <div class="form-group">
+                <label>Notes</label>
+                <textarea class="form-control" rows="8" maxlength="512" placeholder="Add notes to this monitor to reference in future incident notification messages"></textarea>
+              </div>
+              <hr>
+              <div>While threshold stays violated, send a notification <strong>every 4 runs</strong> of the rule.<a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit"><i class="ti ti-pencil"></i></a></div>
+              <hr>
+              <div><strong>Notify</strong> when the monitor fails to run.<a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit"><i class="ti ti-pencil"></i></a></div>
+              <hr>
+              <div>Incidents have <strong>no severity</strong>.<a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit"><i class="ti ti-pencil"></i></a></div>
+            </div>
+          </div>
+        </div>
+        <div class="clearfix" style="height: 94px;"></div>
+      </div>
+      <div class="col-md-4">
+        <div class="card sticky" style="height: auto;">
+          <div class="card-body">
+            <div class="card-title">
+              Incident count under selected conditions
+            </div>
+            <div class="card-text">
+              <div id="readguess" class="chartzy"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="row">
+        <div class="col-md-12">
+          <a href="monitor_cardinality.html" class="btn btn-primary">Create</a>
+          <a href="monitors_create.html" class="btn btn-outline-primary">Cancel</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- timezones -->
+  <div class="modal fade" id="timezones">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Edit Timezone</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>Timezone</label>
+            <input type="text" class="form-control" placeholder="Search...">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Save</button>
+          <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/highcharts-more.js"></script>
+  <script src="https://code.highcharts.com/modules/dumbbell.js"></script>
+  <script src="https://code.highcharts.com/modules/lollipop.js"></script>
+  <script src="https://code.highcharts.com/modules/annotations.js"></script>
+  <script src="js/mc.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/monitor_create_field.js"></script>
+</body>
+</html>

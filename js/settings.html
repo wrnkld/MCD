@@ -1,0 +1,2700 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/mc.css" rel="stylesheet">
+  <style> input[type="color"] { -webkit-appearance: none; border: none; width: 24px; height: 24px; } </style>
+  <title>Monte Carlo - Settings</title>
+</head>
+<body>
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <ul class="navbar-nav mr-auto">
+      <li class="navbar-brand">MC</li>
+      <li class="nav-item">
+        <a class="nav-link" href="index.html">Dashboards</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="monitors.html">Monitors</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="incidents.html">Incidents</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="performance.html">Performance</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="assets.html">Assets</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="settings.html">Settings</a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav ms-auto w-100 justify-content-end">
+    <li class="nav-item">
+      <a class="nav-link" href="#"><i class="ti ti-bell"></i></a>
+    </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          All
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li class="dropdown-header">Domains</li>
+          <li><a class="dropdown-item" href="#">All <i class="ti ti-check float-right"></i></a></li>
+          <li><a class="dropdown-item" href="#">Analytics</a></li>
+          <li><a class="dropdown-item" href="#">Marketing</a></li>
+          <li><a class="dropdown-item" href="#">Raw</a></li>
+          <li><a class="dropdown-item" href="#">Test</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="settings.html">Create Domain</a></li>
+        </ul>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Matthew Stevens
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li class="dropdown-header">Account ID</li>
+          <li><a class="dropdown-item" href="#">d72bc4d1-f675-4d72-82a1-418220cca709</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">EDT timezone</a></li>
+          <li><a class="dropdown-item" href="#">Docs</a></li>
+          <li><a class="dropdown-item" href="#">Changelog</a></li>
+          <li><a class="dropdown-item" href="#">Support</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">Log Out</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  <ul class="navigation_sub">
+    <li class="title">Settings</li>
+  </ul>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-2">
+        <div class="sticky">
+          <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-action" data-bs-toggle="tab" data-bs-target="#Notifications">Notifications</a>
+            <a href="#" class="list-group-item list-group-item-action" data-bs-toggle="tab" data-bs-target="#Audiences">Audiences</a>
+            <a href="#" class="list-group-item list-group-item-action" data-bs-toggle="tab" data-bs-target="#Integrations">Integrations</a>
+            <a href="#" class="list-group-item list-group-item-action" data-bs-toggle="tab" data-bs-target="#Users">Users</a>
+            <a href="#" class="list-group-item list-group-item-action active" data-bs-toggle="tab" data-bs-target="#Exclusion">Exclusion Windows</a>
+            <a href="#" class="list-group-item list-group-item-action" data-bs-toggle="tab" data-bs-target="#MutedData">Muted Data</a>
+            <a href="#" class="list-group-item list-group-item-action" data-bs-toggle="tab" data-bs-target="#LineageFilters">Lineage Filters</a>
+            <a href="#" class="list-group-item list-group-item-action" data-bs-toggle="tab" data-bs-target="#Domains">Domains</a>
+            <a href="#" class="list-group-item list-group-item-action" data-bs-toggle="tab" data-bs-target="#Authorization">Authorization Groups</a>
+            <a href="#" class="list-group-item list-group-item-action" data-bs-toggle="tab" data-bs-target="#API">API Keys</a>
+            <a href="#" class="list-group-item list-group-item-action" data-bs-toggle="tab" data-bs-target="#SSO">Single Sign On</a>
+            <a href="#" class="list-group-item list-group-item-action" data-bs-toggle="tab" data-bs-target="#Incidents">Incidents</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-10">
+        <div class="tab-content">
+          <div class="tab-pane" id="Notifications">
+            <div class="card">
+              <div class="card-body">
+                <div class="float-right"><a href="#" data-bs-toggle="offcanvas" data-bs-target="#drawernotification" class="btn btn-outline-primary btn-sm">Create Notification</a></div>
+                <div class="card-title">Notifications</div>
+                <div class="card-subtitle">Manage when and how you get notified about incidents. See <a href="#">docs</a> to learn more.</div>
+                <div class="card-text">
+                  <table class="table table-outside">
+                    <thead>
+                      <tr>
+                        <th>Frequency</th>
+                        <th>Audience</th>
+                        <th>Details</th>
+                        <th>Created By</th>
+                        <th>Date</th>
+                        <th class="right">Incidents Last 30 Days</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Daily Digest</td>
+                        <td>Audience Name</td>
+                        <td>incidents / data</td>
+                        <td>Francisco Alberini</td>
+                        <td>Sep 10th 2024 01:33 EDT</td>
+                        <td class="right">12</td>
+                        <td>
+                          <div class="float-right">
+                            <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit"><i class="ti ti-pencil"></i></a>
+                            <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Immediate</td>
+                        <td>Audience Name</td>
+                        <td>incidents / data</td>
+                        <td>Will Robins</td>
+                        <td>Sep 10th 2024 01:33 EDT</td>
+                        <td class="right">33</td>
+                        <td>
+                          <div class="float-right">
+                            <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit"><i class="ti ti-pencil"></i></a>
+                            <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" id="Audiences">
+            <div class="card">
+              <div class="card-body">
+                <div class="float-right"><a href="#" data-bs-toggle="offcanvas" data-bs-target="#draweraudience" class="btn btn-outline-primary btn-sm">Create Audience</a></div>
+                <div class="card-title">Audiences</div>
+                <div class="card-subtitle">Audiences make it easy to manage notifications for custom monitors. See <a href="#">docs</a> to learn more.</div>
+                <div class="card-text">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search...">
+                      </div>
+                    </div>
+                  </div>
+                  <table class="table table-outside">
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Recipients</th>
+                        <th class="right">Notifications</th>
+                        <th>Created By</th>
+                        <th>Date</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Audience Name</td>
+                        <td>
+                          <div><img src="img/logo_slack.svg" alt="Slack"><a href="#">mcd-alerts</a></div>
+                          <div><img src="img/logo_pagerduty.svg" alt=""><a href="#">a5cb0af171194e0ed05f4614432711a2</a></div>
+                          <div><i class="ti ti-mail"></i> epardes@montecarlodata.com</div>
+                        </td>
+                        <td class="right"><a href="#">12</a></td>
+                        <td>Francisco Alberini</td>
+                        <td>Sep 10th 2024 01:33 EDT</td>
+                        <td>
+                          <div class="float-right">
+                            <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit"><i class="ti ti-pencil"></i></a>
+                            <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Audience Name</td>
+                        <td>
+                          <div><img src="img/logo_slack.svg" alt="Slack"><a href="#">mcd-alerts</a></div>
+                        </td>
+                        <td class="right"><a href="#">5</a></td>
+                        <td>Will Robins</td>
+                        <td>Sep 10th 2024 01:33 EDT</td>
+                        <td>
+                          <div class="float-right">
+                            <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit"><i class="ti ti-pencil"></i></a>
+                            <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Audience Name</td>
+                        <td>
+                          <div><img src="img/logo_slack.svg" alt="Slack"><a href="#">mcd-alerts-1</a></div>
+                          <div><img src="img/logo_slack.svg" alt="Slack"><a href="#">mcd-alerts-2</a></div>
+                          <div><img src="img/logo_slack.svg" alt="Slack"><a href="#">mcd-alerts-3</a></div>
+                          <div><img src="img/logo_slack.svg" alt="Slack"><a href="#">mcd-alerts-4</a></div>
+                        </td>
+                        <td class="right"><a href="#">7</a></td>
+                        <td>Mei Tao</td>
+                        <td>Sep 10th 2024 01:33 EDT</td>
+                        <td>
+                          <div class="float-right">
+                            <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit"><i class="ti ti-pencil"></i></a>
+                            <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" id="Integrations">
+            <div class="card">
+              <div class="card-body">
+                <div class="float-right"><a href="#" class="btn btn-outline-primary btn-sm">Test Network</a></div>
+                <div class="card-title">Integrations (10)</div>
+                <div class="card-subtitle">Manage your data sources integrations.</div>
+                <div class="card-text">
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="float-right">
+                        <button type="button" class="btn btn-outline-primary btn-sm dropdown-toggle" data-bs-toggle="dropdown">
+                          Create
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                          <a class="dropdown-item" href="#">BigQuery</a>
+                          <a class="dropdown-item" href="#">Data Lake</a>
+                          <a class="dropdown-item" href="#" data-bs-toggle="offcanvas" data-bs-target="#drawercreatedatabricks">Databricks</a>
+                          <a class="dropdown-item" href="#" data-bs-toggle="offcanvas" data-bs-target="#drawercreateredshift">Redshift</a>
+                          <a class="dropdown-item" href="#">Snowflake</a>
+                        </div>
+                      </div>
+                      <div class="card-title">Data Lakes and Warehouses</div>
+                      <div class="card-text">
+                        <table class="table table-outside">
+                          <thead>
+                            <tr>
+                              <th></th>
+                              <th style="width: 180px;">Type</th>
+                              <th style="width: 60%;">Details</th>
+                              <th style="width: 160px;">Status</th>
+                              <th></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td class="checky"><img src="img/logo_databricks.svg" alt="Databricks"></td>
+                              <td>Databricks</td>
+                              <td>databricks_cluster_id: 0621-211350-xcj1ej5z</td>
+                              <td><span class="badge rounded-pill text-bg-success">Active</span></td>
+                              <td>
+                                <div class="float-right">
+                                  <a href="#" class="btn btn-link" data-bs-toggle="offcanvas" data-bs-target="#databrix"><i class="ti ti-pencil" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit Databricks Integration"></i></a>
+                                  <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="checky"><img src="img/logo_snowflake.svg" alt="Looker"></td>
+                              <td>Snowflake</td>
+                              <td>account: dka87615.us-east-1</td>
+                              <td><span class="badge rounded-pill text-bg-success">Active</span></td>
+                              <td>
+                                <div class="float-right">
+                                  <a href="#" class="btn btn-link" data-bs-toggle="offcanvas" data-bs-target="#testsnowflake"><i class="ti ti-bug" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Test"></i></a>
+                                  <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit"><i class="ti ti-pencil"></i></a>
+                                  <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="clearfix"></div>
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="float-right">
+                        <button type="button" class="btn btn-outline-primary dropdown-toggle btn-sm" data-bs-toggle="dropdown">
+                          Create
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                          <a class="dropdown-item" href="#">Looker</a>
+                          <a class="dropdown-item" href="#" data-bs-toggle="offcanvas" data-bs-target="#createtableau">Tableau</a>
+                        </div>
+                      </div>
+                      <div class="card-title">Business Intelligence</div>
+                      <div class="card-text">
+                        <table class="table table-outside">
+                          <thead>
+                            <tr>
+                              <th></th>
+                              <th style="width: 180px;">Type</th>
+                              <th style="width: 60%;">Details</th>
+                              <th style="width: 160px;">Status</th>
+                              <th></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td class="checky"><img src="img/logo_looker.svg" alt="Looker"></td>
+                              <td>Looker</td>
+                              <td>repo_url: git@github.com:monte-carlo-data/looker-monte-carlo-analytics.git</td>
+                              <td><span class="badge rounded-pill text-bg-success">Active</span></td>
+                              <td>
+                                <div class="float-right">
+                                  <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit"><i class="ti ti-pencil"></i></a>
+                                  <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="checky"><img src="img/logo_tableau.svg" alt="Tableau"></td>
+                              <td>Tableau</td>
+                              <td>Server Name: https://prod-useast-a.online.tableau.com/</td>
+                              <td><span class="badge rounded-pill text-bg-success">Active</span></td>
+                              <td>
+                                <div class="float-right">
+                                  <a href="#" class="btn btn-link" data-bs-toggle="offcanvas" data-bs-target="#draweredittableau"><i class="ti ti-pencil" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit"></i></a>
+                                  <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="checky"><img src="img/logo_looker.svg" alt="Looker"></td>
+                              <td>Looker</td>
+                              <td>base_url: https://montecarlodata.looker.com:19999</td>
+                              <td><span class="badge rounded-pill text-bg-success">Active</span></td>
+                              <td>
+                                <div class="float-right">
+                                  <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit"><i class="ti ti-pencil"></i></a>
+                                  <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="clearfix"></div>
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="float-right">
+                        <button type="button" class="btn btn-outline-primary btn-sm">
+                          Create
+                        </button>
+                      </div>
+                      <div class="card-title">Orchestration Tools</div>
+                      <div class="card-text">
+                        <table class="table table-outside">
+                          <thead>
+                            <tr>
+                              <th></th>
+                              <th style="width: 180px;">Type</th>
+                              <th style="width: 60%;">Details</th>
+                              <th style="width: 160px;">Status</th>
+                              <th></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td class="checky"><img src="img/logo_dbt.svg" alt="dbt"></td>
+                              <td>dbt Cloud</td>
+                              <td>Details</td>
+                              <td><span class="badge rounded-pill text-bg-success">Active</span></td>
+                              <td>
+                                <div class="float-right">
+                                  <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit"><i class="ti ti-pencil"></i></a>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="checky"><img src="img/logo_dbt.svg" alt="dbt"></td>
+                              <td>dbt Core</td>
+                              <td>Details</td>
+                              <td><span class="badge rounded-pill text-bg-success">Active</span></td>
+                              <td>
+                                <div class="float-right">
+                                  <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit"><i class="ti ti-pencil"></i></a>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="clearfix"></div>
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="float-right">
+                        <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="offcanvas" data-bs-target="#drawerjira">
+                          Create
+                        </button>
+                      </div>
+                      <div class="card-title">Notifications and Collaboration</div>
+                      <div class="card-text">
+                        <table class="table table-outside">
+                          <thead>
+                            <tr>
+                              <th></th>
+                              <th style="width: 180px;">Type</th>
+                              <th style="width: 60%;">Details</th>
+                              <th style="width: 160px;">Status</th>
+                              <th></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td class="checky"><img src="img/logo_slack.svg" alt="Slack"></td>
+                              <td>Slack</td>
+                              <td>Details</td>
+                              <td><span class="badge rounded-pill text-bg-success">Active</span></td>
+                              <td>
+                                <div class="float-right">
+                                  <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                                </div>
+                              </td>
+                            </tr>
+
+                            <tr>
+                              <td class="checky"><img src="img/logo_jira.svg" alt="Jira"></td>
+                              <td>Jira</td>
+                              <td>Some details here</td>
+                              <td><span class="badge rounded-pill text-bg-success">Active</span></td>
+                              <td>
+                                <div class="float-right">
+                                  <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Test"><i class="ti ti-bug"></i></a>
+                                  <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit"><i class="ti ti-pencil"></i></a>
+                                  <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" id="Users">
+            <div class="card">
+              <div class="card-body">
+                <div class="float-right">
+                  <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Download"><i class="ti ti-download"></i></a>
+                  <a href="#" data-bs-toggle="offcanvas" data-bs-target="#drawerusers" class="btn btn-outline-primary btn-sm">Invite Users</a>
+                </div>
+                <div class="card-title">Users</div>
+                <div class="card-subtitle">Invite and manage users. View <a href="https://docs.getmontecarlo.com/docs/authorization">Authorization docs</a>.</div>
+                <div class="card-text">
+                  <nav class="nav nav-tabz">
+                    <a class="nav-link active" data-bs-toggle="tab" href="#Pending">Pending Invitations</a>
+                    <a class="nav-link" data-bs-toggle="tab" href="#Active">Active Users</a>
+                  </nav>
+                  <div class="tab-content">
+                    <div class="tab-pane active" id="Pending">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search...">
+                          </div>
+                        </div>
+                      </div>
+                      <table class="table table-outside">
+                        <thead>
+                          <tr>
+                            <th>Email</th>
+                            <th>Invited</th>
+                            <th>Groups</th>
+                            <th></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>ljimenez@montecarlodata.com</td>
+                            <td>May 15th 2024</td>
+                            <td>Account Owners</td>
+                            <td>
+                              <div class="float-right">
+                                <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Resend"><i class="ti ti-mail"></i></a>
+                                <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>opadovani@montecarlodata.com</td>
+                            <td>Apr 15th 2024</td>
+                            <td>Account Owners</td>
+                            <td>
+                              <div class="float-right">
+                                <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Resend"><i class="ti ti-mail"></i></a>
+                                <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>ltromba@montecarlodata.com</td>
+                            <td>Mar 25th 2024</td>
+                            <td>Editors</td>
+                            <td>
+                              <div class="float-right">
+                                <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Resend"><i class="ti ti-mail"></i></a>
+                                <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>ncastagnet@montecarlodata.com</td>
+                            <td>Mar 25th 2024</td>
+                            <td>Editors</td>
+                            <td>
+                              <div class="float-right">
+                                <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Resend"><i class="ti ti-mail"></i></a>
+                                <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>hgivelber@montecarlodata.com</td>
+                            <td>Feb 14th 2024</td>
+                            <td>Editors</td>
+                            <td>
+                              <div class="float-right">
+                                <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Resend"><i class="ti ti-mail"></i></a>
+                                <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>thisisatest@ellepyatt.com</td>
+                            <td>Feb 3rd 2024</td>
+                            <td>Account Owners</td>
+                            <td>
+                              <div class="float-right">
+                                <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Resend"><i class="ti ti-mail"></i></a>
+                                <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>lshemer@montecarlodata.com</td>
+                            <td>Oct 5th 2021</td>
+                            <td>Editors</td>
+                            <td>
+                              <div class="float-right">
+                                <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Resend"><i class="ti ti-mail"></i></a>
+                                <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="tab-pane" id="Active">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search...">
+                          </div>
+                        </div>
+                      </div>
+                      <table class="table table-outside">
+                        <thead>
+                          <tr>
+                            <th>Email</th>
+                            <th>Name</th>
+                            <th>Joined</th>
+                            <th>Groups</th>
+                            <th></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>jdalittle@gmail.com</td>
+                            <td>Ambrose Test</td>
+                            <td>May 12th 2024</td>
+                            <td>Editors</td>
+                            <td>
+                              <div class="float-right">
+                                <a href="#" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#edituser"><i class="ti ti-pencil" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit"></i></a>
+                                <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>alittle+prod_viewer@montecarlodata.com</td>
+                            <td>Test Viewer</td>
+                            <td>May 12th 2024</td>
+                            <td>Raw Only</td>
+                            <td>
+                              <div class="float-right">
+                                <a href="#" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#edituser"><i class="ti ti-pencil" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit"></i></a>
+                                <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>saguiar@montecarlodata.com</td>
+                            <td>Santiago Aguiar</td>
+                            <td>Mar 21st 2024</td>
+                            <td>Account Owners</td>
+                            <td>
+                              <div class="float-right">
+                                <a href="#" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#edituser"><i class="ti ti-pencil" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit"></i></a>
+                                <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>amitelli@montecarlodata.com</td>
+                            <td>Alessandro Mitelli</td>
+                            <td>Mar 15th 2024</td>
+                            <td>Account Owners</td>
+                            <td>
+                              <div class="float-right">
+                                <a href="#" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#edituser"><i class="ti ti-pencil" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit"></i></a>
+                                <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>rick.bergfalk+discotest@gmail.com</td>
+                            <td>Rick Bergfalk</td>
+                            <td>Dec 9th 2021</td>
+                            <td>Viewers</td>
+                            <td>
+                              <div class="float-right">
+                                <a href="#" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#edituser"><i class="ti ti-pencil" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit"></i></a>
+                                <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" id="MutedData">
+            <div class="card">
+              <div class="card-body">
+                <div class="card-title">Muted Data</div>
+                <div class="card-text">
+                  <nav class="nav nav-tabz">
+                    <a class="nav-link active" data-bs-toggle="tab" href="#Datasets">Datasets</a>
+                    <a class="nav-link" data-bs-toggle="tab" href="#Tables">Tables</a>
+                  </nav>
+                  <div class="tab-content">
+                    <div class="tab-pane active" id="Datasets">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label>Search</label>
+                            <input class="form-control" type="text" placeholder="Search datasets...">
+                          </div>
+                        </div>
+                        <div class="col-md-3">
+                          <div class="form-group">
+                            <label>Status</label>
+                            <div class="clearfix" style="height: 0;"></div>
+                            <div class="btn-group btn-group-toggle" data-bs-toggle="buttons">
+                              <label class="btn btn-outline-primary">
+                                All
+                              </label>
+                              <label class="btn btn-primary">
+                                Muted
+                              </label>
+                              <label class="btn btn-outline-primary">
+                                Unmuted
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <table class="table table-outside">
+                        <thead>
+                          <tr>
+                            <th colspan="4" style="padding: 8px; font-weight: normal;">
+                              <a href="#" class="btn btn-sm btn-outline-primary disabled">Unmute</a>
+                            </th>
+                          </tr>
+                          <tr>
+                            <th class="checky">
+                              <div class="form-check">
+                                <input class="form-check-input" type="checkbox">
+                              </div>
+                            </th>
+                            <th class="checky"><i class="ti ti-chevron-right"></i></th>
+                            <th>Dataset</th>
+                            <th></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td class="checky">
+                              <div class="form-check">
+                                <input class="form-check-input" type="checkbox">
+                              </div>
+                            </td>
+                            <td class="checky"><i class="ti ti-chevron-down"></i></td>
+                            <td>Some Dataset</td>
+                            <td>
+                              <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="customSwitch400" checked>
+                                <label class="form-check-label" for="customSwitch400">Muted</label>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td colspan="4" class="expanded">
+                              <table class="table table-outside">
+                                <tbody>
+                                  <tr>
+                                    <td>Schema change</td>
+                                    <td>
+                                      <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="customSwitch401" checked>
+                                        <label class="form-check-label" for="customSwitch401">Muted</label>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>Unchanged size</td>
+                                    <td>
+                                      <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="customSwitch402" checked>
+                                        <label class="form-check-label" for="customSwitch402">Muted</label>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>Freshness</td>
+                                    <td>
+                                      <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="customSwitch403" checked>
+                                        <label class="form-check-label" for="customSwitch403">Muted</label>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>Volume</td>
+                                    <td>
+                                      <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="customSwitch404" checked>
+                                        <label class="form-check-label" for="customSwitch404">Muted</label>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="checky">
+                              <div class="form-check">
+                                <input class="form-check-input" type="checkbox">
+                              </div>
+                            </td>
+                            <td class="checky"><i class="ti ti-chevron-right"></i></td>
+                            <td>Some Dataset</td>
+                            <td>
+                              <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="customSwitch405" checked>
+                                <label class="form-check-label" for="customSwitch405">Muted</label>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="checky">
+                              <div class="form-check">
+                                <input class="form-check-input" type="checkbox">
+                              </div>
+                            </td>
+                            <td class="checky"><i class="ti ti-chevron-right"></i></td>
+                            <td>Some Dataset</td>
+                            <td>
+                              <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="customSwitch406" checked>
+                                <label class="form-check-label" for="customSwitch406">Muted</label>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="checky">
+                              <div class="form-check">
+                                <input class="form-check-input" type="checkbox">
+                              </div>
+                            </td>
+                            <td class="checky"><i class="ti ti-chevron-right"></i></td>
+                            <td>Some Dataset</td>
+                            <td>
+                              <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="customSwitch407" checked>
+                                <label class="form-check-label" for="customSwitch407">Muted</label>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="checky">
+                              <div class="form-check">
+                                <input class="form-check-input" type="checkbox">
+                              </div>
+                            </td>
+                            <td class="checky"><i class="ti ti-chevron-right"></i></td>
+                            <td>Some Dataset</td>
+                            <td>
+                              <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="customSwitch408" checked>
+                                <label class="form-check-label" for="customSwitch408">Muted</label>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="checky">
+                              <div class="form-check">
+                                <input class="form-check-input" type="checkbox">
+                              </div>
+                            </td>
+                            <td class="checky"><i class="ti ti-chevron-right"></i></td>
+                            <td>Some Dataset</td>
+                            <td>
+                              <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="customSwitch409" checked>
+                                <label class="form-check-label" for="customSwitch409">Muted</label>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="checky">
+                              <div class="form-check">
+                                <input class="form-check-input" type="checkbox">
+                              </div>
+                            </td>
+                            <td class="checky"><i class="ti ti-chevron-right"></i></td>
+                            <td>Some Dataset</td>
+                            <td>
+                              <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="customSwitch410" checked>
+                                <label class="form-check-label" for="customSwitch410">Muted</label>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="checky">
+                              <div class="form-check">
+                                <input class="form-check-input" type="checkbox">
+                              </div>
+                            </td>
+                            <td class="checky"><i class="ti ti-chevron-right"></i></td>
+                            <td>Some Dataset</td>
+                            <td>
+                              <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="customSwitch411" checked>
+                                <label class="form-check-label" for="customSwitch411">Muted</label>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="checky">
+                              <div class="form-check">
+                                <input class="form-check-input" type="checkbox">
+                              </div>
+                            </td>
+                            <td class="checky"><i class="ti ti-chevron-right"></i></td>
+                            <td>Some Dataset</td>
+                            <td>
+                              <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="customSwitch412" checked>
+                                <label class="form-check-label" for="customSwitch412">Muted</label>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="checky">
+                              <div class="form-check">
+                                <input class="form-check-input" type="checkbox">
+                              </div>
+                            </td>
+                            <td class="checky"><i class="ti ti-chevron-right"></i></td>
+                            <td>Some Dataset</td>
+                            <td>
+                              <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="customSwitch413" checked>
+                                <label class="form-check-label" for="customSwitch413">Muted</label>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="tab-pane" id="Tables">
+
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label>Search</label>
+                            <input class="form-control" type="text" placeholder="Search tables...">
+                          </div>
+                        </div>
+                        <div class="col-md-3">
+                          <div class="form-group">
+                            <label>Status</label>
+                            <div class="clearfix" style="height: 0;"></div>
+                            <div class="btn-group btn-group-toggle" data-bs-toggle="buttons">
+                              <label class="btn btn-outline-primary">
+                                All
+                              </label>
+                              <label class="btn btn-outline-primary">
+                                Muted
+                              </label>
+                              <label class="btn btn-primary">
+                                Unmuted
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <table class="table table-outside">
+                        <thead>
+                          <tr>
+                            <th colspan="4" style="padding: 8px; font-weight: normal;">
+                              <a href="#" class="btn btn-sm btn-outline-primary">Mute</a>
+                            </th>
+                          </tr>
+                          <tr>
+                            <th class="checky">
+                              <div class="form-check">
+                                <input class="form-check-input" type="checkbox">
+                              </div>
+                            </th>
+                            <th class="checky"><i class="ti ti-chevron-right"></i></th>
+                            <th>Table</th>
+                            <th></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td class="checky">
+                              <div class="form-check">
+                                <input class="form-check-input" type="checkbox">
+                              </div>
+                            </td>
+                            <td class="checky"><i class="ti ti-chevron-down"></i></td>
+                            <td>Some Table</td>
+                            <td>
+                              <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="customSwitch500">
+                                <label class="form-check-label" for="customSwitch500">Unmuted</label>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td colspan="4" class="expanded">
+                              <table class="table table-outside">
+                                <tbody>
+                                  <tr>
+                                    <td>Schema change</td>
+                                    <td>
+                                      <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="customSwitch501">
+                                        <label class="form-check-label" for="customSwitch501">Unmuted</label>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>Unchanged size</td>
+                                    <td>
+                                      <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="customSwitch502">
+                                        <label class="form-check-label" for="customSwitch502">Unmuted</label>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>Freshness</td>
+                                    <td>
+                                      <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="customSwitch503">
+                                        <label class="form-check-label" for="customSwitch503">Unmuted</label>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>Volume</td>
+                                    <td>
+                                      <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="customSwitch504">
+                                        <label class="form-check-label" for="customSwitch504">Unmuted</label>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="checky">
+                              <div class="form-check">
+                                <input class="form-check-input" type="checkbox" checked>
+                              </div>
+                            </td>
+                            <td class="checky"><i class="ti ti-chevron-right"></i></td>
+                            <td>Some Table</td>
+                            <td>
+                              <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="customSwitch505">
+                                <label class="form-check-label" for="customSwitch505">Unmuted</label>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="checky">
+                              <div class="form-check">
+                                <input class="form-check-input" type="checkbox" checked>
+                              </div>
+                            </td>
+                            <td class="checky"><i class="ti ti-chevron-right"></i></td>
+                            <td>Some Table</td>
+                            <td>
+                              <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="customSwitch506">
+                                <label class="form-check-label" for="customSwitch506">Unmuted</label>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="checky">
+                              <div class="form-check">
+                                <input class="form-check-input" type="checkbox">
+                              </div>
+                            </td>
+                            <td class="checky"><i class="ti ti-chevron-right"></i></td>
+                            <td>Some Table</td>
+                            <td>
+                              <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="customSwitch507">
+                                <label class="form-check-label" for="customSwitch507">Unmuted</label>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="checky">
+                              <div class="form-check">
+                                <input class="form-check-input" type="checkbox">
+                              </div>
+                            </td>
+                            <td class="checky"><i class="ti ti-chevron-right"></i></td>
+                            <td>Some Table</td>
+                            <td>
+                              <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="customSwitch508">
+                                <label class="form-check-label" for="customSwitch508">Unmuted</label>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="checky">
+                              <div class="form-check">
+                                <input class="form-check-input" type="checkbox">
+                              </div>
+                            </td>
+                            <td class="checky"><i class="ti ti-chevron-right"></i></td>
+                            <td>Some Table</td>
+                            <td>
+                              <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="customSwitch509">
+                                <label class="form-check-label" for="customSwitch509">Unmuted</label>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="checky">
+                              <div class="form-check">
+                                <input class="form-check-input" type="checkbox">
+                              </div>
+                            </td>
+                            <td class="checky"><i class="ti ti-chevron-right"></i></td>
+                            <td>Some Table</td>
+                            <td>
+                              <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="customSwitch510">
+                                <label class="form-check-label" for="customSwitch510">Unmuted</label>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="checky">
+                              <div class="form-check">
+                                <input class="form-check-input" type="checkbox">
+                              </div>
+                            </td>
+                            <td class="checky"><i class="ti ti-chevron-right"></i></td>
+                            <td>Some Table</td>
+                            <td>
+                              <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="customSwitch511">
+                                <label class="form-check-label" for="customSwitch511">Unmuted</label>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="checky">
+                              <div class="form-check">
+                                <input class="form-check-input" type="checkbox">
+                              </div>
+                            </td>
+                            <td class="checky"><i class="ti ti-chevron-right"></i></td>
+                            <td>Some Table</td>
+                            <td>
+                              <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="customSwitch512">
+                                <label class="form-check-label" for="customSwitch512">Unmuted</label>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="checky">
+                              <div class="form-check">
+                                <input class="form-check-input" type="checkbox">
+                              </div>
+                            </td>
+                            <td class="checky"><i class="ti ti-chevron-right"></i></td>
+                            <td>Some Table</td>
+                            <td>
+                              <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="customSwitch513">
+                                <label class="form-check-label" for="customSwitch513">Unmuted</label>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane active" id="Exclusion">
+            <div class="card">
+              <div class="card-body">
+                <div class="float-right"><a class="btn btn-outline-primary btn-sm" data-bs-toggle="offcanvas" data-bs-target="#drawerexclusionwindows">Create Exclusion Window</a></div>
+                <div class="card-title">Exclusion Windows</div>
+                <div class="card-subtitle">Exclusion Windows help you protect the anomaly detection models from one-off irregularities.</div>
+                <div class="card-text">
+                  <table class="table table-outside">
+                    <thead>
+                      <tr>
+                        <th>Start</th>
+                        <th>End</th>
+                        <th>Duration</th>
+                        <th>Data</th>
+                        <th>Created by</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Sep 10th 2024 01:33 EDT	</td>
+                        <td>Sep 10th 2024 01:39 EDT	</td>
+                        <td>6 minutes</td>
+                        <td>Dataset: analytics:dbt_circle</td>
+                        <td>Will Robins</td>
+                        <td class="right">
+                          <div class="float-right">
+                            <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" id="LineageFilters">
+            <div class="card">
+              <div class="card-body">
+                <div class="float-right"><a class="btn btn-outline-primary btn-sm" data-bs-toggle="offcanvas" data-bs-target="#drawerfilter">Create Filter</a></div>
+                <div class="card-title">Lineage Filters</div>
+                <div class="card-subtitle">Add regex filters below to hide nodes from all in-app Lineage graphs. See <a href="#">docs</a> to learn more.</div>
+                <div class="card-text">
+                  <table class="table table-outside">
+                    <thead>
+                      <tr>
+                        <th>Project Regex</th>
+                        <th>Dataset Regex</th>
+                        <th>Table Regex</th>
+                        <th>Last Updated</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td></td>
+                        <td>/ personal|PERSONAL	</td>
+                        <td></td>
+                        <td>May 19th 2024 16:02 EDT</td>
+                        <td class="right">
+                          <div class="float-right">
+                            <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit" ><i class="ti ti-pencil" ></i></a>
+                            <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td>/ dbt_.*|DBT_.*	</td>
+                        <td></td>
+                        <td>May 19th 2024 16:02 EDT</td>
+                        <td class="right">
+                          <div class="float-right">
+                            <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit" ><i class="ti ti-pencil" ></i></a>
+                            <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>/ personal|PERSONAL	</td>
+                        <td></td>
+                        <td></td>
+                        <td>May 19th 2024 16:02 EDT</td>
+                        <td class="right">
+                          <div class="float-right">
+                            <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit" ><i class="ti ti-pencil" ></i></a>
+                            <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>/ personal|PERSONAL	</td>
+                        <td></td>
+                        <td></td>
+                        <td>May 19th 2024 16:02 EDT</td>
+                        <td class="right">
+                          <div class="float-right">
+                            <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit" ><i class="ti ti-pencil" ></i></a>
+                            <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>/ personal|PERSONAL	</td>
+                        <td></td>
+                        <td></td>
+                        <td>May 19th 2024 16:02 EDT</td>
+                        <td class="right">
+                          <div class="float-right">
+                            <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit" ><i class="ti ti-pencil" ></i></a>
+                            <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" id="Domains">
+            <div class="card">
+              <div class="card-body">
+                <div class="float-right"><a class="btn btn-outline-primary btn-sm" data-bs-toggle="offcanvas" data-bs-target="#drawerdomains">Create Domain</a></div>
+                <div class="card-title">Domains (4)</div>
+                <div class="card-subtitle">Manage domains to automatically filter monitors and incidents by projects and datasets.</div>
+                <div class="card-text">
+                  <table class="table table-outside">
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Creator</th>
+                        <th>Projects</th>
+                        <th>Datasets</th>
+                        <th>Tables</th>
+                        <th>Tags</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Analytics</td>
+                        <td></td>
+                        <td>Gilad Grushka</td>
+                        <td>analytics</td>
+                        <td>analytics:prod</td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                          <div class="float-right">
+                            <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit"><i class="ti ti-pencil"></i></a>
+                            <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Finance</td>
+                        <td></td>
+                        <td>Will Robins</td>
+                        <td>raw</td>
+                        <td>analytics:prod</td>
+                        <td>analytics:dbt_circle.client_warehouses, analytics:dbt_circle.recent_metrics</td>
+                        <td></td>
+                        <td>
+                          <div class="float-right">
+                            <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit"><i class="ti ti-pencil"></i></a>
+                            <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Golden Reports</td>
+                        <td></td>
+                        <td>Will Robins</td>
+                        <td>raw</td>
+                        <td>analytics:prod</td>
+                        <td>analytics:dbt_circle.client_warehouses, analytics:dbt_circle.recent_metrics</td>
+                        <td></td>
+                        <td>
+                          <div class="float-right">
+                            <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit"><i class="ti ti-pencil"></i></a>
+                            <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Test</td>
+                        <td></td>
+                        <td>Jesse Miller</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>samxiao:test001</td>
+                        <td>
+                          <div class="float-right">
+                            <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit"><i class="ti ti-pencil"></i></a>
+                            <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" id="Authorization">
+            <div class="card">
+              <div class="card-body">
+                <div class="float-right"><a class="btn btn-outline-primary btn-sm" data-bs-toggle="offcanvas" data-bs-target="#drawerauthorization">Create Authorization Group</a></div>
+                <div class="card-title">Authorization Groups (6)</div>
+                <div class="card-subtitle">Create groups to define domain and role based access for a group of users.</div>
+                <div class="card-text">
+                  <table class="table table-outside">
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Allowed Domains</th>
+                        <th>Role</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Viewers</td>
+                        <td>Grants viewer role on all domains within your account.</td>
+                        <td>All</td>
+                        <td>Viewer</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>Account Owners</td>
+                        <td>Grants owner role for your account.</td>
+                        <td>All</td>
+                        <td>Account Owner</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>Editors</td>
+                        <td>Grants editor role on all domains within your account.</td>
+                        <td>All</td>
+                        <td>Editor</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>Discover Editors</td>
+                        <td>Grants discover editor role on all domains within your account.</td>
+                        <td>All</td>
+                        <td>Discover Editor</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>Data Consumers</td>
+                        <td>Grants data consumer role on all domains within your account.</td>
+                        <td>All</td>
+                        <td>Data Consumer</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>Sales Eng</td>
+                        <td></td>
+                        <td>Sales Eng</td>
+                        <td>Editor</td>
+                        <td>
+                          <div class="float-right">
+                            <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit"><i class="ti ti-pencil"></i></a>
+                            <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" id="API">
+            <div class="card">
+              <div class="card-body">
+                <div class="float-right"><a class="btn btn-outline-primary btn-sm" data-bs-toggle="offcanvas" data-bs-target="#drawerapi">Create API Key</a></div>
+                <div class="card-title">API Keys</div>
+                <div class="card-subtitle">Manage your API keys. View <a href="https://docs.getmontecarlo.com/docs/using-the-api">API docs</a>. View <a href="https://pypi.org/project/pycarlo/">Python SDK</a>.</div>
+                <div class="card-text">
+                  <nav class="nav nav-tabz">
+                    <a class="nav-link active" data-bs-toggle="tab" href="#Personal">Personal Keys</a>
+                    <a class="nav-link" data-bs-toggle="tab" href="#Account">Account Service Keys</a>
+                  </nav>
+                  <div class="tab-content">
+                    <div class="tab-pane active" id="Personal">
+                      <table class="table table-outside">
+                        <thead>
+                          <tr>
+                            <th>Key ID</th>
+                            <th>Description</th>
+                            <th>Created</th>
+                            <th>Expires</th>
+                            <th></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>462edbc8eeb7455ba30f09c721cbc7d4</td>
+                            <td>Some description</td>
+                            <td>Jul 19th 2024</td>
+                            <td>Jul 19th 2024</td>
+                            <td>
+                              <div class="float-right">
+                                <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit"><i class="ti ti-pencil"></i></a>
+                                <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="tab-pane" id="Account">
+
+                      <table class="table table-outside">
+                        <thead>
+                          <tr>
+                            <th>Key ID</th>
+                            <th>Description</th>
+                            <th>Created</th>
+                            <th>Created By</th>
+                            <th>Authorization Groups</th>
+                            <th>Expires</th>
+                            <th></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>462edbc8eeb7455ba30f09c721cbc7d4</td>
+                            <td>Payoj Test</td>
+                            <td>Jul 19th 2024</td>
+                            <td>pbaral@montecarlodata.com</td>
+                            <td>Account Owners</td>
+                            <td>Jul 19th 2024</td>
+                            <td>
+                              <div class="float-right">
+                                <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit"><i class="ti ti-pencil"></i></a>
+                                <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" id="SSO">
+            <div class="card">
+              <div class="card-body">
+                <div class="float-right"><a class="btn btn-outline-primary btn-sm" data-bs-toggle="offcanvas" data-bs-target="#drawersso">Enable SSO</a></div>
+                <div class="card-title">Single Sign On</div>
+                <div class="card-subtitle">Manage SAML-based SSO. View <a href="https://docs.getmontecarlo.com/docs/setting-up-single-sign-on-sso">SSO docs</a>.</div>
+                <p class="card-text">SSO is not enabled.</p>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" id="Incidents">
+            <div class="card">
+              <div class="card-body">
+                <div class="float-right"><a href="#" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#createstatus">Create Status</a></div>
+                <div class="card-title">Incident Status</div>
+                <div class="card-text">
+                  <table class="table table-outside">
+                    <thead>
+                      <tr>
+                        <th style="width: 24px;"></th>
+                        <th>Status</th>
+                        <th>Author</th>
+                        <th style="width: 80px;"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><input type="color" value="#51CF66"></td>
+                        <td>Expected</td>
+                        <td>Monte Carlo</td>
+                        <td class="right">
+                          <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="customSwitch21" checked>
+                            <label class="form-check-label" for="customSwitch21">Enabled</label>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><input type="color" value="#51CF66"></td>
+                        <td>False Positive</td>
+                        <td>Monte Carlo</td>
+                        <td class="right">
+                          <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="customSwitch22" checked>
+                            <label class="form-check-label" for="customSwitch22">Enabled</label>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><input type="color" value="#51CF66"></td>
+                        <td>Fixed</td>
+                        <td>Monte Carlo</td>
+                        <td class="right">
+                          <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="customSwitch23" checked>
+                            <label class="form-check-label" for="customSwitch23">Enabled</label>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><input type="color" value="#FCC419"></td>
+                        <td>Investigating</td>
+                        <td>Monte Carlo</td>
+                        <td class="right">
+                          <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="customSwitch24">
+                            <label class="form-check-label" for="customSwitch24">Disabled</label>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><input type="color" value="#FF922B"></td>
+                        <td>No Status</td>
+                        <td>Monte Carlo</td>
+                        <td class="right">
+                          <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="customSwitch25" checked>
+                            <label class="form-check-label" for="customSwitch25">Enabled</label>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><input type="color" value="#aa88cc"></td>
+                        <td>Working on it!</td>
+                        <td>Freddy Adu</td>
+                        <td class="right">
+                          <div class="float-right">
+                            <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit" ><i class="ti ti-pencil" ></i></a>
+                            <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="card">
+              <div class="card-body">
+                <div class="float-right"><a href="#" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#createseverity">Create Severity</a></div>
+                <div class="card-title">Incident Severity</div>
+                <div class="card-text">
+                  <table class="table table-outside">
+                    <thead>
+                      <tr>
+                        <th>Severity</th>
+                        <th>Author</th>
+                        <th style="width: 80px;"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>SEV-0</td>
+                        <td>Monte Carlo</td>
+                        <td class="right">
+                          <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="customSwitch121">
+                            <label class="form-check-label" for="customSwitch121">Disabled</label>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>SEV-1</td>
+                        <td>Monte Carlo</td>
+                        <td class="right">
+                          <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="customSwitch122">
+                            <label class="form-check-label" for="customSwitch122">Disabled</label>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>SEV-2</td>
+                        <td>Monte Carlo</td>
+                        <td class="right">
+                          <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="customSwitch123">
+                            <label class="form-check-label" for="customSwitch123">Disabled</label>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>SEV-3</td>
+                        <td>Monte Carlo</td>
+                        <td class="right">
+                          <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="customSwitch124">
+                            <label class="form-check-label" for="customSwitch124">Disabled</label>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>No Status</td>
+                        <td>Monte Carlo</td>
+                        <td class="right">
+                          <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="customSwitch125" checked>
+                            <label class="form-check-label" for="customSwitch125">Enabled</label>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Bad news</td>
+                        <td>Freddy Adu</td>
+                        <td class="right">
+                          <div class="float-right">
+                            <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit" ><i class="ti ti-pencil" ></i></a>
+                            <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- drawernotification -->
+  <div class="offcanvas offcanvas-end" id="drawernotification">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Create Notification</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="form-group">
+        <label>Frequency</label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="Frequency" id="Frequency1" value="Frequency1">
+          <label class="form-check-label" for="Frequency1">
+            Daily Digest
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="Frequency" id="Frequency2" value="Frequency2" checked>
+          <label class="form-check-label" for="Frequency2">
+            Immediate
+          </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Audiences</label>
+        <select class="form-select">
+          <option>Audience Name 1</option>
+          <option>Audience Name 2</option>
+          <option>Audience Name 3</option>
+          <option>Audience Name 4</option>
+          <option>Audience Name 5</option>
+          <option>Audience Name 6</option>
+          <option>Audience Name 7</option>
+          <option>Audience Name 8</option>
+          <option>Audience Name 9</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Incident Type</label>
+        <select class="form-select">
+          <option>All</option>
+          <option>dbt errors</option>
+          <option>Dimension anomalies</option>
+          <option>Field Health anomalies</option>
+          <option>Freshness anomalies</option>
+          <option>Freshness rules</option>
+          <option>Schema changes</option>
+          <option>SQL rules</option>
+          <option>Volume anomalies</option>
+          <option>Volume rules</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Affected Data</label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="AffectedData" id="AffectedData1" value="AffectedData1" checked>
+          <label class="form-check-label" for="AffectedData1">
+            All
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="AffectedData" id="AffectedData2" value="AffectedData2">
+          <label class="form-check-label" for="AffectedData2">
+            Domains
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="AffectedData" id="AffectedData3" value="AffectedData3">
+          <label class="form-check-label" for="AffectedData3">
+            Projects, datasets, tables, and tags
+          </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Table Importance</label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="TableImportance" id="TableImportance1" value="TableImportance1" checked>
+          <label class="form-check-label" for="TableImportance1">
+            All
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="TableImportance" id="TableImportance2" value="TableImportance2">
+          <label class="form-check-label" for="TableImportance2">
+            Key Assets
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="TableImportance" id="TableImportance3" value="TableImportance3">
+          <label class="form-check-label" for="TableImportance3">
+            Table Importance
+          </label>
+        </div>
+      </div>
+      <div class="offcanvas-footer">
+        <button class="btn btn-primary" data-bs-dismiss="offcanvas">Create</button>
+        <button class="btn btn-outline-primary" data-bs-dismiss="offcanvas">Cancel</button>
+      </div>
+    </div>
+  </div>
+  <!-- draweraudience -->
+  <div class="offcanvas offcanvas-end" id="draweraudience">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Create Audience</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" class="form-control" placeholder="">
+      </div>
+      <table class="table table-outside">
+        <thead>
+          <tr>
+            <th colspan="3">Recipient</th>
+            <th class="right"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="3"><img src="img/logo_slack.svg" alt="Slack"><a href="#">mcd-alerts</a></td>
+            <td class="right"><a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a></td>
+          </tr>
+          <tr>
+            <td colspan="3"><img src="img/logo_slack.svg" alt="Slack"><a href="#">mcd-alerts</a></td>
+            <td class="right"><a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a></td>
+          </tr>
+          <tr>
+            <td>
+              <select class="form-select">
+                <option>Slack</option>
+                <option>PagerDuty</option>
+                <option>Email</option>
+                <option>Webhook</option>
+                <option>Mattermost</option>
+                <option>Opsgenie</option>
+                <option>MS Teams</option>
+                <option>Alation</option>
+              </select>
+            </td>
+            <td>
+              <select class="form-select">
+                <option>Public</option>
+                <option selected>Private</option>
+              </select>
+            </td>
+            <td>
+              <input type="text" class="form-control" placeholder="">
+            </td>
+            <td class="right"><a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="offcanvas-footer">
+        <button class="btn btn-primary" data-bs-dismiss="offcanvas">Create</button>
+        <button class="btn btn-outline-primary" data-bs-dismiss="offcanvas">Cancel</button>
+      </div>
+    </div>
+  </div>
+  <!-- START INTEGRATIONS -->
+  <!-- testsnowflake -->
+  <div class="offcanvas offcanvas-end" id="testsnowflake">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Test Snowflake Integration</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <table class="table table-outside">
+        <thead>
+          <tr>
+            <th class="checky"></th>
+            <th class="checky"></th>
+            <th>Test</th>
+            <th>Details</th>
+            <th class="checky"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="checky"><i class="ti ti-chevron-down"></i></td>
+            <td class="checky"><i class="ti ti-circle-check success"></i></td>
+            <td>Outbound internet</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td colspan="5" class="expanded">
+              <table class="table table-outside">
+                <thead>
+                  <tr>
+                    <th>Projects Validated</th>
+                    <th>Query</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>ANALYTICS</td>
+                    <td><span class="query">SELECT * FROM somthing or other</span></td>
+                  </tr>
+                  <tr>
+                    <td>ANDY_RENAME_DATABASE</td>
+                    <td><span class="query">SELECT * FROM somthing or other</span></td>
+                  </tr>
+                  <tr>
+                    <td>ANDY_RENAME_DATABASE_PROD</td>
+                    <td><span class="query">SELECT * FROM somthing or other</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td class="checky"><i class="ti ti-chevron-right"></i></td>
+            <td class="checky"><i class="ti ti-circle-check success"></i></td>
+            <td>Snowflake connection</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="checky" style="vertical-align: top; padding-top: 4px;"><i class="ti ti-chevron-right"></i></td>
+            <td class="checky" style="vertical-align: top; padding-top: 4px;"><i class="ti ti-alert-circle danger"></i></td>
+            <td style="vertical-align: top; padding-top: 4px;">Query logs</td>
+            <td style="vertical-align: top; padding-top: 4px;">Query logs are not accessible. Lineage and Query Logs will not be displayed in Monte Carlo. Grant access to snowflake.account_usage.query_history per Monte Carlo's <a href="#">Snowflake Documentation</a></td>
+            <td style="vertical-align: top;"><a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Retry"><i class="ti ti-reload"></i></a></td>
+          </tr>
+          <tr>
+            <td class="checky"><i class="ti ti-chevron-right"></i></td>
+            <td class="checky"><i class="ti ti-circle-check success"></i></td>
+            <td>Copy history</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="checky"><i class="ti ti-chevron-right"></i></td>
+            <td class="checky"><i class="ti ti-circle-check success"></i></td>
+            <td>Show views in database</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="checky"><i class="ti ti-chevron-right"></i></td>
+            <td class="checky"><i class="ti ti-alert-triangle warning"></i></td>
+            <td style="white-space: nowrap;">Show external tables in database</td>
+            <td>Not sure if we still have warnings.</td>
+            <td><a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Retry"><i class="ti ti-reload"></i></a></td>
+          </tr>
+          <tr>
+            <td class="checky"><i class="ti ti-chevron-right"></i></td>
+            <td class="checky"><img src="img/loading.svg" alt=""></td>
+            <td>Show streams in database</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="checky"><i class="ti ti-chevron-right"></i></td>
+            <td class="checky"><img src="img/loading.svg" alt=""></td>
+            <td>Show tags in account</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="checky"><i class="ti ti-chevron-right"></i></td>
+            <td class="checky"><i class="ti ti-circle-check success"></i></td>
+            <td>Fetch tags</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="checky"><i class="ti ti-chevron-right"></i></td>
+            <td class="checky"><i class="ti ti-circle-check success"></i></td>
+            <td>Column metadata</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="checky"><i class="ti ti-chevron-right"></i></td>
+            <td class="checky"><i class="ti ti-circle-check success"></i></td>
+            <td style="vertical-align: top; padding-top: 6px;">Table metadata</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="checky"><i class="ti ti-chevron-right"></i></td>
+            <td class="checky"><i class="ti ti-circle-check success"></i></td>
+            <td>Select tables</td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!-- createtableau -->
+  <div class="offcanvas offcanvas-end" id="createtableau">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Create Tableau Integration</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="form-group">
+        <label>Authentication Method</label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="exRadios" id="exRadios1" value="opt1" checked>
+          <label class="form-check-label" for="exRadios1">
+            Personal Token
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="exRadios" id="exRadios2" value="opt2">
+          <label class="form-check-label" for="exRadios2">
+            Service Account
+          </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Username</label>
+        <input type="text" class="form-control" placeholder="">
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" class="form-control" placeholder="">
+      </div>
+      <div class="form-group">
+        <label>Server Name</label>
+        <input type="text" class="form-control" placeholder="">
+      </div>
+      <div class="form-group">
+        <label>Site Name</label>
+        <input type="text" class="form-control" placeholder="">
+      </div>
+      <div class="offcanvas-footer">
+        <button class="btn btn-primary" data-bs-dismiss="offcanvas">Create</button>
+        <button class="btn btn-outline-primary" data-bs-dismiss="offcanvas">Cancel</button>
+      </div>
+    </div>
+  </div>
+  <!-- draweredittableau -->
+  <div class="offcanvas offcanvas-end" id="draweredittableau">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Edit Tableau Integration</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" id="customSwitch13" checked>
+        <label class="form-check-label" for="customSwitch13">Enabled</label>
+      </div>
+      <div class="clearfix"></div>
+      <div class="form-group">
+        <label>Authentication Method</label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="exRadios" id="exRadioss1" value="opt1" checked>
+          <label class="form-check-label" for="exRadioss1">
+            Personal Token
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="exRadios" id="exRadioss2" value="opt2">
+          <label class="form-check-label" for="exRadioss2">
+            Service Account
+          </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Username</label>
+        <input type="text" class="form-control" value="sdfsdfsdf">
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" class="form-control" value="sdfgsdfsdf">
+      </div>
+      <div class="form-group">
+        <label>Server Name</label>
+        <input type="text" class="form-control" placeholder="fgjhgfjghjghj">
+      </div>
+      <div class="form-group">
+        <label>Site Name</label>
+        <input type="text" class="form-control" value="dfgdfgdfgdfg">
+      </div>
+      <div class="offcanvas-footer">
+        <button class="btn btn-primary" data-bs-dismiss="offcanvas">Save</button>
+        <button class="btn btn-outline-primary" data-bs-dismiss="offcanvas">Cancel</button>
+      </div>
+    </div>
+  </div>
+  <!-- drawercreateredshift -->
+  <div class="offcanvas offcanvas-end" id="drawercreateredshift">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Create Redshift Integration</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="form-group">
+        <label>Username</label>
+        <input type="text" class="form-control" placeholder="">
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" class="form-control" placeholder="">
+      </div>
+      <div class="form-group">
+        <label>Host</label>
+        <input type="text" class="form-control" placeholder="redshift-cluster-1.abc123xyz.us-east-2.redshift.amazonaws.com">
+      </div>
+      <div class="form-group">
+        <label>PORT</label>
+        <input type="text" class="form-control" placeholder="5439">
+      </div>
+      <div class="form-group">
+        <label>Database Name</label>
+        <input type="text" class="form-control" placeholder="">
+      </div>
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" class="form-control" placeholder="">
+      </div>
+      <div class="offcanvas-footer">
+        <button class="btn btn-primary" data-bs-dismiss="offcanvas">Create</button>
+        <button class="btn btn-outline-primary" data-bs-dismiss="offcanvas">Cancel</button>
+      </div>
+    </div>
+  </div>
+  <!-- drawercreatedatabricks -->
+  <div class="offcanvas offcanvas-end" id="drawercreatedatabricks">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Create Databricks Integration</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="form-group">
+        <label>Workspace URL</label>
+        <input type="text" class="form-control" placeholder="">
+      </div>
+      <div class="form-group">
+        <label>Workspace ID</label>
+        <input type="text" class="form-control" placeholder="">
+      </div>
+      <div class="form-group">
+        <label>Cluster ID</label>
+        <input type="text" class="form-control" placeholder="">
+      </div>
+      <div class="form-group">
+        <label>Access Token</label>
+        <input type="password" class="form-control" placeholder="">
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="skip-secret-creation" checked>
+        <label class="form-check-label" for="skip-secret-creation">Skip secret creation</label>
+      </div>
+      <div class="form-group">
+        <label>Secret Key</label>
+        <input type="password" class="form-control" value="monte-carlo-collector-gateway-secret">
+      </div>
+      <div class="form-group">
+        <label>Secret Scope</label>
+        <input type="password" class="form-control" value="monte-carlo-collector-gateway-scope">
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="skip-notebook-creation" checked>
+        <label class="form-check-label" for="skip-notebook-creation">Skip notebook creation</label>
+      </div>
+      <div class="form-group">
+        <label>Job ID</label>
+        <input type="text" class="form-control" placeholder="">
+      </div>
+      <div class="form-group">
+        <label>Job Name</label>
+        <input type="text" class="form-control" placeholder="">
+      </div>
+      <div class="form-group">
+        <label>Notebook Path</label>
+        <input type="text" class="form-control" placeholder="">
+      </div>
+      <div class="form-group">
+        <label>UUID</label>
+        <input type="text" class="form-control" placeholder="">
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="skip-validation" checked>
+        <label class="form-check-label" for="skip-validation">Skip validation<br><span class="text-muted">Skip all connection tests</span></label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="validate-only" checked>
+        <label class="form-check-label" for="validate-only">Validate only<br><span class="text-muted">Run connection tests without adding</span></label>
+      </div>
+      <div class="clearfix"></div>
+      <div class="offcanvas-footer">
+        <button class="btn btn-primary" data-bs-dismiss="offcanvas">Create</button>
+        <button class="btn btn-outline-primary" data-bs-dismiss="offcanvas">Cancel</button>
+      </div>
+    </div>
+  </div>
+  <!-- databrix -->
+  <div class="offcanvas offcanvas-end" id="databrix">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Edit Databricks Integration</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="form-group">
+        <label>Workspace URL</label>
+        <input type="text" class="form-control" value="value">
+      </div>
+      <div class="form-group">
+        <label>Workspace ID</label>
+        <input type="text" class="form-control" value="value">
+      </div>
+      <div class="form-group">
+        <label>Cluster ID</label>
+        <input type="text" class="form-control" value="value">
+      </div>
+      <div class="form-group">
+        <label>Access Token</label>
+        <input type="password" class="form-control" value="value">
+      </div>
+      <div class="clearfix"></div>
+      <div class="offcanvas-footer">
+        <button class="btn btn-primary" data-bs-dismiss="offcanvas">Save</button>
+        <button class="btn btn-outline-primary" data-bs-dismiss="offcanvas">Cancel</button>
+      </div>
+    </div>
+  </div>
+  <!-- drawerjira -->
+  <div class="offcanvas offcanvas-end" id="drawerjira">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Create Jira Integration</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="form-group">
+        <label>Username</label>
+        <input type="text" class="form-control" placeholder="">
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" class="form-control" placeholder="">
+      </div>
+      <div class="form-group">
+        <label>Other Name</label>
+        <input type="text" class="form-control" placeholder="">
+      </div>
+      <div class="form-group">
+        <label>Other Name</label>
+        <input type="text" class="form-control" placeholder="">
+      </div>
+      <div class="offcanvas-footer">
+        <button class="btn btn-primary" data-bs-dismiss="offcanvas">Create</button>
+        <button class="btn btn-outline-primary" data-bs-dismiss="offcanvas">Cancel</button>
+      </div>
+    </div>
+  </div>
+  <!-- END INTEGRATIONS -->
+  <!-- drawerusers -->
+  <div class="offcanvas offcanvas-end" id="drawerusers">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Invite Users</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="form-group">
+        <label>Addresses</label>
+        <textarea class="form-control" rows="3" placeholder="Enter a comma-separated list of email addresses"></textarea>
+      </div>
+      <div class="form-group">
+        <label>Default Groups</label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="DGRadios" id="DGRadios1" value="opt1">
+          <label class="form-check-label" for="DGRadios1">
+            Account Owners
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="DGRadios" id="DGRadios2" value="opt2" checked>
+          <label class="form-check-label" for="DGRadios2">
+            Data Consumers
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="DGRadios" id="DGRadios3" value="opt3">
+          <label class="form-check-label" for="DGRadios3">
+            Editors
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="DGRadios" id="DGRadios4" value="opt4">
+          <label class="form-check-label" for="DGRadios4">
+            Viewers
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="DGRadios" id="DGRadios5" value="opt5">
+          <label class="form-check-label" for="DGRadios5">
+            None
+          </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Custom Groups</label>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="analyst-viewers">
+          <label class="form-check-label" for="analyst-viewers">Analyst Viewers</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="prod-editors">
+          <label class="form-check-label" for="prod-editors">Prod Editors</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="sales-eng">
+          <label class="form-check-label" for="sales-eng">Sales Engineering</label>
+        </div>
+      </div>
+      <div class="offcanvas-footer">
+        <button class="btn btn-primary" data-bs-dismiss="offcanvas">Invite</button>
+        <button class="btn btn-outline-primary" data-bs-dismiss="offcanvas">Cancel</button>
+      </div>
+    </div>
+  </div>
+  <!-- edituser -->
+  <div class="modal fade" id="edituser">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Edit User</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>Default Groups</label>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="DGRadioz" id="DGRadioz1" value="opt1">
+              <label class="form-check-label" for="DGRadioz1">
+                Account Owners
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="DGRadioz" id="DGRadioz2" value="opt2" checked>
+              <label class="form-check-label" for="DGRadioz2">
+                Data Consumers
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="DGRadioz" id="DGRadioz3" value="opt3">
+              <label class="form-check-label" for="DGRadioz3">
+                Editors
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="DGRadioz" id="DGRadioz4" value="opt4">
+              <label class="form-check-label" for="DGRadioz4">
+                Viewers
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="DGRadioz" id="DGRadioz5" value="opt5">
+              <label class="form-check-label" for="DGRadioz5">
+                None
+              </label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Custom Groups</label>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="analyst-viewers1">
+              <label class="form-check-label" for="analyst-viewers1">Analyst Viewers</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="prod-editors1">
+              <label class="form-check-label" for="prod-editors1">Prod Editors</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="sales-eng1">
+              <label class="form-check-label" for="sales-eng1">Sales Engineering</label>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" data-bs-dismiss="modal">Save</button>
+          <button class="btn btn-outline-primary" data-bs-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- drawerexclusionwindows -->
+  <div class="offcanvas offcanvas-end" id="drawerexclusionwindows">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Create Exclusion Window</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="form-group">
+        <label>Start</label>
+        <input type="datetime-local" class="form-control">
+      </div>
+      <div class="form-group">
+        <label>End</label>
+        <input type="datetime-local" class="form-control">
+      </div>
+      <div class="form-group">
+        <label>Data</label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="RadiosExclusion" id="Exclusion545" value="Exclusion545" checked>
+          <label class="form-check-label" for="Exclusion545">
+            All
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="RadiosExclusion" id="Exclusion544" value="Exclusion544">
+          <label class="form-check-label" for="Exclusion544">
+            Warehouse
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="RadiosExclusion" id="Exclusion543" value="Exclusion543">
+          <label class="form-check-label" for="Exclusion543">
+            Project
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="RadiosExclusion" id="Exclusion542" value="Exclusion542">
+          <label class="form-check-label" for="Exclusion542">
+            Dataset
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="RadiosExclusion" id="Exclusion541" value="Exclusion541">
+          <label class="form-check-label" for="Exclusion541">
+            Table
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- drawerfilter -->
+  <div class="offcanvas offcanvas-end" id="drawerfilter">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Create Filter</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="form-group">
+        <label>Project Regexp</label>
+        <input type="text" class="form-control" value="/">
+      </div>
+      <div class="form-group">
+        <label>Dataset Regexp</label>
+        <input type="text" class="form-control" value="/">
+      </div>
+      <div class="form-group">
+        <label>Table Regexp</label>
+        <input type="text" class="form-control" value="/">
+      </div>
+      <div class="offcanvas-footer">
+        <button class="btn btn-primary" data-bs-dismiss="offcanvas">Create</button>
+        <button class="btn btn-outline-primary" data-bs-dismiss="offcanvas">Cancel</button>
+      </div>
+    </div>
+  </div>
+  <!-- drawerdomains -->
+  <div class="offcanvas offcanvas-end" id="drawerdomains">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Create Domain</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" class="form-control" placeholder="">
+      </div>
+      <div class="form-group">
+        <label>Description</label>
+        <textarea class="form-control" rows="8"  maxlength="512" placeholder=""></textarea>
+      </div>
+      <div class="form-group">
+        <label>Using</label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="RadiosDomains04" id="Radios543" value="option543" data-bs-target="#UsingAll" checked>
+          <label class="form-check-label" for="Radios543">
+            Projects, Datasets, Tables
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="RadiosDomains04" id="Radios544" value="option544" data-bs-target="#UsingTags">
+          <label class="form-check-label" for="Radios544">
+            Tags
+          </label>
+        </div>
+      </div>
+      <div class="tab-content">
+        <div class="tab-pane active" id="UsingAll">
+          <div class="form-group">
+            <label>Projects</label>
+            <input type="text" class="form-control" placeholder="Search...">
+          </div>
+          <div class="form-group">
+            <label>Datasets</label>
+            <input type="text" class="form-control" placeholder="Search...">
+          </div>
+          <div class="form-group">
+            <label>Tables</label>
+            <input type="text" class="form-control" placeholder="Search...">
+          </div>
+        </div>
+        <div class="tab-pane" id="UsingTags">
+          <div class="form-group">
+            <label>Tags</label>
+            <input type="text" class="form-control" placeholder="Search...">
+          </div>
+        </div>
+      </div>
+      <div class="offcanvas-footer">
+        <button class="btn btn-primary" data-bs-dismiss="offcanvas">Create</button>
+        <button class="btn btn-outline-primary" data-bs-dismiss="offcanvas">Cancel</button>
+      </div>
+    </div>
+  </div>
+  <!-- drawerauthorization -->
+  <div class="offcanvas offcanvas-end" id="drawerauthorization">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Create Authorization Group</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" class="form-control" placeholder="">
+      </div>
+      <div class="form-group">
+        <label>Label</label>
+        <input type="text" class="form-control" placeholder="">
+      </div>
+      <div class="form-group">
+        <label>Description</label>
+        <textarea class="form-control" rows="3" placeholder=""></textarea>
+      </div>
+      <div class="form-group">
+        <label>SSO Group</label>
+        <input type="text" class="form-control" placeholder="">
+      </div>
+      <div class="form-group">
+        <label>Role</label>
+        <select class="form-select" >
+          <option>Data Consumer</option>
+          <option>Discover User</option>
+          <option>Editor</option>
+          <option>Viewer</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Allowed Domains</label>
+        <select class="form-select">
+          <option>All</option>
+          <option>Analytics</option>
+          <option>Marketing</option>
+          <option>Raw</option>
+          <option>Test</option>
+        </select>
+      </div>
+      <div class="offcanvas-footer">
+        <button class="btn btn-primary" data-bs-dismiss="offcanvas">Create</button>
+        <button class="btn btn-outline-primary" data-bs-dismiss="offcanvas">Cancel</button>
+      </div>
+    </div>
+  </div>
+  <!-- drawerapi -->
+  <div class="offcanvas offcanvas-end" id="drawerapi">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Create API Key</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="form-group">
+        <label>Description</label>
+        <textarea class="form-control" rows="3" placeholder=""></textarea>
+      </div>
+      <div class="form-group">
+        <label>Expiration</label>
+        <select class="form-select">
+          <option>1 Week</option>
+          <option>3 Months</option>
+          <option>6 Months</option>
+          <option>1 Year</option>
+          <option>10 Years</option>
+        </select>
+      </div>
+      <div class="offcanvas-footer">
+        <button class="btn btn-primary" data-bs-dismiss="offcanvas">Create</button>
+        <button class="btn btn-outline-primary" data-bs-dismiss="offcanvas">Cancel</button>
+      </div>
+    </div>
+  </div>
+  <!-- drawersso -->
+  <div class="offcanvas offcanvas-end" id="drawersso">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Enable SSO</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="form-group">
+        <label>Domains</label>
+        <textarea class="form-control" rows="3" placeholder="Enter a comma-separated list of domains"></textarea>
+      </div>
+      <div class="form-group">
+        <label>Metadata</label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+          <label class="form-check-label" for="exampleRadios1">
+            URL
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+          <label class="form-check-label" for="exampleRadios2">
+            XML
+          </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Details</label>
+        <input type="text" class="form-control" placeholder="">
+      </div>
+      <div class="offcanvas-footer">
+        <button class="btn btn-primary" data-bs-dismiss="offcanvas">Enable</button>
+        <button class="btn btn-outline-primary" data-bs-dismiss="offcanvas">Cancel</button>
+      </div>
+    </div>
+  </div>
+  <!-- createstatus -->
+  <div class="modal fade" id="createstatus">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Create Status</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" class="form-control" placeholder="">
+          </div>
+          <div class="form-group">
+            <label>Color</label>
+            <input type="color" class="form-control" style="-webkit-appearance: none; border: none; height: 24px; width: 100%;">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" data-bs-dismiss="modal">Create</button>
+          <button class="btn btn-outline-primary" data-bs-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- createstatus -->
+  <div class="modal fade" id="createseverity">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Create Severity</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" class="form-control" placeholder="">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" data-bs-dismiss="modal">Create</button>
+          <button class="btn btn-outline-primary" data-bs-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- timezones -->
+  <div class="modal fade" id="timezones">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Edit Timezone</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>Timezone</label>
+            <input type="text" class="form-control" placeholder="Search...">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Save</button>
+          <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/mc.js"></script>
+</body>
+</html>

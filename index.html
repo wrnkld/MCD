@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/mc.css" rel="stylesheet">
+  <style>
+  .col-md-3 .card { transition: all .2s ease; }
+  .col-md-3 .card:hover { cursor: pointer; transform: translateY(-4px); -webkit-box-shadow: 0 12px 24px -12px rgba(4,7,32,.1); box-shadow: 0 12px 24px -12px rgba(4,7,32,.1); }
+  </style>
+  <title>Monte Carlo - Dashboards</title>
+</head>
+<body>
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <ul class="navbar-nav mr-auto">
+      <li class="navbar-brand">MC</li>
+      <li class="nav-item">
+        <a class="nav-link active" href="index.html">Dashboards</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="monitors.html">Monitors</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="incidents.html">Incidents</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="performance.html">Performance</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="assets.html">Assets</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="settings.html">Settings</a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav ms-auto w-100 justify-content-end">
+      <li class="nav-item">
+        <a class="nav-link" href="#"><i class="ti ti-bell"></i></a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          All
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li class="dropdown-header">Domains</li>
+          <li><a class="dropdown-item" href="#">All <i class="ti ti-check float-right"></i></a></li>
+          <li><a class="dropdown-item" href="#">Analytics</a></li>
+          <li><a class="dropdown-item" href="#">Marketing</a></li>
+          <li><a class="dropdown-item" href="#">Raw</a></li>
+          <li><a class="dropdown-item" href="#">Test</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="settings.html">Create Domain</a></li>
+        </ul>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Matthew Stevens
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li class="dropdown-header">Account ID</li>
+          <li><a class="dropdown-item" href="#">d72bc4d1-f675-4d72-82a1-418220cca709</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">EDT timezone</a></li>
+          <li><a class="dropdown-item" href="#">Docs</a></li>
+          <li><a class="dropdown-item" href="#">Changelog</a></li>
+          <li><a class="dropdown-item" href="#">Support</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">Log Out</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  <ul class="navigation_sub">
+    <li class="title">Dashboards</li>
+  </ul>
+  <div class="container-fluid">
+    <div class="row">
+      <!-- dashboard_thd -->
+      <div class="col-md-3">
+        <div class="card">
+          <div class="card-body">
+            <div class="card-title">Table Health</div>
+            Overview of incidents across all tables within your data lake or data warehouse.
+            <div><a href="dashboard_thd.html" class="btn btn-link float-right stretched-link"></a></div>
+          </div>
+        </div>
+      </div>
+      <!-- dashboard_drd -->
+      <div class="col-md-3">
+        <div class="card">
+          <div class="card-body">
+            <div class="card-title">Data Reliability</div>
+            Key metrics about your data stack, incidents, incident response, user adoption, and uptime.
+            <div><a href="dashboard_drd.html" class="btn btn-link float-right stretched-link"></a></div>
+          </div>
+        </div>
+      </div>
+      <!-- insight reports -->
+      <div class="col-md-3">
+        <div class="card">
+          <div class="card-body">
+            <div class="card-title">Insight Reports</div>
+            Track performance, monitor asset usage, determine important data assets, and more.
+            <div><a href="dashboard_insights.html" class="btn btn-link float-right stretched-link"></a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="float-right">
+              <a href="#" class="btn btn-outline-primary btn-sm">Create</a>
+            </div>
+            <div class="card-title">Data Products</div>
+            <div class="card-text">
+              <table class="table table-outside">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Created by</th>
+                    <th>Last modified</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a href="dashboard_dpd.html">Customer 360</a></td>
+                    <td>Matthew Stevens</td>
+                    <td>Jul 17th 2024</td>
+                    <td>
+                      <div class="float-right">
+                        <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit"><i class="ti ti-pencil"></i></a>
+                        <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="dashboard_dpd.html">[Data Product]</a></td>
+                    <td>Matthew Stevens</td>
+                    <td>Jul 17th 2024</td>
+                    <td>
+                      <div class="float-right">
+                        <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit"><i class="ti ti-pencil"></i></a>
+                        <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="dashboard_dpd.html">Sam - Sharing test</a></td>
+                    <td>Sam Xiao</td>
+                    <td>Jul 17th 2024</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><a href="dashboard_dpd.html">Data Collector</a></td>
+                    <td>Rick Bergfalk</td>
+                    <td>Jul 17th 2024</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><a href="dashboard_dpd.html">Customer Health Data Product</a></td>
+                    <td>Jesse Miller</td>
+                    <td>Jul 17th 2024</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><a href="dashboard_dpd.html">CSM key dashboards</a></td>
+                    <td>Terry Widger</td>
+                    <td>Jul 17th 2024</td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- timezones -->
+  <div class="modal fade" id="timezones">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Edit Timezone</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>Timezone</label>
+            <input type="text" class="form-control" placeholder="Search...">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Save</button>
+          <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/mc.js"></script>
+</body>
+</html>

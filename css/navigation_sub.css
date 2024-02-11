@@ -1,0 +1,26 @@
+.navigation_sub {
+  background-color: #fff;
+  border-bottom: 1px solid #D1DBE4;
+  height: 68px;
+  list-style-type: none;
+  margin: 0;
+  padding: 16px;
+  position: sticky;
+  top: 69px;
+  width: 100%;
+  z-index: 3;
+}
+.navigation_sub li {
+  display: inline;
+  margin-left: 8px;
+}
+.navigation_sub li.title {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 36px;
+  vertical-align: middle;
+}
+.navigation_sub li:first-child {
+  margin-left: 0;
+  padding-left: 0;
+}

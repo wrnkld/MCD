@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/mc.css" rel="stylesheet">
+  <title>Monte Carlo - Volume Monitor</title>
+</head>
+<body>
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <ul class="navbar-nav mr-auto">
+      <li class="navbar-brand">MC</li>
+      <li class="nav-item">
+        <a class="nav-link" href="index.html">Dashboards</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="monitors.html">Monitors</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="incidents.html">Incidents</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="performance.html">Performance</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="assets.html">Assets</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="settings.html">Settings</a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav ms-auto w-100 justify-content-end">
+    <li class="nav-item">
+      <a class="nav-link" href="#"><i class="ti ti-bell"></i></a>
+    </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          All
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li class="dropdown-header">Domains</li>
+          <li><a class="dropdown-item" href="#">All <i class="ti ti-check float-right"></i></a></li>
+          <li><a class="dropdown-item" href="#">Analytics</a></li>
+          <li><a class="dropdown-item" href="#">Marketing</a></li>
+          <li><a class="dropdown-item" href="#">Raw</a></li>
+          <li><a class="dropdown-item" href="#">Test</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="settings.html">Create Domain</a></li>
+        </ul>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Matthew Stevens
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li class="dropdown-header">Account ID</li>
+          <li><a class="dropdown-item" href="#">d72bc4d1-f675-4d72-82a1-418220cca709</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">EDT timezone</a></li>
+          <li><a class="dropdown-item" href="#">Docs</a></li>
+          <li><a class="dropdown-item" href="#">Changelog</a></li>
+          <li><a class="dropdown-item" href="#">Support</a></li>
+          <li class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">Log Out</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  <ul class="navigation_sub">
+    <li>
+      <a href="monitors.html" class="btn btn-link"><i class="ti ti-chevron-left"></i></a>
+    </li>
+    <li class="title">Volume Rule for [snowflake] analytics:prod_detectors.filtered_events</li>
+    <li class="float-right">
+      <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Clone"><i class="ti ti-files"></i></a>
+    </li>
+    <li class="float-right">
+      <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Disable"><i class="ti ti-clock-pause"></i></a>
+    </li>
+    <li class="float-right">
+      <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Snooze"><i class="ti ti-alarm-snooze"></i></a>
+    </li>
+    <li class="float-right">
+      <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="ti ti-trash"></i></a>
+    </li>
+    <li class="float-right">
+      <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit"><i class="ti ti-pencil"></i></a>
+    </li>
+  </ul>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-10">
+        <ul class="nav nav-tabz">
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#Summary">Summary</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" data-bs-toggle="tab" href="#Results">Results</a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane " id="Summary">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="float-right">
+                      <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Expand"><i class="ti ti-arrows-maximize"></i></a>
+                      <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Copy"><i class="ti ti-copy"></i></a>
+                      <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit"><i class="ti ti-pencil"></i></a>
+                    </div>
+                    <div class="card-title">Notes</div>
+                    <div class="card-text">
+                      <pre>This is a note</pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="float-right">
+                      <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Expand"><i class="ti ti-arrows-maximize"></i></a>
+                      <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Copy"><i class="ti ti-copy"></i></a>
+                    </div>
+                    <div class="card-title">YAML</div>
+                    <div class="card-text">
+                      <pre>This is YAML</pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="card">
+              <div class="card-body">
+                <div class="card-title">Details</div>
+                <div class="card-text">
+                  <table class="table table-outside">
+                    <tbody>
+                      <tr>
+                        <td style="width: 240px;">Status</td>
+                        <td><span class="badge rounded-pill text-bg-success">Active</span></td>
+                      </tr>
+                      <tr>
+                        <td>Warehouse</td>
+                        <td>snowflake</td>
+                      </tr>
+                      <tr>
+                        <td>Table</td>
+                        <td>Value</td>
+                      </tr>
+                      <tr>
+                        <td>Metrics</td>
+                        <td>% null, % unique, % zero, Mean, Percentiles (min, 20th, 40th, 60th, 80th, max)</td>
+                      </tr>
+                      <tr>
+                        <td>Schedule</td>
+                        <td>This monitor runs every 12 hours starting at Aug 31st 2024 16:36 EDT</td>
+                      </tr>
+                      <tr>
+                        <td>Next scheduled run</td>
+                        <td>Aug 31st 2024 16:22 EDT</td>
+                      </tr>
+                      <tr>
+                        <td>Last run</td>
+                        <td>Aug 31st 2024 16:22 EDT</td>
+                      </tr>
+                      <tr>
+                        <td>Created</td>
+                        <td>Aug 31st 2024 16:22 EDT</td>
+                      </tr>
+                      <tr>
+                        <td>Created by</td>
+                        <td>haman@montecarlodata.com</td>
+                      </tr>
+                      <tr>
+                        <td>Last modified</td>
+                        <td>Aug 31st 2024 16:22 EDT</td>
+                      </tr>
+                      <tr>
+                        <td>Last modified by</td>
+                        <td>haman@montecarlodata.com</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="clearfix"></div>
+                  <table class="table table-outside">
+                    <tbody>
+                      <tr>
+                        <td style="width: 240px;"><a href="#">Audience Name</a></td>
+                        <td><img src="img/logo_slack.svg" alt="Slack" class="metric-logo">demo-incidents-field-health</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td><img src="img/logo_slack.svg" alt="Slack" class="metric-logo">demo-monte-carlo-incidents</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td><img src="img/logo_slack.svg" alt="Slack" class="metric-logo">internal-bi-alerts</td>
+                      </tr>
+                      <tr>
+                        <td><a href="#">Audience Name</a></td>
+                        <td><img src="img/logo_slack.svg" alt="Slack" class="metric-logo">internal-finance</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td><img src="img/logo_slack.svg" alt="Slack" class="metric-logo">mebbers-alerts</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane active" id="Results">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="float-right">
+                      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <label class="btn btn-primary btn-sm">
+                          Daily
+                        </label>
+                        <label class="btn btn-outline-primary btn-sm">
+                          Weekly
+                        </label>
+                        <label class="btn btn-outline-primary btn-sm">
+                          Monthly
+                        </label>
+                      </div>
+                    </div>
+                    <div class="card-title">Pass Rate</div>
+                    <div class="card-text">
+                      <div class="row" style="margin-bottom: 0;">
+                        <div class="col-md-4">
+                          <div id="sqldonut" class="chartz"></div>
+                        </div>
+                        <div class="col-md-8">
+                          <div id="chartpass" class="chartz"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="card-title">Incident History</div>
+                    <div class="card-text">
+                      <div id="incidenthistory" class="chartz"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-body">
+                <div class="card-title">Volume</div>
+                <div class="card-subtitle"><a href="asset.html">analytics:prod_detectors.filtered_events</a></div>
+                <div class="card-text">
+                  <div class="row">
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label>Date Range</label>
+                        <input class="form-control" type="text" placeholder="Select Date">
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label>Display</label>
+                        <select class="form-select">
+                          <option>Total bytes</option>
+                          <option selected>Total rows</option>
+                          <option>Total rows change</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label>Threshold</label>
+                        <div class="clearfix" style="height: 8px;"></div>
+                        <div class="form-check form-switch">
+                          <input class="form-check-input" type="checkbox" id="customSwitch112">
+                          <label class="form-check-label" for="customSwitch112">Show predicted range of values</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="chartvolume" class="chartz"></div>
+                  <table class="table table-outside">
+                    <thead>
+                      <tr>
+                        <th>Start Time</th>
+                        <th>End Time</th>
+                        <th>Total Rows</th>
+                        <th>Change in Rows (<a href="#">Hide 0s</a>)</th>
+                        <th>Run Status</th>
+                        <th>Incidents</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Aug 18th 2024 13:21 EDT</td>
+                        <td>Aug 18th 2024 13:21 EDT</td>
+                        <td>624679</td>
+                        <td>679</td>
+                        <td><span class="badge rounded-pill text-bg-success">Completed</span></td>
+                        <td>No incident</td>
+                      </tr>
+                      <tr>
+                        <td>Aug 18th 2024 13:21 EDT</td>
+                        <td>Aug 18th 2024 13:21 EDT</td>
+                        <td>624679</td>
+                        <td>679</td>
+                        <td><span class="badge rounded-pill text-bg-success">Completed</span></td>
+                        <td>No incident</td>
+                      </tr>
+                      <tr>
+                        <td>Aug 18th 2024 13:21 EDT</td>
+                        <td>Aug 18th 2024 13:21 EDT</td>
+                        <td>624679</td>
+                        <td>679</td>
+                        <td><span class="badge rounded-pill text-bg-success">Completed</span></td>
+                        <td>No incident</td>
+                      </tr>
+                      <tr>
+                        <td>Aug 18th 2024 13:21 EDT</td>
+                        <td>Aug 18th 2024 13:21 EDT</td>
+                        <td>624679</td>
+                        <td>679</td>
+                        <td><span class="badge rounded-pill text-bg-success">Completed</span></td>
+                        <td>No incident</td>
+                      </tr>
+                      <tr>
+                        <td>Aug 18th 2024 13:21 EDT</td>
+                        <td>Aug 18th 2024 13:21 EDT</td>
+                        <td>624679</td>
+                        <td>679</td>
+                        <td><span class="badge rounded-pill text-bg-success">Completed</span></td>
+                        <td>No incident</td>
+                      </tr>
+                      <tr>
+                        <td>Aug 18th 2024 13:21 EDT</td>
+                        <td>Aug 18th 2024 13:21 EDT</td>
+                        <td>624679</td>
+                        <td>679</td>
+                        <td><span class="badge rounded-pill text-bg-success">Completed</span></td>
+                        <td>No incident</td>
+                      </tr>
+                      <tr>
+                        <td>Aug 18th 2024 13:21 EDT</td>
+                        <td>Aug 18th 2024 13:21 EDT</td>
+                        <td>624679</td>
+                        <td>679</td>
+                        <td><span class="badge rounded-pill text-bg-success">Completed</span></td>
+                        <td>No incident</td>
+                      </tr>
+                      <tr>
+                        <td>Aug 18th 2024 13:21 EDT</td>
+                        <td>Aug 18th 2024 13:21 EDT</td>
+                        <td>624679</td>
+                        <td>679</td>
+                        <td><span class="badge rounded-pill text-bg-success">Completed</span></td>
+                        <td>No incident</td>
+                      </tr>
+                      <tr>
+                        <td>Aug 18th 2024 13:21 EDT</td>
+                        <td>Aug 18th 2024 13:21 EDT</td>
+                        <td>624679</td>
+                        <td>679</td>
+                        <td><span class="badge rounded-pill text-bg-success">Completed</span></td>
+                        <td>No incident</td>
+                      </tr>
+                      <tr>
+                        <td>Aug 18th 2024 13:21 EDT</td>
+                        <td>Aug 18th 2024 13:21 EDT</td>
+                        <td>624679</td>
+                        <td>679</td>
+                        <td><span class="badge rounded-pill text-bg-success">Completed</span></td>
+                        <td>No incident</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="sticky">
+          <div class="text-muted">18:47 EDT</div>
+          <div>Molly Vorwerck <strong>added</strong> team_dolomites audience</div>
+          <div class="clearfix"></div>
+          <div class="text-muted">18:47 EDT</div>
+          <div>Molly Vorwerck <strong>removed</strong> operations-data-low audience</div>
+          <div class="clearfix"></div>
+          <div class="text-muted">17:16 EDT</div>
+          <div>Molly Vorwerck <strong>added</strong> operations-data-low audience</div>
+          <div class="clearfix"></div>
+          <div class="text-muted">17:16 EDT</div>
+          <div>Molly Vorwerck <strong>created</strong> monitor</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- timezones -->
+  <div class="modal fade" id="timezones">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Edit Timezone</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>Timezone</label>
+            <input type="text" class="form-control" placeholder="Search...">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Save</button>
+          <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/highcharts-more.js"></script>
+  <script src="https://code.highcharts.com/modules/dumbbell.js"></script>
+  <script src="https://code.highcharts.com/modules/lollipop.js"></script>
+  <script src="js/mc.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/monitor_volume.js"></script>
+</body>
+</html>
